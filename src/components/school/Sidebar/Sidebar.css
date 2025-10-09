@@ -1,0 +1,175 @@
+/* Sidebar.css */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #ffffff;
+  /* border-right: 1px solid #e2e8f0; */
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  overflow-x: hidden !important;
+  overflow-y: hidden; /* Prevent any y overflow on sidebar itself */
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  /* border-bottom: 1px solid #e2e8f0; */
+  background-color: #ffffff;
+  height: 45px; /* Increased for better logo fit */
+  justify-content: center;
+  overflow: hidden; /* Hide any logo overflow */
+}
+
+.logo-icon {
+  width: 180px;
+  height: 60px; /* Adjusted for better proportion */
+  object-fit: contain;
+  display: flex;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+  overflow-x: hidden; /* Explicitly hide x overflow */
+}
+
+.menu-item-wrapper {
+  margin-bottom: 0.25rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures arrow aligns to right */
+  width: 100%;
+  padding: 0.75rem 1rem; /* Sufficient right padding for arrow */
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease; /* Smoother transition */
+  font-size: 1.1rem;
+  font-weight: 550;
+  color: #1e293b; /* Slightly darker, more modern gray-blue */
+  font-family: 'Times New Roman', Times, serif !important;
+  overflow: hidden !important; /* Hide all overflow, no x scroll */
+  box-sizing: border-box; /* Ensure padding doesn't add to width */
+}
+
+.menu-item:hover {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8); /* Softer blue gradient for hover */
+  color: white;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2); /* Subtle glow */
+  transform: translateX(4px); /* Slight shift for interactivity */
+}
+
+.menu-item.active {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe); /* Softer blue tint for active */
+  color: #1e40af;
+  font-weight: 600;
+  border-left: 3px solid #3b82f6; /* Left accent border */
+}
+
+.menu-item.has-submenu .submenu-arrow {
+  margin-left: auto;
+  margin-right: 0.5rem; /* Extra space to ensure visibility */
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+  color: inherit; /* Matches parent color */
+  flex-shrink: 0; /* Prevent arrow from shrinking */
+  z-index: 1; /* Ensure it's on top if needed */
+}
+
+.menu-icon {
+  font-size: 1.125rem;
+  min-width: 20px;
+  color: inherit; /* Matches text color */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.menu-label {
+  flex: 1;
+  margin-left: 0.75rem; /* Space after icon */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  max-width: calc(100% - 60px); /* Reserve space for icon + arrow */
+}
+
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 1rem; /* Slight indent */
+  background: linear-gradient(180deg, #f8fafc, #f1f5f9); /* Subtle gradient for depth */
+  border-left: 2px solid #e0e7ff; /* Softer blue accent */
+  border-radius: 0 0 8px 8px; /* Rounded bottom */
+  overflow: hidden; /* Hide any submenu overflow */
+  max-width: calc(100% - 1rem); /* Prevent submenu from exceeding sidebar width */
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu-link {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 1rem 0.625rem 1.5rem; /* Adjusted padding for better spacing */
+  color: #475569;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500; /* Slightly lighter than main */
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent; /* For hover accent */
+  white-space: nowrap; /* Prevent wrapping in sub-items */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Ellipsis for long sub-item names */
+  box-sizing: border-box;
+}
+
+.submenu-link:hover {
+  background-color: #eff6ff; /* Light blue hover bg */
+  color: #1e40af; /* Matching blue text */
+  border-left-color: #3b82f6; /* Left accent on hover */
+  transform: translateX(2px); /* Subtle shift */
+}
+
+/* Scrollbar styling for nav - improved for modern look */
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 3px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #cbd5e1, #94a3b8);
+  border-radius: 3px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #94a3b8, #64748b);
+}
+
+/* Ensure icons in submenus match */
+.submenu-link svg {
+  color: inherit;
+  min-width: 16px;
+  margin-right: 0.5rem;
+  flex-shrink: 0; /* Prevent icon shrinking */
+}

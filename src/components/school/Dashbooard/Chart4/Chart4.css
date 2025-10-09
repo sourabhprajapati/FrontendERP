@@ -1,0 +1,39 @@
+/* Chart4.css */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Ensures boxes stretch to same height */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chart-box {
+  flex: 1;
+  height: 400px; /* Fixed same height for both boxes */
+  border: 1px solid #ddd; /* Optional: subtle border for box appearance */
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff; /* Optional: white background for box */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+/* Ensure charts fill the box */
+.chart-box > canvas {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .chart-box {
+    height: 300px; /* Adjust height for mobile */
+    width: 100%;
+  }
+}

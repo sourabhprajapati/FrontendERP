@@ -1,0 +1,50 @@
+/* Chart3.css */
+.chart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* Ensures all sections have equal height */
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 500px; /* Fixed equal height for all boxes */
+}
+
+.attendance-chart-wrapper {
+  flex: 0 0 60%; /* Attendance box on left takes 60% width */
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 100%; /* Matches the container height */
+}
+
+.pie-charts {
+  flex: 0 0 30%; /* Right side (pie charts) takes 40% width */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Gap between the two pie charts */
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   height: 100%;
+}
+
+.pie-chart-wrapper {
+  flex: 1; /* Each pie chart wrapper takes equal height within the right container */
+  position: relative;
+  height: 100%;
+  min-height: 200px; /* Minimum height to prevent squishing */
+}
+
+/* Ensure charts fill their wrappers */
+.attendance-chart-wrapper canvas,
+.pie-chart-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* No media query for stacking; remains horizontal on all screen sizes */
