@@ -1,0 +1,323 @@
+/* src/components/SuperAdmin/MasterUserPage/MasterUserPage.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.master-container {
+     margin-left: 250px;
+       min-height: calc(100vh - 80px);
+        margin-top: 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* Header Card */
+.header-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  border-left: 5px solid #3a1d8a;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #2d1b69;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-icon {
+  color: #3a1d8a;
+}
+
+.page-subtitle {
+  margin-top: 6px;
+  color: #666;
+  font-size: 15px;
+}
+
+/* Form Card */
+.form-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.form-header {
+  background: linear-gradient(to right, #3a1d8a, #5a3fbf);
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.badge-master {
+  background: #00d4ff;
+  color: #1a1a1a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.user-form {
+  padding: 24px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.required {
+  color: #e74c3c;
+}
+
+.username-input-wrapper {
+  display: flex;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+  width: fit-content;
+}
+
+.username-input-wrapper:focus-within {
+  border-color: #3a1d8a;
+  box-shadow: 0 0 0 3px rgba(58, 29, 138, 0.15);
+}
+
+.username-field {
+  padding: 14px 16px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  width: 260px;
+  background: #f9f9f9;
+}
+
+.username-field::placeholder {
+  color: #aaa;
+}
+
+.domain-suffix {
+  background: #3a1d8a;
+  color: white;
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.info-text {
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 16px 0;
+  background: #f0f7ff;
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 3px solid #3a1d8a;
+}
+
+.create-master-btn {
+  background: linear-gradient(to right, #3a1d8a, #5a3fbf);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(58, 29, 138, 0.3);
+}
+
+.create-master-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(58, 29, 138, 0.4);
+}
+
+/* Table Card */
+.table-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.table-header {
+  padding: 20px 24px;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.table-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #888;
+  pointer-events: none;
+}
+
+.search-input {
+  padding: 10px 14px 10px 36px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 260px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  border-color: #3a1d8a;
+  box-shadow: 0 0 0 3px rgba(58, 29, 138, 0.1);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.master-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.master-table th {
+  background: #f1f3f5;
+  color: #444;
+  font-weight: 600;
+  text-align: left;
+  padding: 16px 14px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.master-table td {
+  padding: 16px 14px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.table-row:hover {
+  background-color: #f8faff;
+}
+
+.username-cell {
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.password-cell {
+  font-family: 'Courier New', monospace;
+  color: #7f8c8d;
+}
+
+.user-type-badge {
+  background: linear-gradient(45deg, #3a1d8a, #5a3fbf);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white;
+}
+
+.change-pwd {
+  background: #3498db;
+}
+
+.change-pwd:hover {
+  background: #2980b9;
+  transform: scale(1.1);
+}
+
+.block-user {
+  background: #e74c3c;
+}
+
+.block-user:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+
+.activate-user {
+  background: #27ae60;
+}
+
+.activate-user:hover {
+  background: #219a52;
+  transform: scale(1.1);
+}
+
+.no-data {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 32px;
+}

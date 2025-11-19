@@ -1,0 +1,94 @@
+/* -------------------------------------------------
+   MITTSURE HEADER – MODERN & UNIQUE CLASS NAMES
+   Prefix: ms- → No conflicts guaranteed!
+------------------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.ms-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 221px;
+  right: 0;
+  z-index: 1000;
+  min-height: 60px;
+  transition: left 0.3s ease, padding 0.3s ease;
+}
+
+.ms-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.ms-welcome {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #020202;
+  font-size: 1.2rem;
+  font-weight: 550;
+}
+
+/* Text inside welcome */
+.ms-welcome-text {
+  /* inherited styles from .ms-welcome */
+}
+
+/* -------------------------------------------------
+   RESPONSIVE – TABLET
+------------------------------------------------- */
+@media (max-width: 1024px) {
+  .ms-header {
+    left: 71px;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* -------------------------------------------------
+   MOBILE: Compact & Smart Truncation
+------------------------------------------------- */
+@media (max-width: 768px) {
+  .ms-header {
+    left: 9px;
+    top: 11px;
+    padding: 0.5rem 0.75rem;
+    min-height: 56px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .ms-header-left {
+    margin-left: 6px;
+  }
+
+  .ms-welcome {
+    flex: 1;
+    min-width: 0;
+    margin-left: 44px;
+    margin-right: 8px;
+    font-size: 1rem;
+    font-weight: 550;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #020202;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .ms-welcome {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,273 @@
+/* =============================================
+   Request.css – All Classes Renamed with req- prefix
+   ============================================= */
+
+.req-app {
+  margin-left: 250px;
+  min-height: calc(100vh - 80px);
+  margin-top: 80px;
+  text-align: center;
+  padding: 30px 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  color: #2c3e50;
+}
+
+.req-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ==================== HEADER WITH SEARCH ==================== */
+.req-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  margin-right: 46px;
+  padding: 0 15px;
+}
+
+.req-search {
+  position: relative;
+  min-width: 250px;
+}
+
+.req-search input {
+  width: 90%;
+  padding: 10px 14px 10px 38px;
+  font-size: 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23999" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat 12px center;
+  background-size: 16px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.req-search input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.req-search input:focus {
+  outline: none;
+  border-color: #004585;
+  box-shadow: 0 0 0 3px rgba(0, 69, 133, 0.15);
+}
+
+/* No records */
+.req-no-records {
+  text-align: center;
+  padding: 30px 20px;
+  color: #7f8c8d;
+  font-style: italic;
+  font-size: 15px;
+}
+
+/* ==================== TABLE ==================== */
+.req-table {
+  width: 100%;
+  max-width: 1650px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.req-table th {
+  background: #004585;
+  color: #ecf0f1;
+  padding: 14px 19px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.req-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #2c3e50;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.req-table tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+/* Column Widths */
+.req-table th:nth-child(1), .req-table td:nth-child(1) { width: 5%; }
+.req-table th:nth-child(2), .req-table td:nth-child(2) { width: 13%; }
+.req-table th:nth-child(3), .req-table td:nth-child(3) { width: 14%; }
+.req-table th:nth-child(4), .req-table td:nth-child(4) { width: 13%; }
+.req-table th:nth-child(5), .req-table td:nth-child(5) { width: 13%; }
+.req-table th:nth-child(6), .req-table td:nth-child(6) { width: 10%; }
+.req-table th:nth-child(7), .req-table td:nth-child(7) { width: 8%; }
+.req-table th:nth-child(8), .req-table td:nth-child(8) { width: 8%; }
+.req-table th:nth-child(9), .req-table td:nth-child(9) { width: 7%; }
+.req-table th:nth-child(10), .req-table td:nth-child(10) { width: 9%; }
+.req-table th:nth-child(11), .req-table td:nth-child(11) { width: 7%; }
+
+/* Document Cell */
+.req-doc-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* View Button */
+.req-view-btn {
+  background: #004585;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  min-width: 50px;
+}
+.req-view-btn:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Status */
+.req-status-approved { color: #27ae60; font-weight: bold; }
+.req-status-rejected { color: #e74c3c; font-weight: bold; }
+
+/* Credentials & Unique Code */
+.req-creds, .req-unique-code {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  line-height: 1.4;
+}
+.req-unique-code {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #d35400;
+  background: #fef5e7;
+}
+
+/* Action Buttons */
+.req-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.req-approve-sm, .req-reject-sm {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+.req-approve-sm { background: #27ae60; color: white; }
+.req-approve-sm:hover { background: #219653; transform: translateY(-1px); }
+.req-reject-sm { background: #e74c3c; color: white; }
+.req-reject-sm:hover { background: #c0392b; transform: translateY(-1px); }
+
+/* Modal */
+.req-modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.65); display: flex; justify-content: center;
+  align-items: center; z-index: 9999; backdrop-filter: blur(5px);
+}
+.req-modal {
+  background: white; padding: 28px; border-radius: 14px;
+  width: 90%; max-width: 420px; box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  animation: req-pop-in 0.3s ease-out;
+}
+@keyframes req-pop-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.req-modal h2 { margin: 0 0 16px; color: #2c3e50; font-size: 20px; font-weight: 600; }
+.req-modal p { color: #555; margin-bottom: 18px; font-size: 15px; }
+
+.req-reject-reason {
+  width: 100%; padding: 10px; border: 1.5px solid #ddd; border-radius: 6px;
+  font-family: inherit; font-size: 14px; resize: vertical; margin-bottom: 16px;
+  box-sizing: border-box;
+}
+.req-reject-reason:focus {
+  outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+}
+.req-modal-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+.req-approve-btn, .req-reject-btn, .req-close-btn {
+  padding: 10px 18px; border: none; border-radius: 6px; font-weight: 600;
+  cursor: pointer; text-transform: uppercase; font-size: 13px;
+  transition: all 0.2s ease; min-width: 110px;
+}
+.req-approve-btn { background: #27ae60; color: white; }
+.req-approve-btn:hover { background: #219653; }
+.req-reject-btn { background: #e74c3c; color: white; }
+.req-reject-btn:hover { background: #c0392b; }
+.req-reject-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.6; }
+.req-close-btn { background: #95a5a6; color: white; }
+.req-close-btn:hover { background: #7f8c8d; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .req-table, .req-table thead, .req-table tbody,
+  .req-table th, .req-table td, .req-table tr { display: block; }
+  .req-table thead tr { position: absolute; top: -9999px; left: -9999px; }
+  .req-table tr { border: 1px solid #ddd; border-radius: 10px; margin-bottom: 16px;
+                     padding: 14px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .req-table td { border: none; position: relative; padding-left: 50%;
+                     text-align: right; font-size: 14px; }
+  .req-table td::before { content: attr(data-label); position: absolute; left: 15px;
+                             width: 45%; font-weight: 600; text-align: left; color: #2c3e50;
+                             text-transform: capitalize; }
+  .req-doc-cell { align-items: flex-start; text-align: left; }
+  .req-view-btn { width: 100%; margin-top: 4px; }
+}
+
+@media (max-width: 768px) {
+  .req-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .req-search {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 300px;
+  }
+  .req-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .req-title { font-size: 22px; }
+  .req-modal { padding: 20px; }
+  .req-modal-actions { flex-direction: column; }
+  .req-approve-btn, .req-reject-btn, .req-close-btn { width: 100%; margin: 6px 0; }
+  .req-actions { flex-direction: column; }
+  .req-approve-sm, .req-reject-sm { width: 100%; }
+}

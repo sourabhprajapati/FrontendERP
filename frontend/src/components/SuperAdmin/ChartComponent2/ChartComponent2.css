@@ -1,0 +1,86 @@
+/* ChartComponent2.css */
+.chart-container {
+  max-width: 70vw; /* Narrower for bar chart */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+  display: flex; /* Ensures horizontal row layout */
+  flex-direction: row; /* Explicitly set to row */
+  align-items: center; /* Vertically center items in the row */
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%; /* Full width for better alignment */
+}
+
+.school-input {
+  flex: 1; /* Takes available space in the row */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  white-space: nowrap; /* Prevents button text wrapping */
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 400px; /* Height for the chart */
+  margin-bottom: 10px;
+}
+
+.chart-wrapper canvas {
+  background-color: white;
+  border-radius: 4px;
+}
+
+.summary-text {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.download-button {
+  display: block;
+  margin: 10px auto 0;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.download-button:hover {
+  background-color: #218838;
+}
+
+.no-data {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 20px;
+}

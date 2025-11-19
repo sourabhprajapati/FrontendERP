@@ -1,0 +1,384 @@
+/* src/components/SuperAdmin/SalesExecutive/AddSalesExecutive.css */
+
+/* Layout */
+.se-main-content {
+  margin-left: 250px;
+  padding: 20px;
+  background-color: #f8fafc;
+  min-height: calc(100vh - 80px);
+  margin-top: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== WIDER CONTAINERS ========== */
+.se-container {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.se-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+  padding-left: 2px;
+}
+
+/* Card (Same for Form & Table) */
+.se-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ========== FORM ========== */
+.se-sales-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.se-form-row {
+  display: flex;
+  gap: 40px;
+}
+
+.se-form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.se-form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.se-required { 
+  color: #d32f2f; 
+  margin-left: 2px; 
+}
+
+.se-form-input {
+  height: 44px;
+  padding: 0 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.se-form-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* Username and Password row */
+.se-form-row-compact {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 8px;
+}
+
+.se-form-group-compact {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Password field with generate button */
+.se-password-container {
+  display: flex;
+  gap: 8px;
+}
+
+.se-password-input {
+  flex: 1;
+  height: 44px;
+  padding: 0 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  background-color: #f9f9f9;
+}
+
+.se-password-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+.se-generate-btn {
+  height: 44px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1976d2;
+  background-color: #e3f2fd;
+  border: 1px solid #1976d2;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.se-generate-btn:hover {
+  background-color: #bbdefb;
+  transform: translateY(-1px);
+}
+
+.se-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.se-save-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 32px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #1976d2;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.se-save-button:hover {
+  background-color: #1565c0;
+  transform: translateY(-1px);
+}
+
+.se-save-icon { 
+  font-size: 18px; 
+}
+
+/* ========== TABLE ========== */
+.se-table-wrapper {
+  overflow-x: auto;
+}
+
+.se-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.se-search-bar {
+  width: 300px;
+  height: 40px;
+  padding: 0 12px 0 38px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.se-search-bar:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+.se-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+.se-sales-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.se-sales-table th {
+  background-color: #f9f9f9;
+  padding: 14px 12px;
+  text-align: left;
+  font-weight: 500;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+}
+
+.se-sales-table th:first-child,
+.se-sales-table td:first-child {
+  padding-left: 20px;
+}
+
+.se-sales-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.se-name-cell {
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.se-name-cell strong {
+  color: #1976d2;
+  font-weight: 600;
+}
+
+/* Password display in table */
+.se-password-cell {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  background-color: #f5f5f5;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+  font-weight: 600;
+  color: #d32f2f;
+  letter-spacing: 0.5px;
+}
+
+/* Action Buttons */
+.se-btn-edit,
+.se-btn-block,
+.se-btn-activate {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 94px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.se-btn-edit { 
+  background-color: #1976d2; 
+  color: white; 
+}
+.se-btn-block { 
+  background-color: #d32f2f; 
+  color: white; 
+}
+.se-btn-activate { 
+  background-color: #bbdefb; 
+  color: #1976d2; 
+}
+
+.se-btn-edit:hover { 
+  background-color: #1565c0; 
+  transform: translateY(-1px);
+}
+.se-btn-block:hover { 
+  background-color: #b71c1c; 
+  transform: translateY(-1px);
+}
+.se-btn-activate:hover { 
+  background-color: #90caf9; 
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .se-container { 
+    max-width: 100%; 
+    padding: 0 16px; 
+  }
+  .se-search-bar {
+    width: 240px;
+  }
+  .se-form-row,
+  .se-form-row-compact {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .se-main-content { 
+    margin-left: 0; 
+  }
+  .se-form-row,
+  .se-form-row-compact { 
+    flex-direction: column; 
+    gap: 20px; 
+  }
+  .se-password-container {
+    flex-direction: column;
+  }
+  .se-generate-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .se-table-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .se-search-bar {
+    width: 100%;
+  }
+  .se-sales-table { 
+    font-size: 13px; 
+  }
+  .se-sales-table th,
+  .se-sales-table td {
+    padding: 12px 8px;
+  }
+  .se-btn-edit, .se-btn-block, .se-btn-activate {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-width: 70px;
+  }
+  .se-password-cell {
+    font-size: 11px;
+    padding: 4px 6px;
+    min-width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .se-card {
+    padding: 20px 16px;
+  }
+  .se-sales-table {
+    font-size: 12px;
+  }
+  .se-sales-table th,
+  .se-sales-table td {
+    padding: 8px 6px;
+  }
+  .se-btn-edit, .se-btn-block, .se-btn-activate {
+    padding: 4px 6px;
+    font-size: 11px;
+    min-width: 60px;
+    gap: 4px;
+  }
+  .se-password-cell {
+    font-size: 10px;
+    padding: 3px 5px;
+    min-width: 50px;
+  }
+}

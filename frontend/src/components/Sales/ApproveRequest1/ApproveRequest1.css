@@ -1,0 +1,251 @@
+/* ========================================
+   ApproveRequest.css – Modern & Responsive
+   Prefix: apr- (was ar-)
+   ======================================== */
+
+
+.apr-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 70px;
+  margin-left: 220px;
+}
+
+/* Header */
+.apr-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.apr-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Filter Panel */
+.apr-filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.apr-filter-group {
+  flex: 1;
+  min-width: 180px;
+}
+
+.apr-filter-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.apr-filter-group input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.apr-filter-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.apr-clear-btn {
+  align-self: flex-end;
+  padding: 0.6rem 1.2rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.apr-clear-btn:hover {
+  background: #dc2626;
+}
+
+/* Results Info */
+.apr-results-info {
+  text-align: center;
+  color: #4b5563;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* No Data */
+.apr-no-data {
+  text-align: center;
+  padding: 3rem;
+  color: #9ca3af;
+  font-size: 1.1rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card Wrapper */
+.apr-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card */
+.apr-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.apr-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Header */
+.apr-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(90deg, #1e3a8a, #1e40af);
+  color: white;
+  font-weight: 600;
+}
+
+.apr-sno {
+  font-size: 1.1rem;
+}
+
+.apr-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.apr-badge.new { background: #10b981; }
+.apr-badge.renew { background: #f59e0b; }
+
+/* Grid */
+.apr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.apr-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.apr-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.apr-field p {
+  font-size: 0.95rem;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+.apr-address {
+  white-space: pre-line;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Highlighted Fields */
+.apr-highlight {
+  background: #fef3c7;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #f59e0b;
+}
+
+.apr-uid,
+.apr-pwd {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #b91c1c;
+  letter-spacing: 0.8px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .apr-filter-panel {
+    padding: 1rem;
+  }
+  .apr-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .apr-grid {
+    grid-template-columns: 1fr;
+  }
+  .apr-card-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .apr-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .apr-container {
+    padding: 1rem 0.5rem;
+  }
+  .apr-filter-group {
+    min-width: 100%;
+  }
+  .apr-clear-btn {
+    width: 100%;
+  }
+}

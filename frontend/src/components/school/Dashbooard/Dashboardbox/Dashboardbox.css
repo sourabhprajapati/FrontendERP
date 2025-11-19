@@ -1,0 +1,94 @@
+/* Dashboardbox.css */
+.db-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.db-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--box-gradient);
+  border-radius: 16px;
+  padding: 35px;
+  flex: 0 1 calc(25% - 12px);
+  min-width: 200px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.db-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--box-gradient);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.db-box:hover {
+  transform: translateY(-4px);
+}
+
+.db-left {
+  flex: 1;
+  text-align: left;
+}
+
+.db-number {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.db-label {
+  font-size: 20px;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.db-right {
+  flex-shrink: 0;
+}
+
+.db-icon-circle {
+  width: 60px;
+  height: 60px;
+  background: var(--box-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.db-icon {
+  font-size: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .db-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .db-box {
+    flex: none;
+    min-width: auto;
+    width: 100%;
+  }
+}

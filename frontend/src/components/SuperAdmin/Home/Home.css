@@ -1,0 +1,123 @@
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  min-height: calc(100vh - 80px);
+  background-color: #f8fafc;
+  overflow-x: inherit;
+  margin-top: 80px;
+  position: relative; /* Add this */
+  z-index: 1; /* Lower than header */
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.charts-section {
+  background-color: #f8fafc;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Small (1x) for pie chart first, large (2x) for bar chart second */
+  gap: 24px;
+  align-items: start; /* Align to top for uneven heights */
+}
+
+.chart-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.chart-card-large {
+  /* Extra padding/space for larger chart */
+  padding: 28px;
+}
+
+.chart-card-small {
+  /* Compact for pie chart */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.chart-card .MuiCard-root {
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+
+.chart-card h2 {
+  margin: 0 0 16px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* Metrics section styling for pie chart */
+.metrics-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  border-left: 3px solid #3b82f6; /* Blue accent */
+  transition: background-color 0.2s;
+}
+
+.metric-item:hover {
+  background-color: #e5e7eb;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.metric-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Responsive: Stack vertically on small screens */
+@media (max-width: 768px) {
+  .chart-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .charts-section {
+    padding: 16px;
+  }
+
+  .chart-card,
+  .chart-card-large,
+  .chart-card-small {
+    padding: 16px;
+  }
+}

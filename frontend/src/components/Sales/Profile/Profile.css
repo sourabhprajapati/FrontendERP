@@ -1,0 +1,183 @@
+/* ========================================
+   Profile.css – Clean & Responsive
+   Prefix: pf- (was executive-profile, etc.)
+   ======================================== */
+
+.pf-container {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 2rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  margin-top: 70px;
+  margin-left: 220px;
+}
+
+.pf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pf-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.pf-role-badge {
+  background: #3b82f6;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.pf-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pf-info-section h2,
+.pf-password-section h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.pf-info-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.pf-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.pf-info-row:last-child {
+  border-bottom: none;
+}
+
+.pf-info-row label {
+  font-weight: 500;
+  color: #475569;
+  width: 120px;
+}
+
+.pf-info-value {
+  color: #1e293b;
+  font-weight: 500;
+  flex: 1;
+  text-align: right;
+}
+
+.pf-section-divider {
+  border: none;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 2rem 0;
+}
+
+.pf-password-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.pf-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-form-group label {
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.pf-form-group input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.pf-form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.pf-message {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.pf-message.success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.pf-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.pf-submit-btn {
+  margin-top: 1rem;
+  padding: 0.85rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+
+.pf-submit-btn:hover {
+  background: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .pf-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pf-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .pf-info-row label {
+    width: auto;
+  }
+  .pf-info-value {
+    text-align: left;
+  }
+}

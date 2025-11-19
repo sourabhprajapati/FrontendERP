@@ -1,0 +1,8 @@
+.school-main-content {
+  margin-left: 250px; /* Matches sidebar width */
+  padding: 20px;
+  min-height: calc(100vh - 80px); /* Adjust based on header height */
+  background-color: #f8fafc;
+  overflow-x: inherit;
+  margin-top: 80px;
+}
