@@ -1,6 +1,7 @@
-/* ChartComponent2.css */
-.chart-container {
-  max-width: 70vw; /* Narrower for bar chart */
+/* ChartComponent2.css - All classes renamed with cc2- prefix + 12 suffix */
+
+.cc2-container12 {
+  max-width: 70vw;
   margin: 20px auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -8,24 +9,24 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.search-form {
-  display: flex; /* Ensures horizontal row layout */
-  flex-direction: row; /* Explicitly set to row */
-  align-items: center; /* Vertically center items in the row */
+.cc2-search-form12 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 10px;
   margin-bottom: 20px;
-  width: 100%; /* Full width for better alignment */
+  width: 100%;
 }
 
-.school-input {
-  flex: 1; /* Takes available space in the row */
+.cc2-school-input12 {
+  flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
 }
 
-.search-button {
+.cc2-search-button12 {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -33,25 +34,25 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  white-space: nowrap; /* Prevents button text wrapping */
+  white-space: nowrap;
 }
 
-.search-button:hover {
+.cc2-search-button12:hover {
   background-color: #0056b3;
 }
 
-.chart-wrapper {
+.cc2-chart-wrapper12 {
   position: relative;
-  height: 400px; /* Height for the chart */
+  height: 400px;
   margin-bottom: 10px;
 }
 
-.chart-wrapper canvas {
+.cc2-chart-wrapper12 canvas {
   background-color: white;
   border-radius: 4px;
 }
 
-.summary-text {
+.cc2-summary-text12 {
   text-align: center;
   color: #333;
   font-weight: bold;
@@ -59,12 +60,13 @@
   padding: 10px;
   background-color: white;
   border-radius: 4px;
+  font-size: 1.1rem;
 }
 
-.download-button {
+.cc2-download-button12 {
   display: block;
-  margin: 10px auto 0;
-  padding: 10px 20px;
+  margin: 20px auto 0;
+  padding: 10px 24px;
   background-color: #28a745;
   color: white;
   border: none;
@@ -74,13 +76,14 @@
   white-space: nowrap;
 }
 
-.download-button:hover {
+.cc2-download-button12:hover {
   background-color: #218838;
 }
 
-.no-data {
+.cc2-no-data12 {
   text-align: center;
   color: #666;
   font-style: italic;
   padding: 20px;
+  font-size: 1.1rem;
 }

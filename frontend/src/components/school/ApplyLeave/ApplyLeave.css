@@ -1,0 +1,93 @@
+/* ApplyLeave.css */
+
+.apply-leave-container {
+  margin-left: 250px;
+  margin-top: 100px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.apply-leave-title {
+  color: #0057b7;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.apply-leave-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.apply-leave-input,
+.apply-leave-textarea {
+  width: 100%;
+  border: 2px solid #0057b7;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f0f8ff;
+  outline: none;
+}
+
+.apply-leave-textarea {
+  height: 100px;
+  resize: none;
+}
+
+.apply-leave-days-box {
+  background: #e6ffe6;
+  padding: 10px;
+  border: 2px solid #008000;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.apply-leave-days-box span {
+  color: #008000;
+}
+
+.apply-leave-btn {
+  background: #008000;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.apply-leave-btn:hover {
+  background: #0057b7;
+}
+
+/* Preview Card */
+.apply-leave-preview-card {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e8f3ff;
+  border-left: 6px solid #0057b7;
+  border-radius: 10px;
+}
+
+.apply-leave-preview-card h3 {
+  margin: 0 0 10px 0;
+  color: #0057b7;
+}
+
+.apply-leave-preview-card p b {
+  color: #008000;
+}
+
+@media (max-width: 600px) {
+  .apply-leave-container {
+    padding: 15px;
+  }
+
+  .apply-leave-title {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,131 @@
+/* AllLeaveRequests.css */
+.leave-req-container {
+  margin-left: 250px;
+  margin-top: 100px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.leave-req-title {
+  color: #0057b7;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Search */
+.leave-req-search {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #0057b7;
+  border-radius: 8px;
+  background: #f0f8ff;
+  margin-bottom: 12px;
+  outline: none;
+}
+
+/* Filters */
+.leave-req-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.leave-req-filters select {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #008000;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+/* Table */
+.leave-req-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.leave-req-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leave-req-table th {
+  background: #0057b7;
+  color: white;
+  padding: 12px;
+}
+
+.leave-req-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Status Badges */
+.leave-req-status {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+}
+
+.leave-req-pending {
+  background: #f4b400;
+}
+
+.leave-req-approved {
+  background: #008000;
+}
+
+.leave-req-rejected {
+  background: #d93025;
+}
+
+/* Buttons */
+.leave-req-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.leave-req-approve {
+  background: #008000;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.leave-req-reject {
+  background: #d93025;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Empty message */
+.leave-req-empty {
+  text-align: center;
+  color: #008000;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .leave-req-filters {
+    flex-direction: column;
+  }
+
+  .leave-req-title {
+    font-size: 20px;
+  }
+
+  .leave-req-table td,
+  .leave-req-table th {
+    padding: 8px;
+    font-size: 13px;
+  }
+}

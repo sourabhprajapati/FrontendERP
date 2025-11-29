@@ -1,0 +1,315 @@
+/* Staff.css - All classes renamed with stf- prefix + 13 suffix */
+
+.stf-container13 {
+    min-height: 100vh;
+     margin-left: 250px;
+  margin-top: 100px;
+}
+
+/* === HEADER === */
+.stf-header13 {
+    background-color: #1a2b5f;
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.stf-header-left13 h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stf-header-right13 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stf-icon-btn13 {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.stf-year13 {
+    background-color: #2c3e50;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* === MAIN CONTENT === */
+.stf-main-content13 {
+    padding: 20px;
+}
+
+.stf-form-container13 {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Centered Headings */
+.stf-form-header13.centered13,
+.stf-upload-title13.centered13 {
+    text-align: center;
+    width: 100%;
+}
+
+.stf-form-header13.centered13 {
+    background-color: #f8f9fa;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.stf-form-header13.centered13 h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.stf-plugin-title13 {
+    font-size: 15px;
+    color: #5a67d8;
+    font-weight: 500;
+}
+
+.stf-employee-form13 {
+    padding: 20px;
+}
+
+/* === FORM GRID === */
+.stf-form-grid13 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stf-form-column13 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stf-form-group13 {
+    display: flex;
+    flex-direction: column;
+}
+
+.stf-form-group13 label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.stf-required13 {
+    color: #e53e3e;
+}
+
+.stf-form-group13 input,
+.stf-form-group13 select {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border 0.2s;
+}
+
+.stf-form-group13 input:focus,
+.stf-form-group13 select:focus {
+    outline: none;
+    border-color: #5a67d8;
+    box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.2);
+}
+
+.stf-form-group13 input.readonly13 {
+    background-color: #edf2f7;
+    color: #4a5568;
+    cursor: not-allowed;
+}
+
+/* === RADIO & CHECKBOX === */
+.stf-radio-group13,
+.stf-checkbox-group13 {
+    display: flex;
+    flex-direction: column;
+}
+
+.stf-radio-options13,
+.stf-checkbox-options13 {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.stf-radio-options13 label,
+.stf-checkbox-options13 label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #4a5568;
+    cursor: pointer;
+}
+
+.stf-radio-options13.marital13 {
+    gap: 12px;
+}
+
+.stf-form-group13 input[type="radio"],
+.stf-form-group13 input[type="checkbox"] {
+    accent-color: #5a67d8;
+}
+
+/* === SECTION DIVIDER === */
+.stf-section-divider13 {
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 30px 0;
+}
+
+/* === UPLOAD SECTION === */
+.stf-upload-section13 {
+    margin-top: 10px;
+}
+
+.stf-upload-title13.centered13 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 18px;
+}
+
+.stf-upload-grid-inline13 {
+    margin-left: 85px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.stf-upload-item-inline13 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.stf-upload-label13 {
+    width: 160px;
+    font-weight: 500;
+    color: #4a5568;
+    flex-shrink: 0;
+}
+
+.stf-file-input-inline13 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #718096;
+}
+
+.stf-file-input-inline13::before {
+    content: "Choose File";
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.stf-file-input-inline13 input[type="file"] {
+    display: none;
+}
+
+.stf-file-name13 {
+    font-size: 13px;
+    color: #718096;
+}
+
+/* === SAVE BUTTON === */
+.stf-form-actions13 {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.stf-save-btn13 {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 32px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.stf-save-btn13:hover {
+    background-color: #1557b0;
+}
+
+/* === SETTINGS ICON === */
+.stf-settings-icon13 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    background-color: #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #5a67d8;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .stf-form-grid13,
+    .stf-upload-grid-inline13 {
+        grid-template-columns: 1fr;
+    }
+
+    .stf-header13 {
+        flex-wrap: wrap;
+    }
+
+    .stf-header-right13 {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .stf-upload-item-inline13 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .stf-upload-label13 {
+        width: auto;
+    }
+
+    .stf-radio-options13.marital13 {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

@@ -1,0 +1,103 @@
+/* EmployeeModal.css */
+
+.emp-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.emp-modal-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  width: 330px;
+  max-width: 90%;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.emp-modal-box h2 {
+  color: #0057b7;
+  margin: 0 0 15px 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+.emp-modal-box label {
+  display: block;
+  font-weight: bold;
+  color: #008000;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.emp-modal-box input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #0057b7;
+  border-radius: 6px;
+  background: #f8fcff;
+  outline: none;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.emp-modal-btn-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.emp-modal-btn-cancel {
+  flex: 1;
+  background: #008000;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.emp-modal-btn-save {
+  flex: 1;
+  background: #0057b7;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.emp-modal-btn-cancel:hover {
+  background: #006400;
+}
+
+.emp-modal-btn-save:hover {
+  background: #003f82;
+}
+
+/* Mobile friendly */
+@media (max-width: 480px) {
+  .emp-modal-box {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .emp-modal-btn-row {
+    flex-direction: column;
+  }
+
+  .emp-modal-btn-cancel,
+  .emp-modal-btn-save {
+    width: 100%;
+  }
+}

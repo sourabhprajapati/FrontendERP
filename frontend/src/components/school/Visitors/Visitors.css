@@ -1,0 +1,155 @@
+/* Visitors.css - Updated to match AdmissionEnquiry layout width */
+
+.vis-page15 {
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #fdf8ff 0%, #f8f9fc 100%);
+  min-height: 100vh;
+  margin-left: 250px;
+  margin-top: 100px;
+}
+
+/* Match AdmissionEnquiry header */
+.vis-title15 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.vis-title15 h2 {
+  font-size: 32px;
+  color: #1a365d;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.vis-title15 h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* === MATCH ADMISSION ENQUIRY CONTAINER WIDTH === */
+.vis-form-wrapper15 {
+  padding: 0 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.vis-form-card15 {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  padding: 40px;
+  border: 1px solid #e2e8f0;
+  margin: 0 auto;
+}
+
+/* Grid remains the same but now inside properly constrained wrapper */
+.vis-form-grid15 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px; /* Increased to match AdmissionEnquiry spacing */
+  margin-bottom: 30px;
+}
+
+.vis-form-group15 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vis-full-width15 {
+  grid-column: 1 / -1;
+}
+
+.vis-form-group15 label {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 15.5px;
+}
+
+.vis-required15 {
+  color: #e53e3e;
+  font-weight: bold;
+}
+
+/* Input styles - now matching AdmissionEnquiry exactly */
+.vis-form-group15 input,
+.vis-form-group15 select,
+.vis-form-group15 textarea {
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.vis-form-group15 input:focus,
+.vis-form-group15 select:focus,
+.vis-form-group15 textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.vis-form-group15 input.readonly15 {
+  background-color: #edf2f7;
+  color: #4a5568;
+  cursor: not-allowed;
+}
+
+/* Keep your beautiful file upload styles */
+.vis-upload-container15 { margin-top: 12px; }
+.vis-upload-area15 { /* unchanged - already perfect */ }
+
+/* Save button - slightly larger to match admission submit */
+.vis-form-actions15 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.vis-save-btn15 {
+  background: #004585;
+  color: white;
+  border: none;
+  padding: 16px 60px;
+  font-size: 19px;
+  font-weight: 700;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 70, 133, 0.4);
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vis-save-btn15:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 70, 133, 0.5);
+  background: #003366;
+}
+
+/* Responsive - now identical to AdmissionEnquiry */
+@media (max-width: 992px) {
+  .vis-form-grid15 {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .vis-form-wrapper15 { padding: 0 20px; }
+  .vis-form-card15 { padding: 30px; }
+  .vis-title15 h2 { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .vis-title15 h2 { font-size: 24px; }
+  .vis-form-card15 { padding: 25px; }
+}

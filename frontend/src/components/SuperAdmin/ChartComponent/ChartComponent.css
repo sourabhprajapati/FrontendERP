@@ -1,7 +1,8 @@
-/* ChartComponent.css */
-.chart-container {
+/* ChartComponent.css - All classes renamed with cc- prefix + 11 suffix */
+
+.cc-container11 {
   max-width: 70vw;
-  margin: 20px auto;
+  margin: 60px auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
@@ -10,20 +11,21 @@
   flex-direction: column;
 }
 
-.search-form {
+.cc-search-form11 {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 
-.school-input {
+.cc-school-input11 {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+  flex: 1;
 }
 
-.search-button {
+.cc-search-button11 {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -33,30 +35,31 @@
   font-size: 16px;
 }
 
-.search-button:hover {
+.cc-search-button11:hover {
   background-color: #0056b3;
 }
 
-.chart-wrapper {
+.cc-chart-wrapper11 {
   position: relative;
-  height: 400px; /* Fixed height for better rendering */
+  height: 400px;
 }
 
-.chart-wrapper canvas {
+.cc-chart-wrapper11 canvas {
   background-color: white;
   border-radius: 4px;
 }
 
-.no-data {
+.cc-no-data11 {
   text-align: center;
   color: #666;
   font-style: italic;
   padding: 20px;
+  font-size: 1.1rem;
 }
 
-.download-button {
-  margin: 10px auto 0;
-  padding: 10px 20px;
+.cc-download-button11 {
+  margin: 30px auto 0;
+  padding: 10px 24px;
   background-color: #28a745;
   color: white;
   border: none;
@@ -64,8 +67,9 @@
   cursor: pointer;
   font-size: 16px;
   white-space: nowrap;
+  display: block;
 }
 
-.download-button:hover {
+.cc-download-button11:hover {
   background-color: #218838;
 }

@@ -1,0 +1,87 @@
+/* EditEmployee.css */
+
+.edit-emp-wrapper {
+  margin-left: 250px;
+  margin-top: 100px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.edit-emp-title {
+  color: #0057b7;
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.edit-emp-search {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #0057b7;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  outline: none;
+  background: #f0f8ff;
+}
+
+.edit-emp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-emp-card {
+  background: #ffffff;
+  border-left: 6px solid #008000;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-emp-card h3 {
+  margin: 0;
+  color: #0057b7;
+}
+
+.edit-emp-card span {
+  font-weight: bold;
+  color: #008000;
+}
+
+.edit-emp-btn-edit {
+  background: #0057b7;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-emp-btn-edit:hover {
+  background: #003f82;
+}
+
+.edit-emp-empty {
+  text-align: center;
+  color: #008000;
+  padding: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .edit-emp-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .edit-emp-btn-edit {
+    width: 100%;
+  }
+}

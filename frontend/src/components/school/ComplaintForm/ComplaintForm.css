@@ -1,0 +1,119 @@
+/* ComplaintForm.css - FULL WIDTH + Modern Design */
+
+.cf-wrapper14 {
+  min-height: 100vh;
+  margin-left: 250px;        /* Space for your sidebar */
+  margin-top: 80px;
+  padding: 30px 40px;        /* Generous side padding */
+  background-color: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.cf-container14 {
+  width: 100%;
+  max-width: none;           /* Removes any width cap → FULL WIDTH */
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 60px 80px;        /* Luxurious internal spacing */
+  border-radius: 28px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e2e8f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cf-form14 {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.cf-form14 label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #1a2b5f;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+.cf-form14 input,
+.cf-form14 textarea {
+  width: 100%;
+  padding: 16px 18px;
+  margin-top: 10px;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: 16px;
+  background-color: #fdfdfd;
+  transition: all 0.35s ease;
+  box-sizing: border-box;
+}
+
+.cf-form14 input:focus,
+.cf-form14 textarea:focus {
+  outline: none;
+  border-color: #003366;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 5px rgba(0, 51, 102, 0.18);
+  transform: translateY(-1px);
+}
+
+.cf-form14 textarea {
+  resize: vertical;
+  min-height: 160px;
+  font-family: inherit;
+}
+
+.cf-btn14 {
+  margin-top: 20px;
+  padding: 18px;
+  background: linear-gradient(135deg, #003366, #0050b3);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+}
+
+.cf-btn14:hover {
+  background: linear-gradient(135deg, #002244, #003d80);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 51, 102, 0.4);
+}
+
+/* Responsive – Full width always, just adjust padding */
+@media (max-width: 1200px) {
+  .cf-container14 {
+    padding: 50px 60px;
+  }
+}
+
+@media (max-width: 992px) {
+  .cf-wrapper14 {
+    margin-left: 0;
+    padding: 20px;
+  }
+  .cf-container14 {
+    padding: 50px 50px;
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cf-container14 {
+    padding: 40px 25px;
+    border-radius: 18px;
+  }
+  h1 {
+    font-size: 36px !important;
+  }
+  .cf-btn14 {
+    font-size: 17px;
+    padding: 16px;
+  }
+}

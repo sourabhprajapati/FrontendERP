@@ -1,23 +1,23 @@
 /* Dashboardbox.css */
-.db-container {
+.db-container1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 15px;
   padding: 20px;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-.db-box {
+.db-box1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: var(--box-gradient);
   border-radius: 16px;
   padding: 35px;
-  flex: 0 1 calc(25% - 12px);
+  flex: 0 1 calc(30% - 12px);
   min-width: 200px;
   color: white;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -26,7 +26,7 @@
   overflow: hidden;
 }
 
-.db-box::before {
+.db-box1::before {
   content: '';
   position: absolute;
   top: 0;
@@ -38,33 +38,33 @@
   z-index: -1;
 }
 
-.db-box:hover {
+.db-box1:hover {
   transform: translateY(-4px);
 }
 
-.db-left {
+.db-left1{
   flex: 1;
   text-align: left;
 }
 
-.db-number {
+.db-number1 {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 4px;
   line-height: 1.2;
 }
 
-.db-label {
+.db-label1 {
   font-size: 20px;
   opacity: 0.9;
   font-weight: 600;
 }
 
-.db-right {
+.db-right1 {
   flex-shrink: 0;
 }
 
-.db-icon-circle {
+.db-icon-circle1 {
   width: 60px;
   height: 60px;
   background: var(--box-gradient);
@@ -75,18 +75,18 @@
   opacity: 0.9;
 }
 
-.db-icon {
+.db-icon1 {
   font-size: 40px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .db-container {
+  .db-container1 {
     flex-direction: column;
     gap: 12px;
   }
 
-  .db-box {
+  .db-box1 {
     flex: none;
     min-width: auto;
     width: 100%;

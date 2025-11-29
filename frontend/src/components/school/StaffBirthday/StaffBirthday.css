@@ -1,0 +1,113 @@
+/* StaffBirthday.css */
+
+.bday-wrapper {
+  margin-left: 250px;
+  margin-top: 100px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.bday-title {
+  color: #0057b7;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Search */
+.bday-search {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #0057b7;
+  border-radius: 8px;
+  background: #f0f8ff;
+  outline: none;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+/* Month filter */
+.bday-month-select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #008000;
+  border-radius: 8px;
+  background: white;
+  outline: none;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.bday-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bday-card {
+  background: white;
+  padding: 15px;
+  border-left: 6px solid #008000;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.bday-card h3 {
+  margin: 0;
+  color: #0057b7;
+  font-size: 18px;
+}
+
+.bday-card span {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Highlight for today's birthday */
+.bday-card.bday-highlight {
+  border-left-color: #0057b7 !important;
+  background: #e8f3ff;
+  transform: scale(1.02);
+}
+
+.bday-today-badge {
+  background: #008000;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Empty state */
+.bday-empty {
+  text-align: center;
+  color: #008000;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .bday-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .bday-today-badge {
+    align-self: flex-end;
+  }
+}

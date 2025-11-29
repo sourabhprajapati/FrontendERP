@@ -10,10 +10,9 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import * as XLSX from 'xlsx'; // For Excel export; install via: npm install xlsx
-import './ChartComponent.css'; // External CSS file
+import * as XLSX from 'xlsx';
+import './ChartComponent.css';
 
-// Register ChartJS components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -24,8 +23,6 @@ ChartJS.register(
 );
 
 const ChartComponent = () => {
-  // Fixed sample data: Session-wise school details (e.g., number of students enrolled)
-  // Replace with your actual data source (e.g., props or API)
   const sessions = ['Session 2023-24', 'Session 2024-25'];
   const allSchools = ['School A', 'School B', 'School C'];
   
@@ -35,13 +32,14 @@ const ChartComponent = () => {
     'School C': [95, 130],
   };
 
-  const [selectedSchool, setSelectedSchool] = useState(''); // State for selected school
-  const [inputValue, setInputValue] = useState(''); // State for input field
-  const chartRef = useRef(null); // Ref for the chart instance
+  const [selectedSchool, setSelectedSchool] = useState('');
+  const [inputValue, setInputValue] = useState('');
+  const chartRef = useRef(null);
 
-  // Filter datasets based on selected school (case-insensitive partial match)
   const filteredSchools = selectedSchool 
-    ? allSchools.filter(school => school.toLowerCase().includes(selectedSchool.toLowerCase()))
+    ? allSchools.filter(school => 
+        school.toLowerCase().includes(selectedSchool.toLowerCase())
+      )
     : allSchools;
 
   const data = {
@@ -49,7 +47,7 @@ const ChartComponent = () => {
     datasets: filteredSchools.map((school, index) => ({
       label: school,
       data: schoolData[school],
-      backgroundColor: `hsl(${index * 120}, 70%, 50%)`, // Distinctive colors
+      backgroundColor: `hsl(${index * 120}, 70%, 50%)`,
       borderColor: `hsl(${index * 120}, 70%, 30%)`,
       borderWidth: 1,
     })),
@@ -57,31 +55,23 @@ const ChartComponent = () => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false, // Allows custom height
+    maintainAspectRatio: false,
     plugins: {
-      legend: {
-        position: 'top',
-      },
+      legend: { position: 'top' },
       title: {
         display: true,
         text: selectedSchool 
-          ? `Session-Wise Details for ${selectedSchool}` 
+          ? `Session-Wise Details for "${selectedSchool}"` 
           : 'Session-Wise School Enrollment Details',
       },
     },
     scales: {
       y: {
         beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Number of Students',
-        },
+        title: { display: true, text: 'Number of Students' },
       },
       x: {
-        title: {
-          display: true,
-          text: 'Sessions',
-        },
+        title: { display: true, text: 'Academic Sessions' },
       },
     },
   };
@@ -89,69 +79,61 @@ const ChartComponent = () => {
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInputValue(value);
-    // Auto-update on typing (partial match); for exact match, add a button or onSubmit
-    setSelectedSchool(value);
+    setSelectedSchool(value); // Live search
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // For exact match on submit, trim and set
     setSelectedSchool(inputValue.trim());
   };
 
   const handleDownload = () => {
-    // Prepare data for Excel: Summary row + Session-wise data
     const reportData = [
-      ['Session-Wise Enrollment Report', '', `Search Term: ${selectedSchool || 'All'}`],
-      ['Date:', new Date().toLocaleDateString()],
+      ['Session-Wise Enrollment Report', '', `Search: ${selectedSchool || 'All Schools'}`],
+      ['Generated On:', new Date().toLocaleString()],
       ['', '', ''],
-      ['Summary:', '', ''],
-      ['Total Schools:', filteredSchools.length, ''],
+      ['Total Matching Schools:', filteredSchools.length, ''],
       ['', '', ''],
-      ['Details:', '', ''],
-      ['School Name', 'Session 2023-24', 'Session 2024-25'],
+      ['School Name', '2023-24', '2024-25'],
       ...filteredSchools.map(school => [
         school,
-        schoolData[school][0], // 2023-24 data
-        schoolData[school][1], // 2024-25 data
+        schoolData[school][0],
+        schoolData[school][1]
       ]),
     ];
 
     const ws = XLSX.utils.aoa_to_sheet(reportData);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Enrollment Report');
-
-    // Auto-fit columns
-    const colWidths = [
-      { wch: 15 }, // School Name
-      { wch: 15 }, // Session 2023-24
-      { wch: 15 }, // Session 2024-25
-    ];
-    ws['!cols'] = colWidths;
+    ws['!cols'] = [{ wch: 20 }, { wch: 15 }, { wch: 15 }];
 
     const fileName = `Enrollment_Report_${new Date().toISOString().split('T')[0]}.xlsx`;
     XLSX.writeFile(wb, fileName);
   };
 
   return (
-    <div className="chart-container">
-      <form onSubmit={handleSubmit} className="search-form">
+    <div className="cc-container11">
+      <form onSubmit={handleSubmit} className="cc-search-form11">
         <input
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder="Type school name (e.g., School A)"
-          className="school-input"
+          placeholder="Search school name (e.g., School A)"
+          className="cc-school-input11"
         />
-        <button type="submit" className="search-button">Search</button>
+        <button type="submit" className="cc-search-button11">
+          Search
+        </button>
       </form>
-      
+
       {filteredSchools.length === 0 ? (
-        <p className="no-data">No schools found matching "{selectedSchool}". Try another name.</p>
+        <p className="cc-no-data11">
+          No schools found for "{selectedSchool}". Try another name.
+        </p>
       ) : (
-        <div className="chart-wrapper">
+        <div className="cc-chart-wrapper11">
           <Bar ref={chartRef} options={options} data={data} />
-          <button onClick={handleDownload} className="download-button">
+          <button onClick={handleDownload} className="cc-download-button11">
             Download Report (Excel)
           </button>
         </div>

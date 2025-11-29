@@ -1,0 +1,129 @@
+/* AssignClassTeacher.css */
+
+.assign-ct-wrapper {
+  margin-left: 250px;
+  margin-top: 100px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.assign-ct-title {
+  color: #0057b7;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* SEARCH */
+.assign-ct-search {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #0057b7;
+  border-radius: 8px;
+  background: #f0f8ff;
+  outline: none;
+}
+
+/* TEACHER LIST */
+.assign-ct-teacher-list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assign-ct-teacher-card {
+  padding: 12px;
+  background: #ffffff;
+  border-left: 6px solid #008000;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.15);
+  font-size: 16px;
+}
+
+.assign-ct-teacher-card.active {
+  background: #e6f4ff;
+  border-left-color: #0057b7;
+}
+
+/* CLASS SELECT */
+.assign-ct-class-select {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #008000;
+  background: #ffffff;
+  outline: none;
+}
+
+/* ASSIGN BUTTON */
+.assign-ct-btn-assign {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: #0057b7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.assign-ct-btn-assign:hover {
+  background: #003f82;
+}
+
+/* ASSIGNED LIST */
+.assign-ct-assigned-heading {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #0057b7;
+  font-weight: bold;
+}
+
+.assign-ct-assigned-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assign-ct-assigned-card {
+  padding: 12px;
+  background: white;
+  border-left: 6px solid #0057b7;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.15);
+}
+
+.assign-ct-green {
+  color: #008000 !important;
+}
+
+.assign-ct-blue {
+  color: #0057b7 !important;
+}
+
+.assign-ct-empty {
+  margin-top: 10px;
+  color: #008000;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .assign-ct-teacher-card {
+    font-size: 14px;
+  }
+
+  .assign-ct-btn-assign {
+    font-size: 14px;
+  }
+
+  .assign-ct-assigned-card {
+    font-size: 14px;
+  }
+}

@@ -20,16 +20,16 @@ const DashboardBox = () => {
   ];
 
   return (
-    <div className="db-container">
+    <div className="db-container1">
       {boxes.map((box, index) => (
-        <div key={index} className="db-box" style={{ '--box-gradient': box.gradient }}>
-          <div className="db-left">
-            <div className="db-number">{box.number}</div>
-            <div className="db-label">{box.label}</div>
+        <div key={index} className="db-box1" style={{ '--box-gradient': box.gradient }}>
+          <div className="db-left1">
+            <div className="db-number1">{box.number}</div>
+            <div className="db-label1">{box.label}</div>
           </div>
-          <div className="db-right">
-            <div className="db-icon-circle">
-              <span className="db-icon">{box.icon}</span>
+          <div className="db-right1">
+            <div className="db-icon-circle1">
+              <span className="db-icon1">{box.icon}</span>
             </div>
           </div>
         </div>
