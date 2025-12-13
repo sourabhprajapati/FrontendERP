@@ -1,242 +1,394 @@
-
-  
-  .enquiry-container {
-    padding: 20px;
-    max-width: 1500px;
-    margin: 0 auto;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-left: 250px;        /* Space for your sidebar */
+.enquiry-container {
+  padding: 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: 250px;        /* Space for your sidebar */
   margin-top: 80px;
+}
+
+/* Force vertical layout on all screens */
+@media (min-width: 768px) {
+  .enquiry-container {
+    flex-direction: column !important;
   }
-  
-  /* Force vertical layout on all screens */
-  @media (min-width: 768px) {
-    .enquiry-container {
-      flex-direction: column !important;
-    }
-  }
-  
-  /* Top Form Box */
-  .enquiry-section {
-    width: 100%;
-    border: 2px solid #007bff;
-    padding: 25px;
-    background-color: white;
-    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.12);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-  }
-  
-  .enquiry-section:hover {
-    box-shadow: 0 8px 30px rgba(0, 123, 255, 0.18);
-  }
-  
-  .section-header {
-    border-bottom: 3px solid #007bff;
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-    text-align: center;
-  }
-  
-  .enquiry-heading {
-    margin: 0;
-    font-size: 30px;
-    color: #333 !important;
-    font-weight: bold;
-  }
-  
-  /* Form Layout */
-  .search-form {
-    display: flex;
+}
+
+/* Top Form Box */
+.enquiry-section {
+  width: 100%;
+  border: 2px solid #007bff;
+  padding: 25px;
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.12);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.enquiry-section:hover {
+  box-shadow: 0 8px 30px rgba(0, 123, 255, 0.18);
+}
+
+.section-header {
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.enquiry-heading {
+  margin: 0;
+  font-size: 32px;
+  color: #004585 !important;
+  font-weight: bold;
+}
+
+/* Form Layout */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-input,
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: white;
+  color: #000;
+}
+
+.search-input:focus,
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.search-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #004585;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* Session + Date row */
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Status Buttons (old ones - kept for backward compatibility) */
+.status-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.status-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 14px;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.status-btn:nth-child(1) { background-color: #02A651; }
+.status-btn:nth-child(2) { background-color: #004585; }
+.status-btn:nth-child(3) { background-color: #8b0000; }
+.status-btn:nth-child(4) { background-color: #666; }
+
+.status-btn.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+/* Results Table Box */
+.enquiry-results {
+  width: 100%;
+  border: 2px solid #28a745;
+  padding: 25px;
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(40, 167, 69, 0.12);
+  border-radius: 12px;
+}
+
+.results-header h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 50px;
+  color: #666;
+  font-size: 18px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.enquiry-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 14px;
+}
+
+.enquiry-table th {
+  background-color: #f1f8ff;
+  padding: 14px 10px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #007bff;
+  white-space: nowrap;
+  color: #333;
+}
+
+.enquiry-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.enquiry-table tr:hover {
+  background-color: #f8fdff;
+}
+
+/* Action Buttons (old ones) */
+.btn-edit   { background: #ffc107; color: #000; }
+.btn-admit  { background: #28a745; color: white; }
+.btn-deny   { background: #dc3545; color: white; }
+.btn-print  { background: #004585; color: white; }
+
+.btn-edit, .btn-admit, .btn-deny, .btn-print {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+.btn-edit:hover   { background: #e0a800; }
+.btn-admit:hover  { background: #218838; }
+.btn-deny:hover   { background: #c82333; }
+.btn-print:hover  { background: #138496; }
+
+/* ========================================
+   NEW STYLES FOR ALL ENQUIRIES PAGE
+   ======================================== */
+
+.type-badge {
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  min-width: 110px;
+  text-align: center;
+}
+
+.type-badge.admission-enquiry      { background: #007bff; }
+.type-badge.visitor-enquiry        { background: #28a745; }
+.type-badge.complaint-enquiry      { background: #ffc107; color: #000; }
+.type-badge.concession-request     { background: #9c27b0; }
+
+/* Status Badge in Table */
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  display: inline-block;
+  min-width: 70px;
+  text-align: center;
+}
+
+.status.pending,
+.status.Pending   { background: #6c757d; }
+.status.approved,
+.status.Approved,
+.status.accepted,
+.status.Accepted  { background: #28a745; }
+.status.rejected,
+.status.Rejected,
+.status.denied,
+.status.Denied    { background: #dc3545; }
+
+/* Small Action Buttons (View & Print) */
+.btn-small {
+  padding: 5px 10px;
+  margin: 0 4px;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.btn-view  { background: #17a2b8; }
+.btn-print { background: #343a40; }
+
+.btn-view:hover  { background: #138496; }
+.btn-print:hover { background: #23272b; }
+
+/* Table column widths */
+.enquiry-table th:nth-child(3), .enquiry-table td:nth-child(3) { min-width: 140px; } /* Type */
+.enquiry-table th:nth-child(7), .enquiry-table td:nth-child(7) { min-width: 160px; } /* Class/Reason */
+.enquiry-table th:last-child,   .enquiry-table td:last-child   { text-align: center; }
+/* Beautiful Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.modal-card {
+  background: white;
+  width: 90%;
+  max-width: 550px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  overflow: hidden;
+  animation: modalPop 0.3s ease-out;
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+  background: #007bff;
+  color: white;
+  padding: 18px 24px;
+  position: relative;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.close-modal:hover { opacity: 1; }
+
+.modal-body {
+  padding: 25px;
+  background: #f8f9fa;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.detail-row {
+  margin-bottom: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.detail-row strong {
+  color: #007bff;
+  display: inline-block;
+  width: 140px;
+}
+
+.modal-footer {
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.btn-close-modal {
+  padding: 10px 30px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-close-modal:hover {
+  background: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .status-buttons, .form-row {
     flex-direction: column;
-    gap: 20px;
   }
-  
-  .form-label {
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-    display: block;
-  }
-  
-  .search-input-wrapper {
-    position: relative;
-    width: 100%;
-  }
-  
-  .search-input,
-  .form-input,
-  .form-select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
-    background-color: white;
-    color: #000;
-  }
-  
-  .search-input:focus,
-  .form-input:focus,
-  .form-select:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-  }
-  
-  .search-button {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #004585;
-    color: white;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-  }
-  
-  /* Session + Date row */
-  .form-row {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .form-row .form-group {
-    flex: 1;
-    min-width: 250px;
-  }
-  
-  /* Status Buttons */
-  .status-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
-  
   .status-btn {
-    flex: 1;
-    min-width: 120px;
-    padding: 14px;
-    border-radius: 25px;
-    border: none;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .status-btn:nth-child(1) { background-color: #02A651; }     /* All Enquiries */
-  .status-btn:nth-child(2) { background-color: #004585; }  /* Pending */
-  .status-btn:nth-child(3) { background-color: #8b0000; }  /* Denied */
-  .status-btn:nth-child(4) { background-color: #666; }  /* Accepted */
-  
-  .status-btn.active {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-  }
-  
-  /* Results Table Box */
-  .enquiry-results {
     width: 100%;
-    border: 2px solid #28a745;
-    padding: 25px;
-    background-color: white;
-    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.12);
-    border-radius: 12px;
   }
-  
-  .results-header {
-    margin-bottom: 20px;
-  }
-  
-  .results-header h3 {
-    margin: 0;
-    color: #333;
-    font-size: 24px;
-  }
-  
-  .no-data {
-    text-align: center;
-    padding: 50px;
-    color: #666;
-    font-size: 18px;
-    background: #f8f9fa;
-    border-radius: 8px;
-  }
-  
-  /* Table */
-  .table-container {
-    overflow-x: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  }
-  
-  .enquiry-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    font-size: 14px;
-  }
-  
-  .enquiry-table th {
-    background-color: #f1f8ff;
-    padding: 14px 10px;
-    text-align: left;
-    font-weight: 600;
-    border-bottom: 2px solid #007bff;
-    white-space: nowrap;
-    color: #333;
-  }
-  
-  .enquiry-table td {
-    padding: 12px 10px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .enquiry-table tr:hover {
-    background-color: #f8fdff;
-  }
-  
-  /* Action Buttons */
-  .btn-edit   { background: #ffc107; color: #000; }
-  .btn-admit  { background: #28a745; color: white; }
-  .btn-deny   { background: #dc3545; color: white; }
-  .btn-print  { background: #004585; color: white; }
-  
-  .btn-edit, .btn-admit, .btn-deny, .btn-print {
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    min-width: 60px;
-  }
-  
-  .btn-edit:hover   { background: #e0a800; }
-  .btn-admit:hover  { background: #218838; }
-  .btn-deny:hover   { background: #c82333; }
-  .btn-print:hover  { background: #138496; }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .status-buttons {
-      flex-direction: column;
-    }
-    .status-btn {
-      width: 100%;
-    }
-    .form-row {
-      flex-direction: column;
-    }
-  }
+}

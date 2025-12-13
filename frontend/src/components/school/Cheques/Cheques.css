@@ -1,0 +1,419 @@
+/* Cheques.css - FINAL VERSION WITH SMART DROPDOWN (Never Cut Off) + All Classes End With 90 */
+
+.main-container90 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;      /* ← change this if your header is taller/shorter */
+  padding-left: 280px;
+}
+
+.content90 {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.form-card90,
+.list-card90 {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.form-card90 {
+  width: 380px;
+}
+
+.card-header90 {
+  background: #004585;
+  color: white;
+  padding: 16px 20px;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-body90 {
+  padding: 25px;
+}
+
+.form-group90 {
+  margin-bottom: 18px;
+}
+
+.form-group90 label {
+  display: block;
+  margin-bottom: 6px;
+  color: #e74c3c;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.form-group90 input,
+.form-group90 select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-group90 input:focus,
+.form-group90 select:focus {
+  outline: none;
+  border-color: #e74c3c;
+}
+
+.save-btn90 {
+  width: 100%;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.save-btn90:hover {
+  background: #c0392b;
+}
+
+.list-card90 {
+  flex: 1;
+}
+
+.list-card90 .card-header90 {
+  background: #004585;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.export-buttons90 {
+  display: flex;
+  gap: 10px;
+}
+
+.export-buttons90 button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 70px;
+  transition: all 0.2s;
+}
+
+.export-buttons90 button:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+.table-header90 {
+  padding: 20px 20px 15px 20px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-input90 {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 300px;
+  font-size: 14px;
+  background: #f9f9f9;
+}
+
+.search-input90:focus {
+  outline: none;
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+  background: white;
+}
+
+.table-container90 {
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 20px 20px 20px;
+}
+
+.table-container90 table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+}
+
+.table-container90 th,
+.table-container90 td {
+  padding: 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.table-container90 th:last-child,
+.table-container90 td:last-child {
+  border-right: none;
+}
+
+.table-container90 th {
+  background: #fdf2f2;
+  color: black;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.table-container90 tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-container90 tbody tr:hover {
+  background: #fef5f5 !important;
+}
+
+.table-container90 tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+/* STATUS BADGES */
+.status-badge90 {
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge90.collected90   { background: #004585; }
+.status-badge90.deposited90   { background: #f39c12; }
+.status-badge90.cleared90     { background: #02A651; }
+.status-badge90.bounced90     { background: #e74c3c; }
+.status-badge90.cancelled90   { background: #95a5a6; }
+
+/* SMART ACTION DROPDOWN - NEVER GETS CUT OFF */
+.action-menu90 {
+  position: relative;
+  display: inline-block;
+}
+
+.action-btn90 {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  min-width: 100px;
+}
+
+.action-btn90:hover {
+  background: #c0392b;
+}
+
+.dropdown90 {
+  position: absolute;
+  min-width: 140px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+  border: 1px solid #eee;
+  overflow: hidden;
+  z-index: 9999;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+
+  /* Default: Open downwards */
+  top: calc(100% + 10px);
+  transform: translateY(-10px);
+}
+
+/* Show dropdown on hover */
+.action-menu90:hover .dropdown90,
+.dropdown90:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Flip upward when near bottom */
+.dropdown90.upward90 {
+  top: auto !important;
+  bottom: calc(100% + 10px) !important;
+  transform: translateY(10px);
+}
+
+.dropdown90.upward90:hover {
+  transform: translateY(0);
+}
+
+/* Dropdown buttons */
+.dropdown90 button {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.dropdown90 button:hover {
+  background: #fdf2f2;
+  color: #e74c3c;
+}
+
+.dropdown90 .delete90 {
+  color: #e74c3c !important;
+  font-weight: 600;
+}
+
+.dropdown90 .delete90:hover {
+  background: #ffe5e5 !important;
+}
+
+/* FOOTER */
+.table-footer90 {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  font-size: 13px;
+  color: #666;
+  border-top: 1px solid #eee;
+}
+
+.pagination90 button {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination90 button:hover {
+  background: #f1f1f1;
+}
+
+.pagination90 .current90 {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* MODAL */
+.modal90 {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal-content90 {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close90 {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.close90:hover { color: #000; }
+
+.receipt-header90 { 
+  font-size: 24px; 
+  text-align: center; 
+  margin-bottom: 20px; 
+  color: #004585;
+  font-weight: bold;
+}
+
+.receipt-body90 p { 
+  margin: 8px 0; 
+  text-align: center; 
+  font-size: 14px;
+}
+
+.receipt-table90 { 
+  width: 100%; 
+  margin: 20px 0; 
+  border-collapse: collapse;
+}
+
+.receipt-table90 td { 
+  padding: 8px 0; 
+  font-size: 15px;
+}
+
+.signature90 { 
+  text-align: right; 
+  margin-top: 40px; 
+  font-style: italic; 
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content90 { 
+    flex-direction: column; 
+  }
+  .form-card90 { 
+    width: 100%; 
+  }
+  .table-header90 { 
+    flex-direction: column; 
+    align-items: stretch; 
+  }
+  .search-input90 { 
+    width: 100%; 
+  }
+  .export-buttons90 { 
+    justify-content: center; 
+    margin-top: 10px; 
+  }
+}

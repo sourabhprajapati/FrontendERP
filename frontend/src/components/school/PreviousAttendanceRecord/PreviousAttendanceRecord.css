@@ -1,0 +1,367 @@
+/* PreviousAttendanceRecord.css */
+
+.erp-page-24 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 20px 0;
+   margin-left: 250px;
+  margin-top: 100px;
+  max-width: 1700px;
+}
+
+.container-24 {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.erp-header-24 {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  background: #004f9f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.school-brand-24 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.logo-24 {
+  width: 70px;
+  height: 70px;
+  background: white;
+  color: #1e40af;
+  font-weight: bold;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.school-name-24 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.school-sub-24 {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Search Card */
+.search-card-24 {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.search-form-24 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row-24 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  gap: 15px;
+  align-items: end;
+}
+
+.field-24 {
+  display: flex;
+  flex-direction: column;
+}
+
+.grow-24 {
+  grid-column: span 2;
+}
+
+.label-24 {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.field-24 input,
+.field-24 select {
+  padding: 10px 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.field-24 input:focus,
+.field-24 select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-actions-24 {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-24 {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.primary-24 {
+  background: #3b82f6;
+  color: white;
+}
+
+.primary-24:hover {
+  background: #2563eb;
+}
+
+.ghost-24 {
+  background: transparent;
+  color: #6b7280;
+  border: 2px solid #d1d5db;
+}
+
+.ghost-24:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.outline-24 {
+  background: white;
+  color: #3b82f6;
+  border: 2px solid #93c5fd;
+}
+
+.outline-24:hover {
+  background: #eff6ff;
+}
+
+/* Result Section */
+.result-area-24 {
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.visible-24 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden-24 {
+  display: none;
+}
+
+.loader-24 {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.result-top-24 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.student-card-24 {
+  flex: 1;
+  min-width: 300px;
+}
+
+.student-row-24 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.student-row-24 strong {
+  color: #1f2937;
+  margin-right: 8px;
+}
+
+.action-bar-24 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.legend-24 {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+.legend-box-24 {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.present-24 { background: #10b981; }
+.absent-24 { background: #ef4444; }
+.leave-24 { background: #f59e0b; }
+.holiday-24 { background: #8b5cf6; }
+
+/* Table */
+.table-wrap-24 {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.attendance-table-24 {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 14px;
+}
+
+.attendance-table-24 th {
+  background: #1e40af;
+  color: white;
+  padding: 12px 8px;
+  text-align: center;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.attendance-table-24 td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sticky-col-24 {
+  position: sticky;
+  left: 0;
+  background: #f8fafc;
+  font-weight: 600;
+  z-index: 9;
+  min-width: 100px;
+}
+
+.month-cell-24 {
+  background: #eef2ff !important;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.summary-col-24 {
+  background: #f0f9ff;
+  font-weight: 700;
+  min-width: 80px;
+}
+
+.number-24 {
+  background: #ecfdf5 !important;
+  color: #065f46;
+}
+
+.cell-inner-24 {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+  font-size: 13px;
+}
+
+.cell-P-24 .cell-inner-24 { background: #10b981; }
+.cell-A-24 .cell-inner-24 { background: #ef4444; }
+.cell-L-24 .cell-inner-24 { background: #f59e0b; }
+.cell-H-24 .cell-inner-24 { background: #8b5cf6; }
+
+.total-row-24 {
+  background: #1e293b !important;
+  color: white;
+  font-size: 16px;
+}
+
+.total-row-24 td {
+  font-weight: bold;
+}
+
+.empty-state-24 {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+  font-size: 18px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .form-row-24 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grow-24 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row-24 {
+    grid-template-columns: 1fr;
+  }
+  .grow-24 {
+    grid-column: 1;
+  }
+  .result-top-24 {
+    flex-direction: column;
+  }
+  .action-bar-24 {
+    justify-content: center;
+  }
+}
+
+@media print {
+  .search-card-24, .form-actions-24, .action-bar-24 {
+    display: none !important;
+  }
+  .erp-page-24 {
+    padding: 0;
+  }
+}

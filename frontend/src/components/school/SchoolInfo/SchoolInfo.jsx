@@ -12,12 +12,14 @@ const SchoolInfo = () => {
   const schoolFileRef = useRef(null);
   const tcFileRef = useRef(null);
 
+  // New: Loading state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const classOptions = [
     'Class 1', 'Class 2', 'Class 3', 'Class 4',
     'Class 5', 'Class 6', 'Class 7', 'Class 8'
   ];
 
-  // Multi-select logic (kept for future use if you add it back)
   const toggleClass = (cls) => {
     setSelectedClasses(prev =>
       prev.includes(cls) ? prev.filter(c => c !== cls) : [...prev, cls]
@@ -58,66 +60,111 @@ const SchoolInfo = () => {
     }
   };
 
+  // MAIN SUBMIT FUNCTION — THIS IS THE KEY
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.target);
+
+    // Optional: Log to see what is being sent
+    console.log("Sending FormData...");
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/schoolinfo/create', {
+        method: 'POST',
+        body: formData,
+        // DO NOT set Content-Type — let browser set multipart boundary
+      });
+
+      const result = await response.json();
+      console.log("Response:", result);
+
+      if (result.success) {
+        alert("School registered successfully!");
+        e.target.reset();
+        setSchoolLogo(null);
+        setTcHeaderLogo(null);
+      } else {
+        alert("Error: " + (result.message || "Something went wrong"));
+      }
+    } catch (err) {
+      console.error("Network Error:", err);
+      alert("Failed to connect to server. Is backend running on port 5000?");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="si-main">
       <div className="si-wrapper">
         <div className="si-container">
           <h1 className="si-title">School Details</h1>
 
-          <form className="si-form">
+          <form className="si-form" onSubmit={handleSubmit}>
+
             {/* ================== SCHOOL INFO GRID ================== */}
             <div className="si-grid">
               <div className="si-group">
-                <label>Assign To  <span className="si-required">*</span></label>
-                <input type="text" placeholder="Enter School Name" readOnly />
-              </div>
-              <div className="si-group">
                 <label>School Name <span className="si-required">*</span></label>
-                <input type="text" placeholder="Enter School Name" />
+                <input type="text" name="schoolName" placeholder="Enter School Name" required />
               </div>
-              <div className="si-group">
-                <label>Username</label>
-                <input type="text" placeholder="Enter Username" />
-              </div>
-              <div className="si-group">
-                <label>Password <span className="si-required">*</span></label>
-                <input type="password" placeholder="Mtnl23" />
-              </div>
+
               <div className="si-group">
                 <label>Email <span className="si-required">*</span></label>
-                <input type="email" placeholder="Enter Email" />
+                <input type="email" name="email" placeholder="Enter Email" required />
               </div>
+
               <div className="si-group">
                 <label>Academic Session <span className="si-required">*</span></label>
-                <select defaultValue=""><option value="" disabled>--Select--</option><option>2024-2025</option><option>2025-2026</option></select>
+                <select name="academicSession" required>
+                  <option value="" disabled>--Select--</option>
+                  <option value="2024-2025">2024-2025</option>
+                  <option value="2025-2026">2025-2026</option>
+                </select>
               </div>
+
               <div className="si-group">
                 <label>Website</label>
-                <input type="url" placeholder="Enter Website" />
+                <input type="url" name="website" placeholder="Enter Website" />
               </div>
+
               <div className="si-group">
                 <label>Decision Maker</label>
-                <input type="text" placeholder="Enter Decision Maker Name" />
+                <input type="text" name="decisionMaker" placeholder="Enter Decision Maker Name" />
               </div>
+
               <div className="si-group">
                 <label>Mobile No. <span className="si-required">*</span></label>
-                <input type="tel" placeholder="Enter Decision Maker Mobile" />
+                <input type="tel" name="mobileNo" placeholder="Enter Decision Maker Mobile" required />
               </div>
+
               <div className="si-group">
                 <label>Decision Maker Role</label>
-                <select defaultValue=""><option value="" disabled>--Select--</option><option>Principal</option><option>Administrator</option></select>
+                <select name="decisionMakerRole">
+                  <option value="">--Select--</option>
+                  <option>Principal</option>
+                  <option>Administrator</option>
+                </select>
               </div>
+
               <div className="si-group">
                 <label>Strength</label>
-                <input type="number" placeholder="Enter Strength" />
+                <input type="number" name="strength" placeholder="Enter Strength" />
               </div>
+
               <div className="si-group">
                 <label>School Affiliation Number/PAN Number</label>
-                <input type="text" placeholder="Enter School Affiliation Number" />
+                <input type="text" name="affiliationNumber" placeholder="Enter School Affiliation Number" />
               </div>
+
               <div className="si-group">
                 <label>School Registration Number</label>
-                <input type="text" placeholder="Enter School Registration Number" />
+                <input type="text" name="registrationNumber" placeholder="Enter School Registration Number" />
               </div>
             </div>
 
@@ -128,23 +175,33 @@ const SchoolInfo = () => {
             <div className="si-grid">
               <div className="si-group">
                 <label>Pin Code <span className="si-required">*</span></label>
-                <input type="text" placeholder="Enter PIN Code" />
+                <input type="text" name="pincode" placeholder="Enter PIN Code" required />
               </div>
               <div className="si-group">
                 <label>State <span className="si-required">*</span></label>
-                <select defaultValue=""><option value="" disabled>Select</option><option>Maharashtra</option><option>Delhi</option><option>Karnataka</option></select>
+                <select name="state" required>
+                  <option value="" disabled>Select</option>
+                  <option>Maharashtra</option>
+                  <option>Delhi</option>
+                  <option>Karnataka</option>
+                </select>
               </div>
               <div className="si-group">
                 <label>District <span className="si-required">*</span></label>
-                <select defaultValue=""><option value="" disabled>Select</option><option>Mumbai</option><option>Pune</option><option>Nashik</option></select>
+                <select name="district" required>
+                  <option value="" disabled>Select</option>
+                  <option>Mumbai</option>
+                  <option>Pune</option>
+                  <option>Nashik</option>
+                </select>
               </div>
               <div className="si-group">
                 <label>Address Line 1</label>
-                <input type="text" placeholder="Enter Address" />
+                <input type="text" name="addressLine1" placeholder="Enter Address" />
               </div>
               <div className="si-group">
                 <label>Address Line 2</label>
-                <input type="text" placeholder="Enter Address" />
+                <input type="text" name="addressLine2" placeholder="Enter Address" />
               </div>
             </div>
 
@@ -159,6 +216,7 @@ const SchoolInfo = () => {
                 <div className="si-file-area">
                   <input
                     type="file"
+                    name="schoolLogo"
                     accept="image/*"
                     ref={schoolFileRef}
                     onChange={(e) => handleFile(e, 'school')}
@@ -177,7 +235,6 @@ const SchoolInfo = () => {
                 </div>
 
                 <div className="si-preview-label">Logo</div>
-
                 <div className="si-preview-area">
                   {schoolLogo ? (
                     <img src={schoolLogo} alt="School Logo" className="si-preview-img" />
@@ -203,6 +260,7 @@ const SchoolInfo = () => {
                 <div className="si-file-area">
                   <input
                     type="file"
+                    name="tcHeaderLogo"
                     accept="image/*"
                     ref={tcFileRef}
                     onChange={(e) => handleFile(e, 'tc')}
@@ -221,7 +279,6 @@ const SchoolInfo = () => {
                 </div>
 
                 <div className="si-preview-label">TC Header</div>
-
                 <div className="si-preview-area">
                   {tcHeaderLogo ? (
                     <img src={tcHeaderLogo} alt="TC Header Logo" className="si-preview-img" />
@@ -246,29 +303,28 @@ const SchoolInfo = () => {
               <h2 className="si-section-title">Security Settings</h2>
 
               <div className="si-settings-grid">
-                {/* All your settings rows with updated class names */}
                 <div className="si-settings-row">
                   <label>OTP For Fee Discount</label>
                   <div className="si-radio-group">
-                    <label><input type="radio" name="otp-fee-discount" /> Yes</label>
-                    <label><input type="radio" name="otp-fee-discount" defaultChecked /> No</label>
+                    <label><input type="radio" name="otpForFeeDiscount" value="true" /> Yes</label>
+                    <label><input type="radio" name="otpForFeeDiscount" value="false" defaultChecked /> No</label>
                   </div>
                 </div>
                 <div className="si-settings-row">
                   <label>Discount OTP Mob. No</label>
-                  <input type="text" />
+                  <input type="text" name="discountOtpMobile" placeholder="Enter mobile number" />
                 </div>
-                {/* ... repeat for others with si-settings-row and si-radio-group ... */}
-                {/* (I've kept the structure – you can copy the rest similarly) */}
               </div>
             </div>
 
             {/* ================== SUBMIT / CANCEL ================== */}
             <div className="si-actions">
-              <button type="submit" className="si-submit-btn">Submit</button>
-              <button type="button" className
-
-="si-cancel-btn">Cancel</button>
+              <button type="submit" className="si-submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
+              <button type="button" className="si-cancel-btn" onClick={() => window.location.reload()}>
+                Cancel
+              </button>
             </div>
           </form>
         </div>

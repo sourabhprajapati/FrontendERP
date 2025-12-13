@@ -1,0 +1,254 @@
+/* ====================== Base ====================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; }
+
+/* Layout */
+.page-container250 { min-height: 100vh; background: #f9fafb; }
+.main-content250 { max-width: 1400px; margin: 32px auto; padding: 0 24px; }
+.card250 { background: white; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb; }
+.card-body250 { padding: 40px; }
+
+/* Title */
+.criteria-title250 { display: flex; align-items: center; gap: 10px; color: #6b7280; margin-bottom: 28px; font-size: 18px; font-weight: 500; }
+.icon-search-title250 { width: 20px; height: 20px; }
+
+/* Search Form */
+.single-row-form250 { display: flex; align-items: end; gap: 20px; flex-wrap: nowrap; overflow-x: auto; padding: 4px 0; margin-bottom: 40px; }
+.field-group250 { min-width: 160px; }
+.field-group250 label, .keyword-field250 label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 500; color: #374151; }
+.required250 { color: #ef4444; }
+
+.field-group250 select {
+  width: 100%; height: 48px; padding: 0 16px; border: 1px solid #d1d5db; border-radius: 8px; background: white; font-size: 15px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 16px center; background-repeat: no-repeat; background-size: 12px; cursor: pointer;
+}
+.field-group250 select:focus { outline: none; border-color: #e11d48; box-shadow: 0 0 0 3px rgba(225,29,72,0.15); }
+
+.keyword-field250 { flex: 1; min-width: 340px; }
+.search-box250 { display: flex; height: 48px; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.search-box250 input { flex: 1; padding: 0 16px; border: none; font-size: 15px; }
+.search-box250 input::placeholder { color: #9ca3af; }
+.search-box250 input:focus { outline: none; }
+.search-btn250 { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 28px; background: #e11d48; color: white; font-weight: 500; font-size: 15px; border: none; cursor: pointer; }
+.search-btn250:hover { background: #be123c; }
+
+/* Table Toolbar */
+.table-top-bar250 { display: flex; justify-content: space-between; align-items: center; margin: 32px 0 12px; flex-wrap: wrap; gap: 16px; }
+.left-tools250, .right-tools250 { display: flex; gap: 10px; align-items: center; }
+.tool-btn250 { display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: white; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; color: #374151; cursor: pointer; }
+.tool-btn250:hover { background: #fdf2f8; border-color: #e11d48; }
+.table-search250 { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; width: 240px; font-size: 14px; }
+
+/* Table Header */
+.table-header-title250 { display: flex; justify-content: space-between; align-items: center; margin: 20px 0 16px; }
+.table-header-title250 h3 { font-size: 20px; font-weight: 600; color: #1f2937; }
+.cheque-reminder-btn250 { background: #e11d48; color: white; padding: 10px 18px; border: none; border-radius: 8px; font-weight: 500; display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.cheque-reminder-btn250:hover { background: #be123c; }
+
+/* Bordered Table */
+.table-responsive250 { overflow-x: auto; border-radius: 12px; margin-bottom: 20px; }
+.student-table250.bordered250 { width: 100%; border-collapse: collapse; font-size: 14px; background: white; }
+.student-table250.bordered250 th,
+.student-table250.bordered250 td {
+  border: 1px solid #d1d5db;
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+.student-table250.bordered250 th {
+  background-color: #fdf2f8;
+  color: #6b7280;
+  font-weight: 600;
+}
+.student-table250.bordered250 tbody tr:nth-child(even) { background-color: #fbfbfb; }
+.student-table250.bordered250 tbody tr:hover { background-color: #fdf2f8; }
+.no-data250 { text-align: center; padding: 50px; color: #9ca3af; font-style: italic; }
+
+/* Buttons */
+.fee-btn250, .print-btn250 {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.2s;
+}
+.fee-btn250 { background: #e11d48; color: white; }
+.fee-btn250:hover { background: #be123c; }
+.print-btn250 { background: #1e40af; color: white; }
+.print-btn250:hover { background: #1e3a8a; }
+
+/* Footer */
+.table-footer250 { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: #6b7280; font-size: 14px; margin-top: 20px; }
+.entries-info250 { white-space: nowrap; }
+.pagination-wrapper250 { display: flex; align-items: center; gap: 16px; }
+.page-length250 { padding: 6px 10px; border: 1px solid #d1d5db; border-radius: 6px; }
+.pagination250 button { padding: 8px 12px; margin: 0 2px; border: 1px solid #d1d5db; background: white; color: #374151; border-radius: 6px; cursor: pointer; min-width: 36px; }
+.pagination250 button:hover:not(:disabled) { background: #fdf2f8; border-color: #e11d48; }
+.pagination250 button.active250 { background: #e11d48; color: white; }
+
+/* ==================== PAY FEE MODAL ==================== */
+.modal-overlay250 {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn250 0.2s ease-out;
+}
+
+.modal-content250 {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 560px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: slideUp250 0.3s ease-out;
+}
+
+.modal-header250 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px 16px;
+  background: #fdf2f8;
+  border-bottom: 1px solid #fce7f3;
+}
+
+.modal-header250 h2 {
+  margin: 0;
+  color: #e11d48;
+  font-size: 22px;
+}
+
+.close-btn250 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.close-btn250:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.modal-body250 {
+  padding: 32px;
+}
+
+.student-summary250 {
+  background: #fefce8;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  border: 1px solid #fde68a solid;
+  line-height: 1.6;
+}
+
+.form-grid250 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group250 {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group250.full-width250 { grid-column: span 2; }
+
+.form-group250 label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-group250 input,
+.form-group250 select,
+.form-group250 textarea {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db solid;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.input-with-icon250 {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon250 svg {
+  position: absolute;
+  left: 12px;
+  color: #6b7280;
+}
+
+.input-with-icon250 input {
+  padding-left: 44px;
+  width: 100%;
+}
+
+.modal-footer250 {
+  padding: 20px 32px;
+  background: #f9fafb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cancel-btn250 {
+  padding: 10px 20px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pay-btn250 {
+  padding: 12px 28px;
+  background: #e11d48;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pay-btn250:hover { background: #be123c; }
+
+@keyframes fadeIn250 { from {opacity:0} to {opacity:1} }
+@keyframes slideUp250 { from {transform:translateY(40px);opacity:0} to {transform:translateY(0);opacity:1} }
+
+@media (max-width: 640px) {
+  .form-grid250 { grid-template-columns: 1fr; }
+  .form-group250.full-width250 { grid-column: span 1; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .single-row-form250 { flex-wrap: wrap; }
+  .keyword-field250 { min-width: 100%; }
+  .table-top-bar250, .table-footer250 { flex-direction: column; align-items: stretch; }
+  .table-search250 { width: 100%; }
+}
+@media (max-width: 768px) {
+  .card-body250 { padding: 24px; }
+}

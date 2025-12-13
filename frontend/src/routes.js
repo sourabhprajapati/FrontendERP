@@ -15,6 +15,61 @@ import Staff  from "./components/school/Staff/Staff";
 import ComplaintForm  from "./components/school/ComplaintForm/ComplaintForm";
 import Visitors  from "./components/school/Visitors/Visitors";
 import Enquiry  from "./components/school/Enquiry/Enquiry";
+import StudentAttendance  from "./components/school/StudentAttendance/StudentAttendance";
+// import CollectFees  from "./components/school/CollectFees/CollectFees.jsx";
+import PaymentReceipt  from "./components/school/PaymentReceipt/PaymentReceipt.jsx";
+// import AddStudent  from "./components/school/AddStudent/AddStudent.jsx";
+import StudentAdmissionForm  from "./components/school/StudentAdmissionForm/StudentAdmissionForm.jsx";
+import ExamSetting  from "./components/school/ExamSetting/ExamSetting";
+import AddSemester  from "./components/school/AddSemester/AddSemester";
+import TeacherTimeTable  from "./components/school/TeacherTimeTable/TeacherTimeTable";
+import ClassTimeTable  from "./components/school/ClassTimeTable/ClassTimeTable";
+import Settings  from "./components/school/Settings/Settings";
+import AdmitCard  from "./components/school/AdmitCard/AdmitCard";
+import StudentDetails  from "./components/school/StudentDetails/StudentDetails";
+import PreviousFeeRecord  from "./components/school/PreviousFeeRecord/PreviousFeeRecord";
+import PreviousAttendanceRecord  from "./components/school/PreviousAttendanceRecord/PreviousAttendanceRecord";
+import StaffCertificate  from "./components/school/StaffCertificate/StaffCertificate";
+import CollectFee  from "./components/school/CollectFee/CollectFee";
+import Cheques  from "./components/school/Cheques/Cheques";
+import StudentCertificate  from "./components/school/StudentCertificate/StudentCertificate";
+// import StudentAttendance  from "./components/school/StudentAttendance/StudentAttendance";
+import StudentLeave  from "./components/school/StudentLeave/StudentLeave";
+import StaffLogin  from "./components/school/StaffLogin/StaffLogin";
+import StudentLoginCredential  from "./components/school/StudentLoginCredential/StudentLoginCredential";
+import MessageSettings  from "./components/school/MessageSettings/MessageSettings";
+import StudentId  from "./components/school/StudentId/StudentId";
+import PermissionSetting  from "./components/school/PermissionSetting/UserPermission.jsx";
+import AttendanceReport  from "./components/school/AttendanceReport/AttendanceReport";
+import StaffId  from "./components/school/StaffId/StaffId";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -73,6 +128,58 @@ export const routeConfig = {
     { path: "/ComplaintForm", component: ComplaintForm },
     { path: "/Visitors", component: Visitors },
     { path: "/Enquiry", component: Enquiry },
+    { path: "/StudentAttendance", component: StudentAttendance },
+    // { path: "/CollectFees", component: CollectFees },
+    { path: "/PaymentReceipt", component: PaymentReceipt },
+    //  { path: "/AddStudent", component: AddStudent },
+    { path: "/StudentAdmissionForm", component: StudentAdmissionForm },
+    { path: "/ExamSetting", component: ExamSetting },
+    { path: "/AddSemester", component: AddSemester },
+    { path: "/TeacherTimeTable", component: TeacherTimeTable },
+    { path: "/ClassTimeTable", component: ClassTimeTable },
+    { path: "/Settings", component: Settings },
+    { path: "/AdmitCard", component: AdmitCard },
+    { path: "/StudentDetails", component: StudentDetails },
+    { path: "/PreviousFeeRecord", component: PreviousFeeRecord },
+    { path: "/PreviousAttendanceRecord", component:PreviousAttendanceRecord},
+    { path: "/StaffCertificate", component: StaffCertificate},
+     { path: "/CollectFee", component: CollectFee},
+    { path: "/Cheques", component: Cheques},
+    { path: "/StudentCertificate", component: StudentCertificate},
+    // { path: "/StudentAttendance", component: StudentAttendance},
+    { path: "/StudentLeave", component: StudentLeave},
+    { path: "/StaffLogin", component: StaffLogin},
+    { path: "/StudentLoginCredential", component: StudentLoginCredential},
+    { path: "/MessageSettings", component: MessageSettings},
+    { path: "/StudentId", component: StudentId},
+    { path: "/PermissionSetting", component: PermissionSetting},
+    { path: "/AttendanceReport", component: AttendanceReport},
+    { path: "/StaffId", component: StaffId},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

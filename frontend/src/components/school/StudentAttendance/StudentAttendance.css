@@ -1,0 +1,322 @@
+/* ====================== ROOT VARIABLES ====================== */
+:root {
+  --pink: #fdf2f8;
+  --head-bg: #f7e5f5;
+  --row-bg: #f8faff;
+  --border: #e0d4e8;
+  --blue: #004585;
+  --green: #02a651;
+  --gray: #64748b;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+  --transition: all 0.25s ease;
+}
+
+/* ====================== MAIN LAYOUT ====================== */
+.sa-root122 {
+  padding: 100px 20px 40px 280px;   /* adjust top/left if your sidebar/header changes */
+  max-width: 1600px;
+  margin: 0 auto;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: #f9fafc;
+  min-height: 100vh;
+}
+
+/* ====================== CRITERIA BOX ====================== */
+.criteria-box122 {
+  background: white;
+  border: 1px solid #cfe9d8;
+  padding: 24px;
+  border-radius: var(--radius);
+  margin-bottom: 28px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.criteria-box122:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.criteria-top-btn122 {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 10;
+}
+
+.criteria-heading122 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.criteria-row122 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.criteria-item122 {
+  flex: 1;
+  min-width: 200px;
+}
+
+.criteria-item122 label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.criteria-item122 select,
+.criteria-item122 input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #cfe9d8;
+  background: white;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.criteria-item122 select:focus,
+.criteria-item122 input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 69, 133, 0.15);
+}
+
+/* ====================== BUTTONS ====================== */
+.btn122 {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn122.primary122 {
+  background: var(--blue);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 69, 133, 0.25);
+}
+
+.btn122.primary122:hover {
+  background: #003366;
+  transform: translateY(-1px);
+}
+
+.btn122.green122 {
+  background: var(--green);
+  color: white;
+  box-shadow: 0 4px 12px rgba(2, 166, 81, 0.25);
+}
+
+.btn122.green122:hover {
+  background: #018541;
+  transform: translateY(-1px);
+}
+
+.search-btn122 {
+  height: 46px;
+  margin-top: 24px;
+}
+
+/* ====================== RESULT BOX ====================== */
+.result-box122 {
+  background: white;
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid #cfe9d8;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 30px;
+}
+
+.result-header122 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.result-title122 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.result-subtitle122 {
+  font-size: 1rem;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* ====================== TABLE CONTROLS ====================== */
+.table-controls122 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.column-select122,
+.table-search122 {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.column-select122 {
+  background: var(--green);
+  color: white;
+  border: none;
+  font-weight: 700;
+}
+
+.column-select122 option {
+  background: white;
+  color: #333;
+}
+
+.table-search122 {
+  flex: 1;
+  min-width: 240px;
+  border: 1.5px solid var(--border);
+}
+
+/* ====================== TABLE ====================== */
+.table-wrapper122 {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin-top: 12px;
+}
+
+.att-table122 {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+}
+
+.att-table122 th {
+  background: var(--head-bg);
+  padding: 14px 12px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #444;
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.att-table122 td {
+  background: var(--row-bg);
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.att-table122 tr:hover td {
+  background: #eef2ff;
+}
+
+.name-cell122 {
+  font-weight: 600;
+  color: #c41b3d;
+  text-align: left !important;
+}
+
+/* Radio buttons */
+.radio-cell122 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.radio-label122 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #444;
+}
+
+.radio-label122 input[type="radio"] {
+  accent-color: var(--green);
+}
+
+/* Note box */
+.note-box122 {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* ====================== HOLIDAY POPUP ====================== */
+.holiday-popup122 {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content122 {
+  background: white;
+  padding: 28px;
+  width: 360px;
+  max-width: 90vw;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  animation: popupFade 0.3s ease-out;
+}
+
+@keyframes popupFade {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.popup-actions122 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 992px) {
+  .sa-root122 {
+    padding-left: 20px;
+    padding-top: 80px;
+  }
+  .criteria-row122,
+  .table-controls122 {
+    flex-direction: column;
+  }
+  .criteria-item122 {
+    min-width: 100%;
+  }
+}

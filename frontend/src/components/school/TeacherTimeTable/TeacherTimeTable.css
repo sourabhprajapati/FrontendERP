@@ -1,0 +1,196 @@
+/* TeacherTimeTable.css - All classes end with 29 */
+
+.tt-container29 {
+   margin-top: 100px;
+  margin-left: 250px;
+  padding: 20px;
+  background: #f8f3f6;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+.criteria-card29 {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  border-top: 6px solid #02A651;
+  border-left: 5px solid #004585;
+  box-shadow: 0 2px 10px #0001;
+  margin-bottom: 25px;
+}
+
+.criteria-header29 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #004585;
+  background: #ffe9f1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.criteria-grid29 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.input-group29 label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #004585;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.input-group29 input,
+.input-group29 select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #b8c4d8;
+  outline: none;
+  font-size: 14px;
+}
+
+.input-group29 input:focus,
+.input-group29 select:focus {
+  border-color: #004585;
+  box-shadow: 0 0 6px #00458544;
+}
+
+.search-btn29 {
+  width: 100%;
+  background: #02A651;
+  border: none;
+  padding: 11px;
+  color: white;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.search-btn29:hover {
+  background: #028c45;
+}
+
+.list-card29 {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border-top: 6px solid #02A651;
+  border-left: 5px solid #004585;
+  box-shadow: 0 2px 10px #0001;
+}
+
+.top-actions29 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.col-box29 {
+  position: relative;
+}
+
+.col-btn29 {
+  background: #004585;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.col-dropdown29 {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 12px;
+  z-index: 10;
+  display: none;
+}
+
+.col-box29:hover .col-dropdown29 {
+  display: block;
+}
+
+.col-dropdown29 label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.search-filter29 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-filter29 input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 220px;
+}
+
+.table-area29 {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.timetable-table29 {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.timetable-table29 th {
+  background: #004585;
+  color: white;
+  padding: 12px 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.timetable-table29 td {
+  border: 1px solid #e4e9f0;
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.lunch-row29 td {
+  background: #e8f5e9 !important;
+  font-weight: bold;
+  color: #004585;
+  font-size: 16px;
+  text-align: center;
+  padding: 16px !important;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .criteria-grid29 {
+    grid-template-columns: 1fr;
+  }
+  .top-actions29 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-filter29 input {
+    width: 100%;
+  }
+}

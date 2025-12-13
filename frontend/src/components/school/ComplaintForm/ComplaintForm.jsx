@@ -14,11 +14,42 @@ export default function ComplaintForm() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert("Complaint submitted successfully! (Frontend only)");
-    console.log("Complaint Data:", form);
+ function handleSubmit(e) {
+  e.preventDefault();
+
+  // Simple validation
+  if (!form.name || !form.email || !form.phone || !form.subject || !form.description) {
+    alert("Please fill all fields");
+    return;
   }
+
+  fetch('http://localhost:5000/api/complaints/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(form),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert("Complaint submitted successfully! We'll get back to you soon.");
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          description: "",
+        });
+      } else {
+        alert("Failed: " + data.message);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Network error. Please try again.");
+    });
+}
 
   return (
     <div className="cf-wrapper14">

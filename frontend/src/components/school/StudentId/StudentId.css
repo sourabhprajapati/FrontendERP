@@ -1,0 +1,770 @@
+
+
+.student-id-container38 {
+  min-height: 100vh;
+  padding: 20px;
+  background: #f9fafc;
+  margin-left: 250px;
+  margin-top: 90px;
+  max-width: 1700px;
+}
+
+/* Header Styles */
+.header38 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left38 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-left38 .icon38 {
+  font-size: 24px;
+}
+
+.header-left38 h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.header-right38 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.certificate-link38 {
+  color: #999;
+  cursor: pointer;
+}
+
+.divider38 {
+  color: #ccc;
+}
+
+.active-link38 {
+  color: #1a1a2e;
+  font-weight: 500;
+}
+
+/* Criteria Container */
+.criteria-container38 {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title38 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-row38 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group38 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group38 label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.required38 {
+  color: #02A651;
+}
+
+.form-group38 input,
+.form-group38 select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.form-group38 input:focus,
+.form-group38 select:focus {
+  border-color: #02A651;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Search button container */
+.search-button-container38 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.search-btn38 {
+  float: none;
+  display: inline-block;  
+  margin: 0;
+  padding: 10px 30px;
+  background-color: #02A651;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-btn38:hover {
+  background-color: #02A651;
+  transform: scale(1.1);
+}
+
+/* Table Container */
+.table-container38 {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-header38 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.generate-btn38 {
+  padding: 10px 30px;
+  background-color: #02A651;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generate-btn38:hover {
+  background-color: #02A651;
+  transform: scale(1.1);
+}
+
+.table-controls38 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.action-buttons38 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.icon-btn38 {
+  padding: 8px 12px;
+  background-color: #02A651;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.icon-btn38:hover {
+  background-color: #02A651;
+  transform: scale(1.1);
+}
+
+.column-visibility38 {
+  padding: 8px 15px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.column-visibility38:hover {
+  background-color: #dc2626;
+}
+
+.search-box38 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box38 label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.search-box38 input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  min-width: 200px;
+}
+
+.search-box38 input:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Table Styles */
+.table-wrapper38 {
+  overflow-x: auto;
+}
+
+.student-table38 {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.student-table38 thead {
+  background-color: #f9fafb;
+}
+
+.student-table38 th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a2e;
+  border-bottom: 2px solid #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.student-table38 th:hover {
+  background-color: #f3f4f6;
+}
+
+.sort-arrows38 {
+  margin-left: 5px;
+  color: #999;
+  font-size: 12px;
+}
+
+.student-table38 td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.student-table38 tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.student-table38 input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.admission-no38 {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.student-name38 {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* Print Preview */
+.print-preview38 {
+  background: white;
+  min-height: 100vh;
+}
+
+.print-controls38 {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.print-controls38 button {
+  padding: 10px 20px;
+  background-color: #02A651;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.print-controls38 button:hover {
+  background-color: #02A651;
+  transform: scale(1.1);
+}
+
+/* ID Cards Wrapper */
+.id-cards-wrapper38 {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.id-cards-wrapper38.format138 {
+  gap: 30px;
+}
+
+.id-cards-wrapper38.format238 {
+  gap: 20px;
+}
+
+/* Portrait Format (Format 1) */
+.id-card38.format138 {
+  width: 340px;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  page-break-inside: avoid;
+}
+
+.id-card-portrait38 {
+  width: 100%;
+  height: 100%;
+}
+
+.card-header38 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 15px;
+  color: white;
+  text-align: center;
+}
+
+.logo38 {
+  margin-bottom: 8px;
+}
+
+.logo-placeholder38 {
+  width: 60px;
+  height: 60px;
+  background: white;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.school-info38 h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  font-weight: 700;
+}
+
+.school-info38 h4 {
+  font-size: 14px;
+  margin: 3px 0;
+  font-weight: 600;
+}
+
+.school-info38 p {
+  font-size: 10px;
+  margin: 2px 0;
+  line-height: 1.3;
+}
+
+.school-info38 .address38 {
+  font-size: 9px;
+  margin-top: 5px;
+}
+
+.school-info38 .contact38,
+.school-info38 .phone38 {
+  font-size: 8px;
+}
+
+.card-body38 {
+  padding: 20px 15px;
+}
+
+.photo-section38 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.photo-placeholder38 {
+  width: 120px;
+  height: 140px;
+  background: #f3f4f6;
+  border: 2px solid #d1d5db;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.no-image38 {
+  font-size: 10px;
+  color: #999;
+  text-align: center;
+  padding: 10px;
+}
+
+.class-badge38 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 5px 0;
+}
+
+.class-label38 {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.details-section38 {
+  margin-bottom: 15px;
+}
+
+.details-section38 p {
+  font-size: 11px;
+  margin: 6px 0;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.4;
+}
+
+.details-section38 .label38 {
+  font-weight: 600;
+  color: #555;
+}
+
+.signature-section38 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.signature38 {
+  text-align: center;
+  flex: 1;
+}
+
+.signature-line38 {
+  width: 100px;
+  height: 30px;
+  border-bottom: 1px solid #333;
+  margin: 0 auto 5px;
+}
+
+.signature38 p {
+  font-size: 10px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Landscape Format (Format 2) */
+.id-card38.format238 {
+  width: 480px;
+  height: 310px;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  page-break-inside: avoid;
+}
+
+.id-card-landscape38 {
+  display: flex;
+  height: -100%;
+}
+
+.landscape-left38 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.landscape-header38 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 12px 15px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-small38 {
+  width: 45px;
+  height: 45px;
+  background: white;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.school-info-compact38 {
+  flex: 1;
+}
+
+.school-info-compact38 h3 {
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.school-info-compact38 p {
+  font-size: 8px;
+  margin: 2px 0;
+  line-height: 1.3;
+}
+
+.landscape-content38 {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.student-info-landscape38 h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.student-info-landscape38 p {
+  font-size: 11px;
+  margin: 5px 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+.student-info-landscape38 strong {
+  font-weight: 600;
+  color: #555;
+  display: inline-block;
+  min-width: 110px;
+}
+
+.landscape-signature38 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.landscape-signature38 .signature-line38 {
+  width: 120px;
+  height: 25px;
+  border-bottom: 1px solid #333;
+  margin: 0 auto 5px;
+}
+
+.landscape-signature38 p {
+  font-size: 10px;
+  color: #666;
+  font-weight: 500;
+}
+
+.landscape-right38 {
+  width: 150px;
+  background: #f9fafb;
+  border-left: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.photo-placeholder-landscape38 {
+  width: 120px;
+  height: 140px;
+  background: white;
+  border: 2px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+  }
+
+  .student-id-container38 {
+    padding: 0;
+    background: white;
+  }
+
+  .no-print38 {
+    display: none !important;
+  }
+
+  .id-cards-wrapper38 {
+    padding: 10px;
+  }
+
+  .id-card38 {
+    box-shadow: none;
+    page-break-inside: avoid;
+    margin-bottom: 20px;
+  }
+
+  .id-card38.format138 {
+    width: 340px;
+  }
+
+  .id-card38.format238 {
+    width: 480px;
+    height: 310px;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .student-id-container38 {
+    padding: 10px;
+  }
+
+  .header38 {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .header-right38 {
+    width: 100%;
+  }
+
+  .form-row38 {
+    grid-template-columns: 1fr;
+  }
+
+  .search-button-container38 {
+    width: 100%;
+  }
+
+  .search-btn38 {
+    float: none;
+    width: 100%;
+  }
+
+  .table-controls38 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-box38 {
+    width: 100%;
+  }
+
+  .search-box38 input {
+    flex: 1;
+  }
+
+  .table-wrapper38 {
+    overflow-x: scroll;
+  }
+
+  .student-table38 {
+    min-width: 800px;
+  }
+
+  .id-card38.format138 {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .id-card38.format238 {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    min-height: 310px;
+  }
+
+  .print-controls38 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .print-controls38 button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-left38 h1 {
+    font-size: 18px;
+  }
+
+  .action-buttons38 {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .icon-btn38,
+  .column-visibility38 {
+    flex: 1;
+    min-width: 80px;
+  }
+}

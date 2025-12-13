@@ -1,0 +1,212 @@
+.erp-page31 {
+  margin-top: 100px;
+  margin-left: 250px;
+  padding: 28px;
+  background: #f6f8fb;
+}
+
+.search-card31 {
+  background: #fff;
+  padding: 22px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.search-grid31 {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.field31 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.field31 label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.field31 input,
+.field31 select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.form-actions31 {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn31 {
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn31.primary31 { background: #2f6fed; color: #fff; }
+.btn31.pdf31 { background: #e53935; color: #fff; }
+.btn31.excel31 { background: #2e7d32; color: #fff; }
+.btn31.small31 { font-size: 12px; padding: 6px 10px; }
+
+.result-card31 {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.report-header31 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.summary-bar31 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #f1f4f9;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.download-buttons31 {
+  display: flex;
+  gap: 10px;
+}
+
+.attendance-table31 {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1100px;
+}
+
+.attendance-table31 th,
+.attendance-table31 td {
+  border: 1px solid #eee;
+  padding: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.attendance-table31 th {
+  background: #f3f6fb;
+  font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 420px) {
+  .erp-page31 { padding: 12px 8px; }
+  .search-grid31 { flex-direction: column; }
+  .form-actions31 { flex-direction: column; }
+  .btn31 { width: 100%; }
+  .attendance-table31 { min-width: 640px; }
+  .attendance-table31 th,
+  .attendance-table31 td {
+    font-size: 10px;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .attendance-table31 { min-width: 900px; }
+}
+
+.table-wrapper31 {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Print Styles */
+@media print {
+  body * { visibility: hidden; }
+  #print-area, #print-area * { visibility: visible; }
+  #print-area { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+
+  @page { size: A4; margin: 20mm 15mm 20mm 15mm; }
+
+  .print-container31 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+
+  .receipt31 {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+  }
+
+  .receipt-header31 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .school-logo31 img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .school-name31 h1 { font-size: 18px; margin: 0; text-align: center; }
+  .school-name31 p { font-size: 12px; margin: 0; text-align: center; }
+
+  .copy-label31 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+  }
+
+  .receipt-details31 { margin-bottom: 10px; }
+
+  .detail-row31 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  .fee-table31 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .fee-table31 th,
+  .fee-table31 td {
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: left;
+  }
+
+  .fee-table31 th { background: #f0f0f0; }
+
+  .total-row31,
+  .net-total-row31 { font-weight: bold; }
+
+  .payment-info31 { margin-bottom: 10px; font-size: 12px; }
+
+  .remark-signature31 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .remark31 { font-size: 12px; width: 60%; }
+  .signature31 { font-size: 12px; text-align: right; width: 35%; border-top: 1px solid #000; padding-top: 5px; }
+}

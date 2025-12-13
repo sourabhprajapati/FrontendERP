@@ -1,0 +1,243 @@
+/* permissionsetting.css */
+
+/* ========== USER PERMISSION PAGE ========== */
+
+.perm-page{
+  min-height:100vh;
+  background:linear-gradient(135deg,#f4f6fb 0%,#e9edf5 100%);
+  padding:24px;
+   margin-left: 250px;
+  margin-top: 100px;
+  max-width: 1700px;
+}
+
+/* ---------- HEADER ---------- */
+
+.perm-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  background:#004f9f;
+  padding:16px 24px;
+  border-radius:16px;
+  color:#fff;
+  box-shadow:0 8px 32px rgba(59,130,246,0.3);
+}
+
+.perm-header-left{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.perm-back-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 16px;
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:10px;
+  color:#fff;
+  cursor:pointer;
+  font-weight:500;
+  transition:.2s;
+}
+
+.perm-back-btn:hover{
+  background:rgba(255,255,255,0.25);
+  transform:translateX(-2px);
+}
+
+.perm-header-title h1{
+  font-size:22px;
+  font-weight:700;
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.perm-header-title span{
+  font-size:13px;
+  opacity:.85;
+}
+
+.perm-session-badge{
+  padding:8px 16px;
+  background:rgba(255,255,255,0.15);
+  border-radius:20px;
+  font-weight:600;
+  font-size:14px;
+}
+
+/* ---------- STATS ---------- */
+
+.perm-stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+  margin-bottom:24px;
+}
+
+.perm-stat-card{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:20px;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+  border:1px solid #e5e7eb;
+}
+
+.perm-stat-icon{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.perm-stat-value{
+  font-size:26px;
+  font-weight:700;
+  color:#111827;
+}
+
+.perm-stat-label{
+  font-size:13px;
+  color:#6b7280;
+}
+
+/* ---------- CONTROLS ---------- */
+
+.perm-controls-card{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:24px;
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+  border:1px solid #e5e7eb;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.perm-controls-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.perm-role-select-wrapper{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex:1;
+  min-width:280px;
+}
+
+.perm-role-label{
+  font-weight:600;
+  color:#111827;
+}
+
+.perm-role-select,
+.perm-search-input{
+  flex:1;
+  padding:12px 16px;
+  border-radius:10px;
+  border:2px solid #e5e7eb;
+  font-size:14px;
+}
+
+.perm-search-wrapper{ position:relative; flex:1; min-width:240px; }
+
+.perm-search-icon{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#6b7280;
+}
+
+.perm-search-input{ padding-left:44px; }
+
+.perm-action-buttons{ display:flex; gap:10px; }
+
+.perm-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+}
+
+.perm-btn.primary{ background:#2563eb; color:#fff; }
+.perm-btn.secondary{ background:#f3f4f6; border:1px solid #e5e7eb; }
+.perm-btn.success{ background:#22c55e; color:#fff; }
+.perm-btn.ghost{ background:transparent; border:1px solid #e5e7eb; }
+
+/* ---------- MODULE CARDS ---------- */
+
+.perm-modules-section{
+  background:white;
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+  border:1px solid #e5e7eb;
+}
+
+.perm-module-card{
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:18px;
+}
+
+.perm-module-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  border-bottom:1px dashed #e5e7eb;
+  padding-bottom:12px;
+}
+
+.perm-permissions-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:10px;
+}
+
+.perm-permission-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+}
+
+/* ---------- FOOTER ---------- */
+
+.perm-footer{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:24px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:900px){
+  .perm-controls-row{ flex-direction:column; }
+}

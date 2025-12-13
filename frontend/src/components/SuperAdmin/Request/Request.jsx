@@ -1,160 +1,67 @@
-import React, { useState, useMemo } from 'react';
+// src/components/SuperAdmin/Request.jsx
+import React, { useState, useEffect, useMemo } from 'react';
 import './Request.css';
 
+const API_BASE = "http://localhost:5000/api";
+
 function Request() {
-  /* -------------------------- DATA -------------------------- */
-  const [requests, setRequests] = useState([
-    {
-      sno: 1,
-      salesPerson: 'PusphRaj Tiwari',
-      email: 'pushparaj.tiwari@mittsure.com',
-      school: 'Sunshine Public School',
-      address: 'Alwar Rajasthan',
-      receivedDate: '2025-11-01',
-      status: 'pending',
-      id: null,
-      password: null,
-      actionDate: null,
-      rejectionReason: null,
-      document: new File(
-        ["(sample PDF content)"],
-        "sunshine-letter.pdf",
-        { type: "application/pdf" }
-      ),
-      uniqueCode: null,
-    },
-    {
-      sno: 2,
-      salesPerson: 'Mohit',
-      email: 'mohit@mittsure.in',
-      school: 'Jaishree school',
-      address: 'C scheme, Jaipur Rajasthan',
-      receivedDate: '2025-11-03',
-      status: 'pending',
-      id: null,
-      password: null,
-      actionDate: null,
-      rejectionReason: null,
-      document: new File(
-        ["(sample PDF content)"],
-        "sunshine-letter.pdf",
-        { type: "application/pdf" }
-      ),
-      uniqueCode: null,
-    },
-    {
-      sno: 3,
-      salesPerson: 'Sourabh Prajapati',
-      email: 'sourabh.prajapati@mittsure.com',
-      school: 'Bhagirath Public School',
-      address: 'Raja Park Jaipur Rajasthan',
-      receivedDate: '2025-11-01',
-      status: 'pending',
-      id: null,
-      password: null,
-      actionDate: null,
-      rejectionReason: null,
-      document: new File(
-        ["(sample PDF content)"],
-        "sunshine-letter.pdf",
-        { type: "application/pdf" }
-      ),
-      uniqueCode: null,
-    },
-    {
-      sno: 4,
-      salesPerson: 'Lakshita Joshi',
-      email: 'lakshita.joshi@mittsure.com',
-      school: 'Mnemonic Public School',
-      address: 'Alwar Rajasthan',
-      receivedDate: '2025-11-01',
-      status: 'pending',
-      id: null,
-      password: null,
-      actionDate: null,
-      rejectionReason: null,
-      document: new File(
-        ["(sample PDF content)"],
-        "sunshine-letter.pdf",
-        { type: "application/pdf" }
-      ),
-      uniqueCode: null,
-    },
-    {
-      sno: 5,
-      salesPerson: 'Tushar Joshi',
-      email: 'tushar.joshi@mittsure.com',
-      school: 'Mnemonic Public School',
-      address: 'Alwar Rajasthan',
-      receivedDate: '2025-11-01',
-      status: 'pending',
-      id: null,
-      password: null,
-      actionDate: null,
-      rejectionReason: null,
-      document: new File(
-        ["(sample PDF content)"],
-        "sunshine-letter.pdf",
-        { type: "application/pdf" }
-      ),
-      uniqueCode: null,
-    },
-    {
-      sno: 6,
-      salesPerson: 'PusphRaj Tiwari',
-      email: 'pushparaj.tiwari@mittsure.com',
-      school: 'Sunshine Public School',
-      address: 'Alwar Rajasthan',
-      receivedDate: '2025-11-01',
-      status: 'pending',
-      id: null,
-      password: null,
-      actionDate: null,
-      rejectionReason: null,
-      document: new File(
-        ["(sample PDF content)"],
-        "sunshine-letter.pdf",
-        { type: "application/pdf" }
-      ),
-      uniqueCode: null,
-    },
-  ]);
-
-  /* -------------------------- GLOBAL SEARCH STATE -------------------------- */
+  const [requests, setRequests] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [globalSearch, setGlobalSearch] = useState('');
-
-  /* -------------------------- FILTERED LIST -------------------------- */
-  const filteredRequests = useMemo(() => {
-    if (!globalSearch.trim()) return requests;
-
-    const term = globalSearch.toLowerCase().trim();
-
-    return requests.filter((req) => {
-      return (
-        req.sno.toString().includes(term) ||
-        req.salesPerson.toLowerCase().includes(term) ||
-        req.email.toLowerCase().includes(term) ||
-        req.school.toLowerCase().includes(term) ||
-        req.address.toLowerCase().includes(term) ||
-        req.receivedDate.includes(term) ||
-        (req.actionDate || '').includes(term) ||
-        req.status.toLowerCase().includes(term) ||
-        (req.id || '').toLowerCase().includes(term) ||
-        (req.password || '').toLowerCase().includes(term) ||
-        (req.uniqueCode || '').toString().toLowerCase().includes(term) ||
-        (req.rejectionReason || '').toLowerCase().includes(term)
-      );
-    });
-  }, [requests, globalSearch]);
-
-  /* -------------------------- MODAL & ACTION STATES -------------------------- */
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
-  const [selectedSno, setSelectedSno] = useState(null);
+  const [selectedReq, setSelectedReq] = useState(null);
   const [rejectionReason, setRejectionReason] = useState('');
 
-  const openModal = (sno, type) => {
-    setSelectedSno(sno);
+  const fetchRequests = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(`${API_BASE}/schools/pending`);
+      const json = await res.json();
+
+      if (json.success && Array.isArray(json.data)) {
+        const formatted = json.data.map((s, i) => ({
+          sno: i + 1,
+          _id: s._id,
+          salesPerson: (s.salesExecutive || 'N/A').trim(),
+          email: s.email?.trim() || 'N/A',
+          school: s.schoolName?.trim() || 'Unknown',
+          address: [s.district, s.state].filter(Boolean).join(', ') || 'N/A',
+          receivedDate: new Date(s.createdAt).toISOString().split('T')[0],
+          actionDate: s.actionDate ? new Date(s.actionDate).toISOString().split('T')[0] : '-',
+          status: (s.status || 'Pending').toLowerCase(),
+          username: s.username || null,
+          password: s.plainPassword || null,
+          uniqueCode: s.uniqueCode || null,
+        }));
+        setRequests(formatted);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchRequests();
+    const interval = setInterval(fetchRequests, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const filtered = useMemo(() => {
+    if (!globalSearch) return requests;
+    const term = globalSearch.toLowerCase();
+    return requests.filter(r =>
+      r.school.toLowerCase().includes(term) ||
+      r.email.toLowerCase().includes(term) ||
+      r.salesPerson.toLowerCase().includes(term) ||
+      String(r.uniqueCode || '').includes(term)
+    );
+  }, [requests, globalSearch]);
+
+  const openModal = (req, type) => {
+    setSelectedReq(req);
     setModalType(type);
     if (type === 'reject') setRejectionReason('');
     setShowModal(true);
@@ -162,279 +69,180 @@ function Request() {
 
   const closeModal = () => {
     setShowModal(false);
+    setSelectedReq(null);
     setModalType('');
-    setSelectedSno(null);
     setRejectionReason('');
   };
 
-  /* -------------------------- HELPERS -------------------------- */
-  const generateRandomString = (len) => {
-    const chars =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let res = '';
-    for (let i = 0; i < len; i++) {
-      res += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return res;
-  };
-
-  const generateUniqueCode = (schoolName) => {
-    const prefix = schoolName
-      .trim()
-      .replace(/\s+/g, ' ')
-      .split(' ')[0]
-      .toUpperCase()
-      .slice(0, 3);
-    const randomDigits = Math.floor(Math.random() * 90 + 10);
-    return `${prefix}${randomDigits}`;
-  };
-
-  /* -------------------------- APPROVE / REJECT -------------------------- */
+  // THIS IS THE FIXED APPROVE FUNCTION
   const handleApprove = async () => {
-    const now = new Date().toLocaleDateString('en-CA');
-    const id = generateRandomString(8);
-    const password = generateRandomString(10);
-    const selectedReq = requests.find((r) => r.sno === selectedSno);
-    const uniqueCode = generateUniqueCode(selectedReq.school);
+    try {
+      const res = await fetch(`${API_BASE}/schools/approve/${selectedReq._id}`, {
+        method: 'PATCH'
+      });
+      const data = await res.json();
 
-    const updated = requests.map((r) =>
-      r.sno === selectedSno
-        ? {
-            ...r,
-            status: 'approved',
-            id,
-            password,
-            actionDate: now,
-            rejectionReason: null,
-            uniqueCode,
-          }
-        : r
-    );
-    setRequests(updated);
-
-    const approvedReq = updated.find((r) => r.sno === selectedSno);
-    await sendApprovalEmail(approvedReq);
-    closeModal();
+      if (data.success) {
+        setRequests(prev => prev.map(req => 
+          req._id === selectedReq._id 
+            ? {
+                ...req,
+                status: 'approved',
+                username: data.data.username,
+                password: data.data.plainPassword,     // Real password
+                uniqueCode: data.data.uniqueCode,
+                actionDate: new Date().toISOString().split('T')[0]
+              }
+            : req
+        ));
+        alert('Approved! Credentials sent');
+        closeModal();
+      } else {
+        alert(data.message || 'Failed');
+      }
+    } catch (e) {
+      alert('Network error');
+    }
   };
 
   const handleReject = async () => {
-    if (!rejectionReason.trim()) {
-      alert('Please provide a reason for rejection.');
-      return;
+    if (!rejectionReason.trim()) return alert('Enter reason');
+    try {
+      const res = await fetch(`${API_BASE}/schools/reject/${selectedReq._id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rejectionReason })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setRequests(prev => prev.map(r => 
+          r._id === selectedReq._id 
+            ? { ...r, status: 'rejected', actionDate: new Date().toISOString().split('T')[0] }
+            : r
+        ));
+        alert('Rejected');
+        closeModal();
+      }
+    } catch (e) {
+      alert('Error');
     }
-
-    const now = new Date().toLocaleDateString('en-CA');
-    const updated = requests.map((r) =>
-      r.sno === selectedSno
-        ? {
-            ...r,
-            status: 'rejected',
-            actionDate: now,
-            rejectionReason: rejectionReason.trim(),
-            id: null,
-            password: null,
-            uniqueCode: null,
-          }
-        : r
-    );
-    setRequests(updated);
-
-    const rejectedReq = updated.find((r) => r.sno === selectedSno);
-    await sendRejectionEmail(rejectedReq);
-    closeModal();
   };
 
-  const sendApprovalEmail = async (req) => {
-    console.log('APPROVAL EMAIL →', {
-      to: req.email,
-      name: req.salesPerson,
-      school: req.school,
-      id: req.id,
-      password: req.password,
-      uniqueCode: req.uniqueCode,
-      date: req.actionDate,
-      documentName: req.document?.name || 'None',
-    });
-  };
-
-  const sendRejectionEmail = async (req) => {
-    console.log('REJECTION EMAIL →', {
-      to: req.email,
-      name: req.salesPerson,
-      school: req.school,
-      reason: req.rejectionReason,
-      date: req.actionDate,
-      documentName: req.document?.name || 'None',
-    });
-  };
-
-  const viewDocument = (file) => {
-    if (!file) return;
-    const url = URL.createObjectURL(file);
-    window.open(url, '_blank', 'noopener,noreferrer');
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  };
-
-  /* -------------------------- RENDER -------------------------- */
   return (
     <div className="req-app">
       <div className="req-header">
-        <h1 className="req-title">Approved / Rejected Requests</h1>
-
-        {/* GLOBAL SEARCH – TOP RIGHT */}
+        <h1 className="req-title">School Onboarding Requests</h1>
         <div className="req-search">
           <input
             type="text"
-            placeholder="Search all columns..."
+            placeholder="Search school, email, code..."
             value={globalSearch}
-            onChange={(e) => setGlobalSearch(e.target.value)}
+            onChange={e => setGlobalSearch(e.target.value)}
           />
         </div>
       </div>
 
-      {/* ==================== TABLE ==================== */}
+      {loading && <p style={{textAlign:'center', padding:'50px', color:'#004585'}}>Loading...</p>}
+
       <table className="req-table">
         <thead>
           <tr>
-            <th>S.no.</th>
+            <th>S.no</th>
             <th>Sales Person</th>
-            <th>Email Id</th>
+            <th>Email</th>
             <th>School Name</th>
             <th>Address</th>
-            <th>Document</th>
-            <th>Received Date</th>
-            <th>Approved/Rejected Date</th>
+            <th>Received</th>
+            <th>Action Date</th>
             <th>Status</th>
             <th>Credentials</th>
             <th>Unique Code</th>
           </tr>
         </thead>
         <tbody>
-          {filteredRequests.length === 0 ? (
-            <tr>
-              <td colSpan="11" className="req-no-records">
-                No records match your search.
+          {filtered.map(r => (
+            <tr key={r._id}>
+              <td>{r.sno}</td>
+              <td>{r.salesPerson}</td>
+              <td>{r.email}</td>
+              <td>{r.school}</td>
+              <td>{r.address}</td>
+              <td>{r.receivedDate}</td>
+              <td><strong>{r.actionDate}</strong></td>
+              <td>
+                {r.status === 'pending' ? (
+                  <div className="req-actions">
+                    <button className="req-approve-sm" onClick={() => openModal(r, 'approve')}>Approve</button>
+                    <button className="req-reject-sm" onClick={() => openModal(r, 'reject')}>Reject</button>
+                  </div>
+                ) : (
+                  <span style={{
+                    padding: '10px 16px',
+                    borderRadius: '8px',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    backgroundColor: r.status === 'approved' ? '#27ae60' : '#e74c3c'
+                  }}>
+                    {r.status.charAt(0).toUpperCase() + r.status.slice(1)}
+                  </span>
+                )}
+              </td>
+
+              <td style={{fontSize:'14px', lineHeight:'2'}}>
+                {r.status === 'approved' && r.username ? (
+                  <div>
+                    <div>
+                      <strong>Username:</strong>{' '}
+                      <span style={{background:'#e3f2fd', padding:'6px 12px', borderRadius:'6px', fontFamily:'monospace'}}>
+                        {r.username}
+                      </span>
+                    </div>
+                    <div style={{marginTop:'8px'}}>
+                      <strong>Password:</strong>{' '}
+                      <span style={{background:'#fff3cd', color:'#d35400', padding:'8px 14px', borderRadius:'8px', fontFamily:'monospace', fontWeight:'bold', fontSize:'16px'}}>
+                        {r.password}
+                      </span>
+                    </div>
+                  </div>
+                ) : '-'}
+              </td>
+
+              <td>
+                {r.uniqueCode ? (
+                  <strong style={{color:'#d35400', fontSize:'26px', fontWeight:'bold'}}>
+                    {r.uniqueCode}
+                  </strong>
+                ) : '-'}
               </td>
             </tr>
-          ) : (
-            filteredRequests.map((req) => (
-              <tr key={req.sno}>
-                <td data-label="S.no.">{req.sno}</td>
-                <td data-label="Sales Person">{req.salesPerson}</td>
-                <td data-label="Email">{req.email}</td>
-                <td data-label="School">{req.school}</td>
-                <td data-label="Address">{req.address}</td>
-                <td data-label="Document">
-                  {req.document ? (
-                    <div className="req-doc-cell">
-                      <button
-                        className="req-view-btn"
-                        onClick={() => viewDocument(req.document)}
-                      >
-                        View
-                      </button>
-                    </div>
-                  ) : (
-                    '-'
-                  )}
-                </td>
-                <td data-label="Received">{req.receivedDate}</td>
-                <td data-label="Date">{req.actionDate || '-'}</td>
-                <td data-label="Status">
-                  {req.status === 'pending' ? (
-                    <div className="req-actions">
-                      <button
-                        className="req-approve-sm"
-                        onClick={() => openModal(req.sno, 'approve')}
-                      >
-                        Approve
-                      </button>
-                      <button
-                        className="req-reject-sm"
-                        onClick={() => openModal(req.sno, 'reject')}
-                      >
-                        Reject
-                      </button>
-                    </div>
-                  ) : (
-                    <span className={`req-status-${req.status}`}>
-                      {req.status.charAt(0).toUpperCase() + req.status.slice(1)}
-                    </span>
-                  )}
-                </td>
-                <td data-label="Credentials">
-                  {req.status === 'approved' && req.id ? (
-                    <div className="req-creds">
-                      <strong>Username: </strong>
-                      <strong>{req.id}</strong>
-                      <br />
-                      <strong>Password: </strong>
-                      <strong>{req.password}</strong>
-                    </div>
-                  ) : (
-                    '-'
-                  )}
-                </td>
-                <td data-label="Unique Code">
-                  {req.uniqueCode ? (
-                    <strong className="req-unique-code">{req.uniqueCode}</strong>
-                  ) : (
-                    '-'
-                  )}
-                </td>
-              </tr>
-            ))
-          )}
+          ))}
         </tbody>
       </table>
 
-      {/* ==================== MODAL ==================== */}
-      {showModal && (
+      {/* Modal */}
+      {showModal && selectedReq && (
         <div className="req-modal-overlay" onClick={closeModal}>
-          <div className="req-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>
-              {modalType === 'approve' ? 'Approve Request' : 'Reject Request'}
-            </h2>
+          <div className="req-modal" onClick={e => e.stopPropagation()}>
+            <h2>{modalType === 'approve' ? 'Approve School' : 'Reject School'}</h2>
+            <p><strong>School:</strong> {selectedReq.school}<br/>
+               <strong>Email:</strong> {selectedReq.email}</p>
 
             {modalType === 'approve' ? (
               <>
-                <p>
-                  This will generate login credentials, unique school code, and
-                  send them via email.
-                </p>
+                <p>Credentials will be generated and emailed.</p>
                 <div className="req-modal-actions">
-                  <button className="req-approve-btn" onClick={handleApprove}>
-                    Yes, Approve & Email
-                  </button>
-                  <button className="req-close-btn" onClick={closeModal}>
-                    Cancel
-                  </button>
+                  <button className="req-approve-btn" onClick={handleApprove}>Yes, Approve</button>
+                  <button className="req-close-btn" onClick={closeModal}>Cancel</button>
                 </div>
               </>
             ) : (
               <>
-                <p>
-                  Please provide a reason for rejection (will be sent via
-                  email):
-                </p>
-                <textarea
-                  className="req-reject-reason"
-                  placeholder="Enter reason (required)"
-                  value={rejectionReason}
-                  onChange={(e) => setRejectionReason(e.target.value)}
-                  rows="4"
-                />
+                <textarea className="req-reject-reason" value={rejectionReason}
+                  onChange={e => setRejectionReason(e.target.value)} rows="4" placeholder="Reason..." />
                 <div className="req-modal-actions">
-                  <button
-                    className="req-reject-btn"
-                    onClick={handleReject}
-                    disabled={!rejectionReason.trim()}
-                  >
-                    Reject & Notify
-                  </button>
-                  <button className="req-close-btn" onClick={closeModal}>
-                    Cancel
-                  </button>
+                  <button className="req-reject-btn" onClick={handleReject}
+                    disabled={!rejectionReason.trim()}>Reject</button>
+                  <button className="req-close-btn" onClick={closeModal}>Cancel</button>
                 </div>
               </>
             )}

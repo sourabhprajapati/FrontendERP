@@ -1,0 +1,425 @@
+.student-details-container28 {
+    margin-left: 250px;
+     margin-top: 100px;
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f8fc;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.header28 {
+  background: linear-gradient(135deg, #014481, #0261c2);
+  padding: 22px 40px;
+
+  border-radius: 14px;
+  margin-bottom: 28px;
+  color: white;
+  box-shadow: 0 6px 20px rgba(1, 68, 129, 0.25);
+}
+
+.header28 h1 {
+  font-size: 29px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.breadcrumb28 {
+  font-size: 15px;
+  margin-top: 8px;
+  opacity: 0.95;
+}
+
+.breadcrumb28 span {
+  font-weight: 600;
+}
+
+.criteria-card28,
+.list-card28 {
+  background: white;
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 6px 22px rgba(1, 68, 129, 0.1);
+  border: 1px solid #e0e8f5;
+}
+
+.card-title28 {
+  color: #014481;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 3px solid #014481;
+  padding-bottom: 10px;
+  width: fit-content;
+}
+
+.search-row28 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 22px;
+  margin-bottom: 25px;
+}
+
+.input-group28 {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group28 label {
+  margin-bottom: 9px;
+  font-weight: 600;
+  color: #014481;
+  font-size: 15px;
+}
+
+.input-group28 input,
+.input-group28 select {
+  padding: 13px 16px;
+  border: 2px solid #c5d4ea;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.input-group28 input:focus,
+.input-group28 select:focus {
+  outline: none;
+  border-color: #014481;
+  box-shadow: 0 0 0 4px rgba(1, 68, 129, 0.15);
+}
+
+.keyword28 input {
+  padding-left: 45px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%23014481' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E") no-repeat 14px center;
+  background-size: 18px;
+}
+
+.search-buttons28 {
+  text-align: right;
+}
+
+.search-btn28 {
+  background: #014481;
+  color: white;
+  border: none;
+  padding: 13px 38px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(1, 68, 129, 0.3);
+}
+
+.search-btn28:hover {
+  background: #013567;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(1, 68, 129, 0.4);
+}
+
+.toolbar28 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.left-tools28 button,
+.right-tools28 select,
+.right-tools28 input {
+  padding: 9px 15px;
+  border: 1.5px solid #c5d4ea;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.tool-btn28.navy28 {
+  background: #014481;
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+
+.entries-select28,
+.table-search28 {
+  min-width: 80px;
+}
+
+.table-container28 {
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(1, 68, 129, 0.08);
+}
+
+.student-table28 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.student-table28 th {
+  background: linear-gradient(to bottom, #f0f5ff, #e3ecff);
+  padding: 16px;
+  text-align: left;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #014481;
+  border-bottom: 3px solid #014481;
+}
+
+.student-table28 td {
+  padding: 15px;
+  border-bottom: 1px solid #e5eefa;
+  font-size: 14.5px;
+}
+
+.student-table28 tbody tr:hover {
+  background: #f0f5ff;
+}
+
+.name-cell28 {
+  font-weight: 700;
+  color: #014481;
+}
+
+.action-dropdown28 {
+  position: relative;
+  display: inline-block;
+}
+
+.action-btn28 {
+  background: #014481;
+  color: white;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.action-btn28:hover {
+  background: #013062;
+}
+
+.dropdown-menu28 {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 170px;
+  box-shadow: 0 10px 30px rgba(1, 68, 129, 0.2);
+  border-radius: 10px;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  border: 1px solid #d0e0ff;
+  overflow: hidden;
+}
+
+.action-dropdown28:hover .dropdown-menu28 {
+  display: block;
+}
+
+.dropdown-item28 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border: none;
+  width: 100%;
+  text-align: left;
+  background: none;
+  cursor: pointer;
+  font-size: 14.5px;
+  color: #333;
+  transition: 0.2s;
+}
+
+.dropdown-item28:hover {
+  background: #f0f5ff;
+  color: #014481;
+  font-weight: 600;
+}
+
+.dropdown-item28.fee28 {
+  color: #014481;
+  font-weight: 700;
+}
+
+.table-info28 {
+  margin-top: 18px;
+  color: #014481;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .search-row28 { grid-template-columns: 1fr; }
+  .toolbar28 { flex-direction: column; align-items: stretch; }
+  .header28 { padding: 18px 20px; }
+}
+/* ===== View Modal (Student Profile) ===== */
+
+.modal-overlay28 {
+  position: fixed;
+  inset: 0;
+  background: rgba(1, 28, 63, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.profile-card28 {
+  background: #ffffff;
+  border-radius: 18px;
+  width: 520px;
+  max-width: 95vw;
+  box-shadow: 0 18px 45px rgba(1, 68, 129, 0.45);
+  margin-top: 50px;
+  padding: 22px 26px 24px;
+  position: relative;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Header and photo */
+
+.profile-header28 {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #e0e8f5;
+  padding-bottom: 14px;
+}
+
+.profile-photo28 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #014481;
+}
+
+.student-img28 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.student-name28 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #014481;
+  margin: 0;
+}
+
+/* Details grid */
+
+.profile-table28 {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 22px;
+}
+
+.profile-row28 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label28 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7b99;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.value28 {
+  font-size: 14px;
+  color: #1b2845;
+  font-weight: 500;
+}
+
+.value28.highlight28 {
+  color: #014481;
+  font-weight: 700;
+}
+
+/* Footer and buttons */
+
+.profile-footer28 {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.print-btn28 {
+  background: #014481;
+  color: #ffffff;
+  border: none;
+  padding: 9px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(1, 68, 129, 0.35);
+  transition: 0.2s;
+}
+
+.print-btn28:hover {
+  background: #013062;
+  transform: translateY(-2px);
+}
+
+.close-btn28 {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #6b7b99;
+  font-weight: 700;
+}
+
+.close-btn28:hover {
+  color: #014481;
+}
+
+/* View button inside dropdown */
+
+.view-btn28 {
+  color: #014481;
+  font-weight: 600;
+}
+
+.view-btn28:hover {
+  background: #014481;
+  color: #ffffff;
+}
+
+/* Optionally, mobile tweaks */
+
+@media (max-width: 576px) {
+  .profile-card28 {
+    width: 95vw;
+    padding: 18px 18px 20px;
+  }
+
+  .profile-table28 {
+    grid-template-columns: 1fr;
+  }
+}

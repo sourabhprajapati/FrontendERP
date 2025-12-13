@@ -1,0 +1,402 @@
+
+/* ========== Page wrapper ========== */
+.sl-page37 {
+   
+ 
+  
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  box-sizing: border-box;
+   padding-top: 100px;      /* ← change this if your header is taller/shorter */
+  padding-left: 280px;
+  max-width: 1600px;
+  height: 100vh;
+   background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+}
+
+/* ========== Main list box ========== */
+.sl-main-box37 {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 0 20px;
+}
+
+/* ========== Header ========== */
+.sl-list-head37 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.sl-list-head-full-green37 {
+  background: #02A651;
+}
+
+.sl-list-title37 i {
+  margin-right: 8px;
+}
+
+/* ========== Add button ========== */
+.sl-add-btn37 {
+  background: #004585;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid #004585;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.sl-add-btn37:hover {
+  background: white;
+  color: #004585;
+}
+
+/* ========== Column + Search row ========== */
+.sl-btn-row37 {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.sl-column-btn37 {
+  background: #02A651;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sl-dropdown37 {
+  position: relative;
+}
+
+.sl-column-menu37 {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 220px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  z-index: 60;
+}
+
+.sl-col-item37 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.sl-search-box37 input {
+  width: 250px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* ========== Table ========== */
+.sl-table-wrap37 {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.sl-table37 {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+}
+
+.sl-table37 thead {
+  background: #f8f8f8;
+  color: #000;
+}
+
+.sl-table37 thead th {
+  padding: 10px;
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.sl-table37 tbody td {
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #f3f3f3;
+  vertical-align: middle;
+}
+
+.sl-table37 tbody tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+/* ========== Status badges ========== */
+.sl-status37 {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.sl-green37 {
+  background: rgba(2,166,81,0.12);
+  color: #02A651;
+  border: 1px solid rgba(2,166,81,0.18);
+}
+
+.sl-red37 {
+  background: rgba(204,0,0,0.06);
+  color: #d90429;
+}
+
+/* ========== Action button/menu ========== */
+.sl-action-cell37 {
+  position: relative;
+}
+
+.sl-action37 {
+  background: #004585;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+.sl-action-menu37 {
+  display: none;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 140px;
+  background: #fff;
+  z-index: 40;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.sl-action-menu37.active {
+  display: block;
+}
+
+.sl-action-menu37 button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sl-approve37 { color: #02A651; }
+.sl-reject37 { color: #e63946; }
+
+/* ========== ADD LEAVE PAGE ========== */
+.sl-add-page37 {
+  margin: 0 20px;
+}
+
+.sl-add-card37 {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 26px rgba(0,0,0,0.08);
+  padding: 18px;
+  overflow: hidden;
+}
+
+.sl-add-card-header37 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.sl-add-card-title37 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #004585;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sl-add-close37 button {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* grid as 3 columns */
+.sl-add-grid37 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.sl-field37 {
+  display: flex;
+  flex-direction: column;
+}
+
+.sl-field37 label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.sl-field37 select,
+.sl-field37 input,
+.sl-field37 textarea {
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.sl-field37.file-field37 input[type="file"] {
+  padding: 6px;
+}
+
+/* full width textarea */
+.sl-full37 {
+  grid-column: 1 / -1;
+}
+
+/* actions at bottom */
+.sl-add-actions37 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.sl-btn37 {
+  padding: 9px 18px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.sl-btn37.cancel37 {
+  background: #fff;
+  color: #004585;
+  border: 1px solid #ddd;
+}
+
+.sl-btn37.save37 {
+  background: #004585;
+  color: #fff;
+  border: 1px solid #004585;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px) {
+  .sl-add-grid37 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sl-search-box37 input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sl-main-box37 {
+    margin: 0 8px;
+  }
+
+  .sl-add-grid37 {
+    grid-template-columns: 1fr;
+  }
+
+  .sl-search-box37 input {
+    width: 100%;
+  }
+
+  .sl-table37 thead th {
+    font-size: 13px;
+  }
+
+  .sl-table37 tbody td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .sl-list-head37 {
+    padding: 12px;
+  }
+
+  .sl-add-card37 {
+    padding: 12px;
+  }
+}
+
+/* ---------- ADD LEAVE PAGE COLORING ---------- */
+.sl-colored-add37 {
+  border: 3px solid #02A651;
+  box-shadow: 0 0 15px rgba(0, 69, 133, 0.25);
+}
+
+.sl-add-header-colored37 {
+  background: #02A651;
+  padding: 12px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.sl-add-card-title37 {
+  color: #ffffff !important;
+}
+
+.sl-add-close37 button {
+  color: #ffffff !important;
+}
+
+.sl-field37 label {
+  color: #004585 !important;
+  font-weight: 700;
+}
+
+.sl-field37 select,
+.sl-field37 input,
+.sl-field37 textarea {
+  border: 1px solid #02A651 !important;
+}
+
+.sl-btn37.save37 {
+  background: #02A651 !important;
+  border-color: #02A651 !important;
+}
+
+.sl-btn37.cancel37 {
+  color: #004585 !important;
+}
+
+.sl-btn37.cancel37:hover {
+  border-color: #004585 !important;
+}
