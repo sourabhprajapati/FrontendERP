@@ -42,6 +42,21 @@ import StudentId  from "./components/school/StudentId/StudentId";
 import PermissionSetting  from "./components/school/PermissionSetting/UserPermission.jsx";
 import AttendanceReport  from "./components/school/AttendanceReport/AttendanceReport";
 import StaffId  from "./components/school/StaffId/StaffId";
+// import LoginPage  from "./components/LoginPage/LoginPage.jsx";
+import RegistrationExcelUpload from "./components/school/RegistrationExcelUpload/RegistrationExcelUpload.jsx";
+import AddClass1 from "./components/school/AddClass/AddClass";
+import AddSections from "./components/school/AddSections/AddSections";
+import Subjectmaster from "./components/school/Subjectmaster/Subjectmaster";
+import LeaveApplication from "./components/school/LeaveApplication/LeaveApplication";
+import LeaveBalance from "./components/school/LeaveBalance/LeaveBalance";
+import AttendancePage from "./components/school/AttendancePage/AttendancePage";
+
+
+
+
+
+
+
 
 
 
@@ -99,6 +114,18 @@ import Profile from "./components/Sales/Profile/Profile";
 import Reject from "./components/Sales/Reject/Reject";
 import SalesExecutivePage from "./components/SuperAdmin/SalesExecutivePage/SalesExecutivePage";
 
+
+
+
+import ApplyLeave1 from "./components/Student/ApplyLeave1";
+import Attendance from "./components/Student/Attendance"
+import St_ClassTimeTable from "./components/Student/St_ClassTimeTable"
+import Homework from "./components/Student/Homework"
+import Dashboard from "./components/Student/Dashboard";
+import FeeDetails from "./components/Student/FeeDetails"
+import StudentDetails1 from "./components/Student/st_StudentDetails";
+import Subjects from "./components/Student/Subjects";
+
 // Export route configuration without JSX
 export const routeConfig = {
   superAdmin: [
@@ -155,6 +182,25 @@ export const routeConfig = {
     { path: "/PermissionSetting", component: PermissionSetting},
     { path: "/AttendanceReport", component: AttendanceReport},
     { path: "/StaffId", component: StaffId},
+    { path: "/Studentdetails", component: StudentDetails},
+    // { path: "/LoginPage", component: LoginPage},
+    { path: "/RegistrationExcelUpload", component: RegistrationExcelUpload },
+    { path: "/AddClass1", component: AddClass1 },
+    { path: "/AddSections", component: AddSections },
+    { path: "/Subjectmaster", component: Subjectmaster },
+    { path: "/LeaveApplication", component: LeaveApplication },
+     { path: "/LeaveBalance", component: LeaveBalance },
+
+    { path: "/AttendancePage", component: AttendancePage },
+
+
+
+
+
+
+
+
+
 
 
 
@@ -207,4 +253,14 @@ export const routeConfig = {
     { path: "/Profile", component: Profile },
     { path: "/Reject", component: Reject },
   ],
+   student: [
+    { path: "/dashboard", component: Dashboard },
+    { path: "/st_studentdetails", component: StudentDetails1 },
+    { path: "/st_classtimetable", component: St_ClassTimeTable },
+    { path: "/subjects", component: Subjects },
+    { path: "/homework", component: Homework },
+    { path: "/attendance", component: Attendance },
+    { path: "/leaves", component: ApplyLeave1 },
+    { path: "/feedetails", component: FeeDetails },
+  ]
 };

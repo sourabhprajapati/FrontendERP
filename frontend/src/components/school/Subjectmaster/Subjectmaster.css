@@ -1,0 +1,131 @@
+.subject-master-container {
+  max-width: 1100px;
+  margin: 120px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  margin-left: 320px;
+}
+
+.subject-master-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+.multi-select {
+  position: relative;
+}
+
+.multi-select-input {
+  padding: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.multi-select-dropdown {
+  position: absolute;
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 6px;
+  z-index: 10;
+}
+
+.multi-select-dropdown label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+
+.message {
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.message:nth-child(odd) { background: #d4edda; color: #155724; }
+.message:nth-child(even) { background: #f8d7da; color: #721c24; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.form-group input,
+.form-group select {
+  padding: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #fdfdfd;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.btn-group {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.save-btn, .cancel-btn {
+  padding: 14px 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.save-btn { background: #27ae60; color: white; }
+.cancel-btn { background: #95a5a6; color: white; }
+
+.subjects-list h3 {
+  color: #2c3e50;
+  margin: 40px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #3498db;
+}
+
+.subject-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border-left: 6px solid #3498db;
+}
+
+.class-tag {
+  color: #2980b9;
+  font-weight: bold;
+}
+
+.meta small { color: #7f8c8d; }
+
+.edit-btn { background: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 8px; margin-right: 10px; }
+.delete-btn { background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 8px; }

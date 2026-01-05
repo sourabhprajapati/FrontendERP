@@ -1,0 +1,232 @@
+.add-sections-container42 {
+  max-width: 1000px;
+  margin: 150px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 350px;
+}
+
+.add-sections-container42 h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  position: relative;
+}
+
+.add-sections-container42 h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background: #3498db;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Message */
+.message42 {
+  padding: 14px 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  animation: slideDown 0.4s ease;
+}
+
+.message42:not(.error) {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message42.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Input Group - Add Section */
+.input-group42 {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: end;
+}
+
+.input-group42 select,
+.input-group42 input {
+  padding: 14px 16px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fdfdfd;
+  transition: all 0.3s;
+  min-width: 200px;
+}
+
+.input-group42 select:focus,
+.input-group42 input:focus {
+  outline: none;
+  border-color: #3498db;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+}
+
+.input-group42 input::placeholder {
+  color: #95a5a6;
+}
+
+.input-group42 button {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #27ae60;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.input-group42 button:hover {
+  background: #219a52;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+}
+
+.input-group42 button:active {
+  transform: translateY(0);
+}
+
+/* Sections List */
+.sections-list42 {
+  margin-top: 20px;
+}
+
+.class-sections42 {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 6px solid #3498db;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.class-sections42:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.class-sections42 h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.sections42 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.section-tag42 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #3498db;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s;
+  box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+}
+
+.section-tag42:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.section-tag42 button {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.section-tag42 button:hover {
+  background: #e74c3c;
+  transform: scale(1.1);
+}
+
+/* Empty State */
+.sections42 p {
+  color: #95a5a6;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .add-sections-container42 {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .input-group42 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-group42 select,
+  .input-group42 input,
+  .input-group42 button {
+    width: 100%;
+  }
+
+  .section-tag42 {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .class-sections42 h3 {
+    font-size: 19px;
+  }
+}

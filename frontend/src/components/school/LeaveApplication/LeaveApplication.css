@@ -1,0 +1,301 @@
+/* LeaveApplication.css - All classes now end with 44 */
+
+.leave-application-container44 {
+  max-width: 1600px;
+  padding: 100px 20px 40px 280px;
+  font-family: -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f1f5f9;
+}
+
+.tabs44 {
+  display: flex;
+  margin-bottom: 28px;
+  background: white;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: fit-content;
+}
+
+.tab44 {
+  padding: 10px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.tab44.active {
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+.content-wrapper44 {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 24px;
+  min-height: 500px;
+}
+
+/* ── Apply Form ─────────────────────────────────────────────────────────────── */
+.info-banner44 {
+  background-color: #fffbeb;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #92400e;
+}
+
+.hide-link44 {
+  color: #2563eb;
+  cursor: pointer;
+  float: right;
+  font-weight: 500;
+}
+
+.form-title44 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #1f2937;
+}
+
+.form-group44 {
+  margin-bottom: 20px;
+}
+
+label44 {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.required44::after {
+  content: '*';
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.form-control44 {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-control44:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.date-range-container44 {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.date-group44 {
+  flex: 1;
+  min-width: 260px;
+}
+
+.date-input-wrapper44 {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.date-input44 {
+  flex: 1;
+}
+
+.session-select44 {
+  width: 140px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.balance-info44 {
+  margin-top: 28px;
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.balance-info44 strong {
+  color: #1f2937;
+}
+
+.contact-textarea44,
+.reason-textarea44 {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.file-upload-wrapper44 {
+  margin-top: 6px;
+}
+
+.file-input44 {
+  display: none;
+}
+
+.file-upload-label44 {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.file-upload-label44:hover {
+  background: #e5e7eb;
+}
+
+.file-types-info44 {
+  margin-left: 16px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.form-actions44 {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn44 {
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.submit-btn44 {
+  background: #2563eb;
+  color: white;
+}
+
+.submit-btn44:hover {
+  background: #1d4ed8;
+}
+
+.cancel-btn44 {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cancel-btn44:hover {
+  background: #e5e7eb;
+}
+
+/* ── Pending Tab - Empty State ─────────────────────────────────────────────── */
+.empty-state44 {
+  text-align: center;
+  padding: 100px 20px;
+  color: #6b7280;
+}
+
+.illustration44 {
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+
+.empty-message44 {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* ── History Tab ────────────────────────────────────────────────────────────── */
+.history-container44 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.history-item44 {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.history-header44 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.status44 {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.approved44 {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.expand-toggle44 {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.history-summary44 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #1f2937;
+}
+
+.history-details44 {
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.applied-info44 {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.view-details44 {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 500;
+}

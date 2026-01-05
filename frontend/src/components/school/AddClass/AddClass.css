@@ -1,0 +1,145 @@
+.add-class-container41 {
+  max-width: 600px;
+  margin: 120px auto 20px;
+  padding: 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.add-class-container41 h2 {
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
+  font-size: 24px;
+}
+
+.add-class-container41 input {
+  width: 70%;
+  padding: 15px;
+  margin-right: 10px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  font-size: 16px;
+}
+
+.add-class-container41 input::placeholder {
+  color: #666;
+}
+
+.add-class-container41 button {
+  padding: 15px 25px;
+  border: none;
+  background: #28a745;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.add-class-container41 button:hover {
+  background: #218838;
+}
+
+.add-class-container41 ul {
+  margin-top: 30px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.add-class-container41 li {
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  font-size: 16px;
+}
+
+.message41 {
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.message41:nth-child(odd) {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.input-group41 {
+  display: flex;
+  align-items: center !important;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-group41 {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-cancel41 {
+  background: #6c757d !important;
+}
+
+.btn-cancel41:hover {
+  background: #5a6268 !important;
+}
+
+.class-item41 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.class-item41 span {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.actions41 button {
+  padding: 6px 12px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-edit41 {
+  background: #007bff !important;
+  color: white;
+}
+
+.btn-edit41:hover {
+  background: #0056b3 !important;
+}
+
+.btn-delete41 {
+  background: #dc3545 !important;
+  color: white;
+}
+
+.btn-delete41:hover {
+  background: #c82333 !important;
+}
+
+h341 {
+  margin: 30px 0 15px;
+  color: #007bff;
+  font-size: 20px;
+}

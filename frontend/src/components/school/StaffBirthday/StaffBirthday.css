@@ -84,7 +84,46 @@
   font-weight: bold;
   animation: pulse 2s infinite;
 }
+.bday-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
+.bday-message-btn {
+  background: #0057b7;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bday-message-btn:hover {
+  background: #004494;
+  transform: translateY(-1px);
+}
+
+.bday-message-btn:active {
+  transform: translateY(0);
+}
+
+/* Optional: smaller button on mobile */
+@media (max-width: 600px) {
+  .bday-card-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .bday-message-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }

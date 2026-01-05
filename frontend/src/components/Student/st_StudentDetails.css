@@ -1,0 +1,66 @@
+.student-cards-row {
+  display: flex;
+  gap: 24px;
+  justify-content: start;
+  align-items: flex-start;
+  padding: 34px 20px;
+  background: #f6f9ff;
+  min-height: 100vh;
+}
+.student-info-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(89,115,185,.07);
+  padding: 26px 22px;
+  width: 333px;
+  flex: none;
+}
+.student-info-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #544cff;
+  margin-bottom: 17px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+.student-info-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.student-info-card li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15.5px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f0f2f6;
+}
+.info-label {
+  color: #1e2950;
+  font-weight: 500;
+  width: 51%;
+  text-align: left;
+  opacity: 0.92;
+}
+.info-value {
+  color: #5a6199;
+  font-weight: 600;
+  text-align: right;
+  letter-spacing: 0.4px;
+}
+.info-value.na {
+  color: #eab308;
+  opacity: 0.90;
+  font-weight: 500;
+}
+@media(max-width: 950px) {
+  .student-cards-row {
+    flex-direction: column;
+    gap: 30px;
+    align-items: stretch;
+  }
+  .student-info-card {
+    width: 100%;
+  }
+}

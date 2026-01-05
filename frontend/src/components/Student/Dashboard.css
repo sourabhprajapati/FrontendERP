@@ -1,0 +1,385 @@
+
+.modern-erp-dashboard {
+  padding: 36px 40px;
+  
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2a2c3b;
+  background-color: #f6f9ff;
+}
+
+.modernheader {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  align-items: center;
+}
+
+.modern-welcome {
+  font-size: 14px;
+  letter-spacing: 0
+}
+
+.profile-welcome-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 120px;
+  border-radius: 5px;
+  object-fit: cover;
+  /* border: 2px solid #6a64f1; */
+  margin-left: 15px;
+}
+
+ 
+
+.modernheader h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin: 8px 0;
+  color: #20232a;
+}
+.modern-subtitle {
+  font-size: 16.5px;
+  color: #7e859d;
+}
+
+.modern-stats {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+.modern-card {
+  flex: 1;
+  position: relative;
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px 28px 26px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12),
+    inset 0 0 12px rgba(255, 255, 255, 0.9);
+  border: 1px solid #cdd9e8;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.modern-card:hover {
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.15),
+    inset 0 0 16px rgba(255, 255, 255, 1);
+  transform: translateY(-6px);
+}
+.modern-icon {
+  font-size: 30px;
+  color: #6a64f1;
+  margin-bottom: 14px;
+}
+.stats-text {
+  display: flex;
+  flex-direction: column;
+}
+.stats-text span {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: #7f83a6;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.stats-text h2 {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #282d3b;
+  margin: 6px 0 0 0;
+}
+.progress-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  height: 6px;
+  border-radius: 20px;
+  background: #6a64f1;
+  transition: width 0.5s ease;
+}
+.modern-card.homework .modern-icon {
+  color: #fdbb2d;
+}
+.modern-card.homework .stats-text span {
+  color: #fbbf47;
+}
+.modern-card.homework .stats-text h2 {
+  color: #c78512;
+}
+
+/* Main content */
+.modern-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(340px,1fr));
+  gap: 34px;
+}
+
+/* Glassmorphism cards styling */
+.glass-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(15px);
+  border-radius: 28px;
+  padding: 26px 28px 30px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255,255,255,0.12);
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+.glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(106, 100, 241, 0.48);
+}
+
+/* Cards header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #3a3f58;
+}
+.section-header svg {
+  color: #6a64f1;
+  font-size: 28px;
+}
+
+/* Homework & lists */
+.list-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 18px;
+  background: rgba(106, 100, 241, 0.05);
+  color: #3a3f58;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: inset 0 0 3px rgba(106, 100, 241, 0.1);
+  transition: background 0.25s ease;
+}
+.list-item:hover {
+  background: rgba(106, 100, 241, 0.14);
+}
+.item-title {
+  font-weight: 700;
+  font-size: 17px;
+}
+.status-badge {
+  font-size: 12px;
+  padding: 8px 22px;
+  border-radius: 40px;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  user-select: none;
+}
+.status-badge.pending {
+  background: #fff8e1;
+  color: #f6a609;
+  box-shadow: inset 0 0 4px #f6a609;
+}
+.status-badge.submitted {
+  background: #dcffe7;
+  color: #18a258;
+  box-shadow: inset 0 0 4px #18a258;
+}
+
+/* Attendance meter */
+.attendance-meter {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.circle-svg {
+  width: 94px;
+  height: 94px;
+  transform: rotate(-90deg);
+}
+.bg-circle {
+  stroke: #efefef;
+  stroke-width: 8;
+}
+.progress-circle {
+  stroke: #6a64f1;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.4s ease;
+}
+.attendance-text {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1.2px;
+  color: #6a64f1;
+}
+.attendance-text strong {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Notifications */
+.notif-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.notif {
+  background: #fff3f3;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  color: #9e3a43;
+  font-weight: 700;
+  box-shadow:
+    inset 5px 0 10px #e55041;
+}
+.notif small {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 4px;
+  color: #b25757;
+}
+
+/* Event calendar */
+.calendar-month {
+  font-weight: 700;
+  font-size: 15px;
+  color: #9999aa;
+  margin-bottom: 12px;
+  letter-spacing: 1.2px;
+}
+.events-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.event {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e3e3ff;
+  border-radius: 18px;
+  padding: 14px 18px;
+  margin-bottom: 11px;
+  font-weight: 600;
+  color: #3a3a99;
+  box-shadow: inset 0 6px 8px rgb(72 72 219 / 0.4),
+              inset 0 -6px 8px rgb(72 72 219 / 0.4);
+  transition: background 0.4s ease;
+  cursor: default;
+}
+.event:hover {
+  background: #b3b3ff;
+  color: #2a2a8a;
+}
+.event-dot {
+  background: #6a64f1;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 18px #6a64f1;
+  margin-left: 24px;
+}
+/* Notification Table - Professional ERP Style */
+.notification-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 16px;
+  background: transparent;
+}
+
+.notification-table th,
+.notification-table td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #eff1f8;
+  text-align: left;
+}
+
+.notification-table th {
+  background: #004f9f;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  font-size: 17px;
+}
+
+.notification-table tr:last-child td {
+  border-bottom: none;
+}
+
+.notif-link {
+  color: #004f9f;
+ 
+  padding: 7px 22px;
+  border-radius: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .18s, color .18s;
+  font-size: 15px;
+  box-shadow: 0 1px 7px #3dc78422;
+  display: inline-block;
+}
+
+.notif-link:hover {
+  background: #004f9f;
+  color: #fff;
+}
+
+/* Extend notification card (table) to span across events section, grid layout update */
+.modern-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr;
+  gap: 34px;
+  align-items: flex-start;
+}
+
+.notifications-section {
+  grid-column: span 2;
+}
+
+/* Responsive Design: Stacking on smaller screens */
+@media (max-width: 1100px) {
+  .modern-main {
+    grid-template-columns: 1fr;
+  }
+  .notifications-section { grid-column: span 1 !important; }
+}
+
+/* Mobile responsiveness: Utilize sidebar space by reducing padding */
+@media (max-width: 768px) {
+  .modern-erp-dashboard {
+    padding: 20px 20px;
+  }
+}
+
+
+  .button {
+    background-color: white;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 5px;
+    border-color: white;
+  }

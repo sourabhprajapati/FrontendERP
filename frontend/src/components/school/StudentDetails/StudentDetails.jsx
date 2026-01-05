@@ -1,387 +1,281 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./StudentDetails.css";
-import { FiSearch, FiEye, FiEdit2, FiDollarSign } from "react-icons/fi";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const StudentDetails = () => {
-  const [classFilter, setClassFilter] = useState("KSV 6th");
-  const [sectionFilter, setSectionFilter] = useState("A");
-  const [keyword, setKeyword] = useState("");
-  const [selectedStudent, setSelectedStudent] = useState(null); // ← NEW
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const students = [
-    {
-      id: 1,
-      admissionNo: "PNGWing/45454",
-      rollNo: "",
-      name: "lakh asda",
-      class: "KSV 6th",
-      section: "A",
-      gender: "Male",
-      dob: "06-05-2024",
-      father: "Test Father",
-      mother: "",
-      phone: "1234567890",
-    },
-    {
-      id: 2,
-      admissionNo: "PNGWing/20620",
-      rollNo: "",
-      name: "Hetashvi Choudhary",
-      class: "KSV 6th",
-      section: "A",
-      gender: "Female",
-      dob: "01-01-2017",
-      father: "ddd",
-      mother: "fff",
-      phone: "1234567890",
-    },
-    {
-      id: 3,
-      admissionNo: "NLET/2025",
-      rollNo: "8",
-      name: "devesh",
-      class: "KSV 6th",
-      section: "A",
-      gender: "Male",
-      dob: "01-01-2022",
-      father: "mr haridas",
-      mother: "",
-      phone: "07355335204",
-    },
-    {
-      id: 4,
-      admissionNo: "NLET/5575",
-      rollNo: "9",
-      name: "NAMAN",
-      class: "KSV 6th",
-      section: "A",
-      gender: "Male",
-      dob: "10-06-2017",
-      father: "GYAN SINGH",
-      mother: "REKHA YADAV",
-      phone: "Non",
-    },
-    {
-      id: 5,
-      admissionNo: "NLET/5556",
-      rollNo: "10",
-      name: "Daksh",
-      class: "KSV 6th",
-      section: "A",
-      gender: "Male",
-      dob: "09-06-2018",
-      father: "Vipin kumar",
-      mother: "REETA DEVI",
-      phone: "7307488087",
-    },
-    {
-      id: 6,
-      admissionNo: "NLET/125",
-      rollNo: "11",
-      name: "RIDVI",
-      class: "KSV 6th",
-      section: "A",
-      gender: "Female",
-      dob: "07-05-2019",
-      father: "",
-      mother: "",
-      phone: "9999999999",
-    },
-  ];
-
-  const filteredStudents = students.filter(
-    (s) =>
-      s.class.includes(classFilter) &&
-      s.section.includes(sectionFilter) &&
-      (s.name.toLowerCase().includes(keyword.toLowerCase()) ||
-        s.admissionNo.includes(keyword) ||
-        s.phone.includes(keyword))
-  );
-  const openViewModal = (student) => {
-    setSelectedStudent(student);
-    setIsModalOpen(true);
+/* ================= LABEL FORMATTER ================= */
+const formatLabel = (key) => {
+  const map = {
+    admissionNo: "Admission No",
+    rollNo: "Roll Number",
+    dob: "Date of Birth",
+    phone: "Phone Number",
+    aadhaar: "Aadhaar Number",
+    pinCode: "Pin Code",
+    singleParent: "Single Parent",
+    bloodGroup: "Blood Group",
+    permanentAddress: "Permanent Address",
   };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedStudent(null);
-  };
-  const handleEdit = (student) => {
-  // Navigate to AddStudent with student data
-  const studentData = {
-    id: student.id,
-    admissionNo: student.admissionNo,
-    rollNo: student.rollNo,
-    name: student.name,
-    class: student.class,
-    section: student.section,
-    gender: student.gender,
-    dob: student.dob,
-    father: student.father,
-    mother: student.mother,
-    phone: student.phone
-  };
-  const navigate = useNavigate();
-  // Method 1: Using React Router (Recommended)
-  navigate('/StudentAdmissionForm', { 
-    state: { student: studentData, isEdit: true } 
-  });
-  
-  // Method 2: Using URL params (if no router)
-  // const queryString = new URLSearchParams(studentData).toString();
-  // window.location.href = `/add-student?${queryString}`;
-};
-
 
   return (
-    <div className="student-details-container28">
-      {/* Header */}
-      <div className="header28">
-        <h1>Student Details</h1>
-        <div className="breadcrumb28">
-          Student Information / <span>Student Details</span>
-        </div>
-      </div>
+    map[key] ||
+    key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase())
+  );
+};
 
-      {/* Search Criteria Card */}
-      <div className="criteria-card28">
-        <h3 className="card-title28">Select Criteria</h3>
+/* ================= DETAIL SECTION ================= */
+// src/components/StudentDetails.jsx
 
-        <div className="search-row28">
-          <div className="input-group28">
-            <label>Class *</label>
-            <input
-              type="text"
-              value={classFilter}
-              onChange={(e) => setClassFilter(e.target.value)}
-              placeholder="e.g. KSV 6th"
-            />
-          </div>
+const DetailSection = ({ title, data }) => (
+  <div className="detail-section39">
+    <h3 className="section-title39">{title}</h3>
 
-          <div className="input-group28">
-            <label>Section</label>
-            <select
-              value={sectionFilter}
-              onChange={(e) => setSectionFilter(e.target.value)}
-            >
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
-              <option>D</option>
-            </select>
-          </div>
+    {data && Object.keys(data).length === 0 ? (
+      <p className="muted39">No information provided</p>
+    ) : (
+      <div className="detail-grid39">
+        {data && Object.entries(data).map(([key, value]) => {
+          if (key === "photo" || value === undefined || value === null) return null;
 
-          <div className="input-group28 keyword28">
-            <label>Search by Keyword</label>
-            <input
-              type="text"
-              value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
-              placeholder="Search by Admission no, Student Name, Phone"
-            />
-          </div>
-        </div>
-
-        <div className="search-buttons28">
-          <button className="search-btn28">Search</button>
-          {/* <button className="search-btn28 secondary28">
-            Search
-          </button> */}
-        </div>
-      </div>
-
-      {/* Student List Card */}
-      <div className="list-card28">
-        <h3 className="card-title28">Student List</h3>
-
-        <div className="toolbar28">
-          <div className="left-tools28">
-            <button className="tool-btn28">Excel</button>
-
-            <button className="tool-btn28">PDF</button>
-          </div>
-
-          <div className="right-tools28">
-            <select className="entries-select28" defaultValue="10">
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-              <option>100</option>
-            </select>
-            <input
-              type="text"
-              placeholder="Search:"
-              className="table-search28"
-            />
-          </div>
-        </div>
-
-        {/* Table */}
-        <div className="table-container28">
-          <table className="student-table28">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>ADMISSION NO.</th>
-                <th>ROLL NUMBER</th>
-                <th>NAME</th>
-                <th>CLASS</th>
-                <th>SECTION</th>
-                <th>GENDER</th>
-                <th>DATE OF BIRTH</th>
-                <th>FATHER NAME</th>
-                <th>MOTHER NAME</th>
-                <th>GUARDIAN PHONE</th>
-                <th>ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredStudents.map((student, index) => (
-                <tr key={student.id}>
-                  <td>{index + 1}</td>
-                  <td>{student.admissionNo}</td>
-                  <td>{student.rollNo || "-"}</td>
-                  <td className="name-cell28">{student.name}</td>
-                  <td>{student.class}</td>
-                  <td>{student.section}</td>
-                  <td>{student.gender}</td>
-                  <td>{student.dob}</td>
-                  <td>{student.father}</td>
-                  <td>{student.mother}</td>
-                  <td>{student.phone}</td>
-                  <td>
-                    <div className="action-dropdown28">
-                      <button className="action-btn28">Action</button>
-                      <div className="dropdown-menu28">
-                        <button
-                          className="dropdown-item28"
-                          onClick={() => openViewModal(student)} // ← THIS MAKES VIEW WORK
-                        >
-                          View
-                        </button>
-                        <button
-                          className="dropdown-item28 edit-btn28"
-                          onClick={() => handleEdit(student)}
-                        >
-                          Edit
-                        </button>
+          // Handle nested objects (like father, mother)
+          if (typeof value === "object" && !Array.isArray(value)) {
+            return (
+              <div className="detail-card39 nested39" key={key}>
+                <div className="detail-label39">{formatLabel(key)}</div>
+                <div className="detail-value39">
+                  {Object.entries(value)
+                    .filter(([k]) => k !== "photo")
+                    .map(([k, v]) => (
+                      <div key={k}>
+                        <strong>{formatLabel(k)}:</strong> {v || <span className="muted39">Not Entered</span>}
                       </div>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {/* ==================== BEAUTIFUL STUDENT PROFILE MODAL (Exactly like your screenshot) ==================== */}
-        {isModalOpen && selectedStudent && (
-          <div className="modal-overlay28">
-            <div className="profile-card28">
-              {/* Close Button */}
-              <button className="close-btn28" onClick={closeModal}>
-                Close
-              </button>
-
-              {/* Profile Header */}
-              <div className="profile-header28">
-                <div className="profile-photo28">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/32.jpg"
-                    alt="Student"
-                    className="student-img28"
-                  />
-                </div>
-                <h2 className="student-name28">{selectedStudent.name}</h2>
-              </div>
-
-              {/* Details Table */}
-              <div className="profile-table28">
-                <div className="profile-row28">
-                  <span className="label28">Admission No.</span>
-                  <span className="value28 highlight28">
-                    {selectedStudent.admissionNo}
-                  </span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Biometric Id</span>
-                  <span className="value28">2232</span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Roll Number</span>
-                  <span className="value28">
-                    {selectedStudent.rollNo || "—"}
-                  </span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Class</span>
-                  <span className="value28 highlight28">
-                    {selectedStudent.class} (2025-26)
-                  </span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Section</span>
-                  <span className="value28">{selectedStudent.section}</span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">RTE</span>
-                  <span className="value28">No</span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Gender</span>
-                  <span className="value28 highlight28">
-                    {selectedStudent.gender}
-                  </span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Date of Birth</span>
-                  <span className="value28">{selectedStudent.dob}</span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Father Name</span>
-                  <span className="value28">
-                    {selectedStudent.father || "—"}
-                  </span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Mother Name</span>
-                  <span className="value28">
-                    {selectedStudent.mother || "—"}
-                  </span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Phone</span>
-                  <span className="value28">{selectedStudent.phone}</span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Blood Group</span>
-                  <span className="value28">
-                    {selectedStudent.bloodGroup || "Not Set"}
-                  </span>
-                </div>
-                <div className="profile-row28">
-                  <span className="label28">Address</span>
-                  <span className="value28">
-                    {selectedStudent.address || "Not Provided"}
-                  </span>
+                    ))}
                 </div>
               </div>
+            );
+          }
 
-              {/* Footer */}
-              <div className="profile-footer28">
-                <button className="print-btn28" onClick={() => window.print()}>
-                  Print Profile
-                </button>
+          return (
+            <div className="detail-card39" key={key}>
+              <div className="detail-label39">{formatLabel(key)}</div>
+              <div className="detail-value39">
+                {value ? value : <span className="muted39">Not Entered</span>}
               </div>
             </div>
-          </div>
-        )}
-
-        <div className="table-info28">
-          Showing {filteredStudents.length} entries
-        </div>
+          );
+        })}
       </div>
+    )}
+  </div>
+);
+
+/* ================= MAIN COMPONENT ================= */
+const StudentDetails = () => {
+  const navigate = useNavigate();
+
+  const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [classFilter, setClassFilter] = useState("");
+  const [sectionFilter, setSectionFilter] = useState("");
+  const [keyword, setKeyword] = useState("");
+  const [viewStudent, setViewStudent] = useState(null);
+
+  /* ================= FETCH STUDENTS ================= */
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/students");
+        const data = await res.json();
+        setStudents(data);
+      } catch (err) {
+        console.error("Failed to load students", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStudents();
+  }, []);
+
+  /* ================= FILTER ================= */
+  const filteredStudents = students.filter((s) => {
+    const basic = s.basic || {};
+
+    return (
+      basic.class?.includes(classFilter) &&
+      basic.section?.includes(sectionFilter) &&
+      (
+        basic.name?.toLowerCase().includes(keyword.toLowerCase()) ||
+        basic.admissionNo?.includes(keyword) ||
+        basic.phone?.includes(keyword)
+      )
+    );
+  });
+
+  if (loading) {
+    return <div className="loading">Loading students...</div>;
+  }
+
+  return (
+    <div className="sd-page39">
+      {/* HEADER */}
+      <div className="sd-header39">
+        <h1>Student Details</h1>
+        <p>School Panel – All Student Records</p>
+      </div>
+
+      {/* FILTERS */}
+      <div className="sd-filters39">
+        <input
+          type="text"
+          value={classFilter}
+          onChange={(e) => setClassFilter(e.target.value)}
+          placeholder="Class"
+          className="filter-input39"
+        />
+
+        <select
+          value={sectionFilter}
+          onChange={(e) => setSectionFilter(e.target.value)}
+          className="filter-select39"
+        >
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+
+        <input
+          type="text"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          placeholder="Search name / admission / phone"
+          className="filter-input39 search39"
+        />
+      </div>
+
+      {/* TABLE */}
+      <div className="sd-table-card39">
+        <table className="modern-table39">
+          <thead>
+            <tr>
+              <th>Sr.No.</th>
+              <th>Student</th>
+              <th>Admission No</th>
+              <th>Class</th>
+              <th>Gender</th>
+              <th>Phone</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {filteredStudents.map((s, i) => (
+              <tr key={s._id || i} className="table-row-hover39">
+                <td>{i + 1}</td>
+
+                <td className="student-cell39">
+                  <img
+                    src={s.basic?.photo || "https://via.placeholder.com/60"}
+                    alt={s.basic?.name}
+                    className="student-photo39"
+                  />
+                  <div className="student-info39">
+                    <strong>{s.basic?.name}</strong>
+                    <span className="roll-text39">
+                      Roll: {s.basic?.rollNo}
+                    </span>
+                  </div>
+                </td>
+
+                <td>{s.basic?.admissionNo}</td>
+
+                <td>
+                  {s.basic?.class} - {s.basic?.section}
+                </td>
+
+                <td>
+                  <span
+                    className={`badge39 badge-${s.basic?.gender?.toLowerCase()}39`}
+                  >
+                    {s.basic?.gender}
+                  </span>
+                </td>
+
+                <td>{s.basic?.phone}</td>
+
+                <td className="action-buttons39">
+                  <button
+                    className="btn39 btn-view39"
+                    onClick={() => setViewStudent(s)}
+                  >
+                    View
+                  </button>
+
+                  <button
+                    className="btn39 btn-edit39"
+                    onClick={() =>
+                      navigate("/studentAdmissionForm", {
+                        state: { student: s, isEdit: true },
+                      })
+                    }
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            ))}
+
+            {filteredStudents.length === 0 && (
+              <tr>
+                <td colSpan="7" style={{ textAlign: "center", padding: "20px" }}>
+                  No students found
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {/* ================= MODAL ================= */}
+      {viewStudent && (
+        <div className="sd-modal39" onClick={() => setViewStudent(null)}>
+          <div
+            className="sd-modal-card39 large39"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="close-btn39"
+              onClick={() => setViewStudent(null)}
+            >
+              ×
+            </button>
+
+            <div className="modal-header39">
+              <div className="modal-photo-wrapper39">
+                <img
+                  src={viewStudent.basic?.photo || "https://via.placeholder.com/120"}
+                  alt={viewStudent.basic?.name}
+                />
+              </div>
+
+              <div className="modal-title-info39">
+                <h2>{viewStudent.basic?.name}</h2>
+                <span className="class-section39">
+                  {viewStudent.basic?.class} - {viewStudent.basic?.section} | Roll
+                  No: {viewStudent.basic?.rollNo}
+                </span>
+              </div>
+            </div>
+
+            <div className="modal-body39">
+              <DetailSection title="Basic Information" data={viewStudent.basic} />
+              <DetailSection title="Personal Information" data={viewStudent.personal} />
+              <DetailSection title="Admission Information" data={viewStudent.admission} />
+              <DetailSection title="Guardian Information" data={viewStudent.guardians} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

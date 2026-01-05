@@ -1,0 +1,157 @@
+
+
+.subjects-container {
+  padding: 30px;
+  /* background: #fafbfc; */
+  background: #f6f9ff;
+
+  min-height: 100vh;
+}
+
+.subject-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.subject-sub {
+  font-size: 1.1rem;
+  color: #888ca3;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.subject-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(84,90,150,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow .17s, transform .17s;
+  border: 1px solid #f0f2f8;
+}
+.subject-card:hover {
+  box-shadow: 0 8px 28px #5c62a11a;
+  transform: translateY(-4px) scale(1.03);
+}
+
+.subject-img {
+  height: 210px;
+  width: 95%;
+  object-fit: cover;
+  margin-top: 13px;
+  border-radius: 11px;
+}
+
+.subject-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 0 10px 0;
+}
+
+.subject-name {
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: #223378;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.subject-subtitle {
+  font-size: 15px;
+  color: #b7b7c2;
+  text-align: center;
+  margin-bottom: 9px;
+}
+
+.course-btn,
+.content-btn {
+  border: none;
+  border-radius: 27px;
+  background: #fff;
+  color: #204090;
+  font-size: 15.3px;
+  font-weight: 600;
+  padding: 11px 28px;
+  margin-top: 8px;
+  box-shadow: 0 2px 14px rgba(5,55,120,0.10);
+  cursor: pointer;
+  transition: background .14s, color .14s;
+}
+.content-btn {
+  background: #003873;
+  color: #fff;
+  margin-top: 3px;
+}
+.course-btn:hover,
+.content-btn:hover {
+  background: #1f3f90;
+  color: #fff;
+}
+@media (max-width: 840px) {
+  .subjects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*  */
+.subjects-main-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  min-height: 100vh;
+  background: #fafbfc;
+  padding: 24px 26px;
+}
+.subjects-container {
+  flex: 3 1 0%;
+  min-width: 0;
+}
+.continue-column {
+  flex: 1 1 320px;
+  background: #fff;
+  border-radius: 15px;
+  min-width: 320px;
+  max-width: 410px;
+  box-shadow: 0 3px 18px #8186bb15;
+  padding: 24px 28px;
+  height: fit-content;
+}
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 28px;
+}
+/* ...rest cards/buttons/image styles as in previous code... */
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .subjects-main-row { flex-direction: column; }
+  .continue-column { max-width: 100%; min-width: 0; width: 100%; margin-top: 30px;}
+}
+
+
+.subject-card:nth-child(odd) {
+  background-color: #f0f8ff; /* AliceBlue */
+}
+
+.subject-card:nth-child(even) {
+  background-color: #f5f5dc; /* Beige */
+}
+
+.subject-card:nth-child(3n) {
+  background-color: #e0ffff; /* LightCyan */
+}
+
+.subject-card:nth-child(2n+2) {
+  background-color: #fdf5e6; /* OldLace */
+}
+
+.subject-card:nth-child(5) {
+  background-color: #ffe4e1; /* MistyRose */
+}

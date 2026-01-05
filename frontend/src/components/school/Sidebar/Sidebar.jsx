@@ -72,14 +72,15 @@ const SIDEBAR_ITEMS = [
     name: "Staff info",
     icon: IoPeople,
     subItems: [
-      { name: "Staff Attendance", icon: ChevronsRight, path: "/StaffAttendance" },
+      { name: "Staff Attendance", icon: ChevronsRight, path: "/AttendancePage" },
       { name: "Add Employee", icon: ChevronsRight , path: "/Staff"},
       { name: "Edit/View Employee", icon: ChevronsRight , path: "/EditEmployee"},
       { name: "Assign ClassTeacher", icon: ChevronsRight,path: "/AssignClassTeacher" },
       { name: "Edit/View ClassTeacher", icon: ChevronsRight,path: "/EditClassTeacher" },
       { name: "Staff Birthday", icon: ChevronsRight,path: "/StaffBirthday" },
-      { name: "Staff anniversary", icon: ChevronsRight,path: "/StaffAnniversary" },
-      { name: "Apply Leave", icon: ChevronsRight,path: "/ApplyLeave" },
+      // { name: "Staff anniversary", icon: ChevronsRight,path: "/StaffAnniversary" },
+      { name: "Apply Leave", icon: ChevronsRight, path: "/LeaveApplication" },
+      { name: "Leave Balance", icon: ChevronsRight, path: "/LeaveBalance" },
       { name: "All Leave request", icon: ChevronsRight , path: "/AllLeaveRequests"},
       { name: "Inactive Report", icon: ChevronsRight,path: "/InactiveReport" },
     ],
@@ -89,6 +90,7 @@ const SIDEBAR_ITEMS = [
     icon: PiStudentBold,
     subItems: [
       { name: "Add Student", icon: ChevronsRight,  path: "/StudentAdmissionForm"},
+      { name: "Add Student(Bulk Upload),", icon: ChevronsRight,path: "/RegistrationExcelUpload"},
       { name: "Edit/View Students", icon: ChevronsRight,path: "/StudentDetails" },
       { name: "Student Performance", icon: ChevronsRight },
       { name: "Class/Section Transfer", icon: ChevronsRight },
@@ -104,8 +106,9 @@ const SIDEBAR_ITEMS = [
     name: "Academics",
     icon: HiAcademicCap,
     subItems: [
-      { name: "Class Master", icon: ChevronsRight },
-      { name: "Subject Master", icon: ChevronsRight },
+      { name: "Class Master", icon: ChevronsRight ,path: "/AddClass1"},
+      { name: "Section", icon: ChevronsRight, path: "/AddSections" },
+      { name: "Subject Master", icon: ChevronsRight, path: "/Subjectmaster" },
     ],
   },
   {
