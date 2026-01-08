@@ -133,9 +133,19 @@ const SIDEBAR_ITEMS = [
     name: "Fee Collection",
     icon: IoCash,
     subItems: [
-      { name: "Collect Fee", icon: ChevronsRight,  path: "/CollectFee" },
+      // { name: "Collect Fee", icon: ChevronsRight,  path: "/CollectFee" },
+      { name: "Connsession Category", icon: ChevronsRight, path: "/ConcessionManagement" },
+      { name: "add Fees", icon: ChevronsRight,  path: "/FeesManagement" },
+      { name: "Class Fee Allocation", icon: ChevronsRight, path: "/ClassFeeAllocation" },
+      { name: "Student Fee Allocation", icon: ChevronsRight, path: "/StudentFeeAllocation" },
+      { name: "Fee Lock", icon: ChevronsRight,  path: "/LockFeesModification" },
+      { name: "Late Fee Management", icon: ChevronsRight,  path: "/LateFeeManagement" },
+
+       { name: "Collect Fee", icon: ChevronsRight,   path: "/CollectFee1" },
+
+
       // { name: "Payment Receipt", icon: ChevronsRight ,path: "/PaymentReceipt"},
-      { name: "Cheque", icon: ChevronsRight, path: "/Cheques" },
+      // { name: "Cheque", icon: ChevronsRight, path: "/Cheques" },
       // { name: "Demand Notice", icon: ChevronsRight },
       // { name: "Fee Setting", icon: ChevronsRight },
     ],

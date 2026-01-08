@@ -1,0 +1,138 @@
+.fees-container {
+  padding: 100px 20px 40px 280px;
+  background: #f4f6fb;
+  font-family: Arial, sans-serif;
+}
+
+.fees-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.fees-card {
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.fees-card-header {
+  padding: 15px 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.fees-card-body {
+  padding: 25px;
+}
+
+.fees-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.fees-row label {
+  width: 180px;
+  color: red;
+  font-size: 14px;
+}
+
+.fees-row input,
+.fees-row select {
+  width: 50%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-group label {
+  color: #111;
+}
+
+.fees-divider {
+  margin: 25px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.fees-btn-wrap {
+  text-align: center;
+}
+
+.fees-btn-wrap button {
+  background: #3b82f6;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.fees-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fees-table th {
+  background: #eef6ff;
+  color: #111;
+  padding: 14px;
+  text-align: left;
+}
+
+.fees-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.edit-btn {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .fees-container {
+    padding: 80px 15px;
+  }
+
+  .fees-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fees-row input,
+  .fees-row select {
+    width: 100%;
+  }
+}
+.delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}
+
+.cancel-btn {
+  margin-left: 10px;
+  background: #9ca3af;
+  color: #fff;
+}

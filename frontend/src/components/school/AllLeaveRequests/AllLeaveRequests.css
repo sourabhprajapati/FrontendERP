@@ -129,3 +129,9 @@
     font-size: 13px;
   }
 }
+.leave-req-status.leave-req-pending { background: #fef3c7; color: #92400e; }
+.leave-req-status.leave-req-approved { background: #ecfdf5; color: #065f46; }
+.leave-req-status.leave-req-rejected { background: #fee2e2; color: #991b1b; }
+
+.leave-req-approve { background: #10b981; color: white;  }
+.leave-req-reject { background: #ef4444; color: white;  }

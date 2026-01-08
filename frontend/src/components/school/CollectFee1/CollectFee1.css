@@ -1,0 +1,217 @@
+/* =========================
+   PAGE BASE
+========================= */
+.cf-container {
+ padding: 100px 20px 40px 280px;
+  background: #f5f7fb;
+  font-family: "Inter", Arial, sans-serif;
+  color: #111827;
+}
+
+/* =========================
+   CARD
+========================= */
+.cf-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 26px;
+  margin-bottom: 28px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.06);
+}
+
+.cf-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+/* =========================
+   FORM GRID
+========================= */
+.cf-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 22px 30px;
+}
+
+.cf-form-grid label {
+  font-size: 13px;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.cf-form-grid input,
+.cf-form-grid select {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  background: #ffffff;
+}
+
+.cf-form-grid input:focus,
+.cf-form-grid select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* =========================
+   SEARCH BUTTON
+========================= */
+.cf-search {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.cf-search button {
+  background: #3b82f6;
+  color: #ffffff;
+  padding: 12px 36px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.35);
+}
+
+/* =========================
+   STUDENT DETAILS
+========================= */
+.cf-student-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  font-size: 14px;
+}
+
+.cf-student-grid div {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+/* =========================
+   FEE INPUTS
+========================= */
+.cf-fee-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 22px;
+}
+
+.cf-fee-inputs label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.cf-fee-inputs input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+/* =========================
+   FEE SUMMARY
+========================= */
+.cf-fee-table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.cf-fee-table div {
+  background: #f0f7ff;
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cf-fee-table span {
+  font-size: 13px;
+  color: #374151;
+}
+
+.cf-fee-table strong {
+  font-size: 18px;
+}
+
+.cf-fee-table .total {
+  background: #ecfeff;
+}
+
+.cf-fee-table .late {
+  color: #dc2626;
+}
+
+/* =========================
+   PAYMENT SECTION
+========================= */
+.cf-pay {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.cf-pay button {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  padding: 14px 44px;
+  border-radius: 16px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 16px 32px rgba(34, 197, 94, 0.4);
+}
+
+/* =========================
+   CONDITIONAL PAYMENT BOX
+========================= */
+.cf-form-grid + .cf-form-grid {
+  margin-top: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1200px) {
+  .cf-fee-inputs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cf-container {
+    padding: 80px 16px;
+  }
+
+  .cf-form-grid,
+  .cf-student-grid,
+  .cf-fee-inputs,
+  .cf-fee-table {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-search button,
+  .cf-pay button {
+    width: 100%;
+    justify-content: center;
+  }
+}

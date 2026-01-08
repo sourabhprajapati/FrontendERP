@@ -1,0 +1,311 @@
+/* =========================
+   PAGE BASE
+========================= */
+.sfa-container {
+    max-width: 1600px;
+  padding: 90px 32px 40px 280px;
+  background: #f4f6fb;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* =========================
+   CARD
+========================= */
+.sfa-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 26px;
+  margin-bottom: 30px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.06);
+}
+
+.sfa-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+/* =========================
+   FILTER FORM
+========================= */
+.sfa-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 22px 36px;
+}
+
+.sfa-form-grid label {
+  color: #dc2626;
+  font-size: 13px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.sfa-form-grid select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  font-size: 14px;
+}
+
+/* SEARCH */
+.sfa-search {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.sfa-search button {
+  background: #3b82f6;
+  color: #fff;
+  padding: 12px 36px;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* =========================
+   BULK MONTH ROW
+========================= */
+.sfa-month-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr) 140px;
+  gap: 14px;
+  align-items: end;
+}
+
+.sfa-month-row label {
+  font-size: 12px;
+  color: #374151;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.sfa-month-row input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  text-align: center;
+}
+
+.update-btn {
+  background: #2563eb;
+  color: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* =========================
+   TABLE
+========================= */
+.sfa-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.sfa-table th {
+  background: #eef6ff;
+  padding: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3a8a;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sfa-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.sfa-table td:first-child {
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 500;
+}
+
+.sfa-table input {
+  width: 70px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  text-align: center;
+}
+
+/* STUDENT TYPE */
+.sfa-table .new {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.sfa-table .old {
+  color: #6b7280;
+}
+
+/* =========================
+   SAVE BUTTON
+========================= */
+.save-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.save-wrap button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #ffffff;
+  padding: 14px 42px;
+  border-radius: 16px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.35);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1200px) {
+  .sfa-month-row {
+    grid-template-columns: repeat(6, 1fr) 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sfa-container {
+    padding: 80px 16px;
+  }
+
+  .sfa-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sfa-month-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sfa-table {
+    font-size: 12px;
+  }
+}
+/* =========================
+   TABLE WRAPPER (FIX)
+========================= */
+.sfa-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+/* Smooth scrollbar */
+.sfa-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.sfa-table-wrapper::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 6px;
+}
+.sfa-table-wrapper::-webkit-scrollbar-track {
+  background: #eef2ff;
+}
+
+/* =========================
+   TABLE FIXED WIDTH
+========================= */
+.sfa-table {
+  min-width: 1400px; /* forces proper spacing */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* =========================
+   HEADER ALIGNMENT
+========================= */
+.sfa-table th {
+  white-space: nowrap;
+  text-align: center;
+  padding: 14px 10px;
+  font-weight: 600;
+}
+
+/* =========================
+   CELL ALIGNMENT
+========================= */
+.sfa-table td {
+  padding: 14px 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Student name column */
+.sfa-table td:first-child,
+.sfa-table th:first-child {
+  position: sticky;
+  left: 0;
+  background: #ffffff;
+  z-index: 2;
+  min-width: 180px;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Student type column */
+.sfa-table td:nth-child(2),
+.sfa-table th:nth-child(2) {
+  position: sticky;
+  left: 180px;
+  background: #ffffff;
+  z-index: 2;
+  min-width: 120px;
+}
+
+/* =========================
+   INPUT CONSISTENCY
+========================= */
+.sfa-table input {
+  width: 72px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  text-align: center;
+  font-size: 14px;
+  background: #ffffff;
+}
+
+/* =========================
+   SAVE BUTTON FIX
+========================= */
+.save-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 10px;
+}
+
+/* =========================
+   RESPONSIVE SAFETY
+========================= */
+@media (max-width: 768px) {
+  .sfa-table {
+    min-width: 1200px;
+  }
+}
+.sfa-search button,
+.update-btn,
+.save-wrap button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}

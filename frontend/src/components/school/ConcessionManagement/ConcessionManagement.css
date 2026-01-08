@@ -1,0 +1,256 @@
+/* ===============================
+   GLOBAL
+================================ */
+.cm-container {
+  font-family: "Inter", Arial, sans-serif;
+  background: #f4f6fb;
+  max-width: 1600px;
+  margin: auto;
+  padding: 100px 20px 40px 280px;
+}
+
+.cm-title {
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* ===============================
+   CARD
+================================ */
+.cm-card {
+  background: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: none;
+}
+
+.cm-card-header {
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(180deg, #fafbff, #f3f6ff);
+  border-radius: 10px 10px 0 0;
+}
+
+.cm-card-body {
+  padding: 25px;
+}
+
+/* ===============================
+   FORM
+================================ */
+.cm-form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cm-form-row label {
+  width: 170px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #dc2626;
+}
+
+.cm-form-row input {
+  width: 55%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.cm-form-row input::placeholder {
+  color: #9ca3af;
+}
+
+.cm-form-row input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.required {
+  color: #dc2626;
+}
+
+/* ===============================
+   DIVIDER
+================================ */
+.cm-divider {
+  margin: 30px 0;
+  border-top: 1px dashed #e5e7eb;
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.cm-button-wrapper {
+  text-align: center;
+}
+
+.cm-button-wrapper button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #ffffff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.cm-button-wrapper button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px rgba(37, 99, 235, 0.3);
+}
+
+.cm-button-wrapper button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.plus {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ===============================
+   TABLE
+================================ */
+.cm-table {
+  padding: 0;
+}
+
+.cm-table-header {
+  padding: 14px 20px;
+  background: #eff6ff;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1e40af;
+  border-bottom: 1px solid #dbeafe;
+}
+
+.cm-table-row {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s ease;
+}
+
+.cm-table-row:hover {
+  background: #f8fafc;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .cm-container {
+    padding: 90px 20px;
+  }
+
+  .cm-form-row input {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cm-container {
+    padding: 80px 15px;
+  }
+
+  .cm-form-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .cm-form-row label,
+  .cm-form-row input {
+    width: 100%;
+  }
+
+  .cm-button-wrapper button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* ===============================
+   ACTION BUTTONS
+================================ */
+
+.cm-row-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cm-action-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.cm-action-btns button {
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cm-action-btns .edit {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.cm-action-btns .delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.cm-action-btns .save {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.cm-action-btns .cancel {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cm-action-btns button:hover {
+  opacity: 0.85;
+}
+
+.cm-edit-input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  width: 60%;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cm-row-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cm-edit-input {
+    width: 100%;
+  }
+}

@@ -1,13 +1,13 @@
-/* LeaveApplication.css - All classes now end with 44 */
+/* LeaveApplication.css - Staff Leave Application Styles (All classes prefixed with staff-) */
 
-.leave-application-container44 {
+.staff-leave-application-container44 {
   max-width: 1600px;
   padding: 100px 20px 40px 280px;
   font-family: -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: #f1f5f9;
 }
 
-.tabs44 {
+.staff-tabs44 {
   display: flex;
   margin-bottom: 28px;
   background: white;
@@ -17,7 +17,7 @@
   width: fit-content;
 }
 
-.tab44 {
+.staff-tab44 {
   padding: 10px 28px;
   font-size: 15px;
   font-weight: 500;
@@ -29,13 +29,13 @@
   transition: all 0.2s;
 }
 
-.tab44.active {
+.staff-tab44.active {
   background: #2563eb;
   color: white;
   font-weight: 600;
 }
 
-.content-wrapper44 {
+.staff-content-wrapper44 {
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
@@ -44,7 +44,7 @@
 }
 
 /* ── Apply Form ─────────────────────────────────────────────────────────────── */
-.info-banner44 {
+.staff-info-banner44 {
   background-color: #fffbeb;
   padding: 12px 16px;
   border-radius: 6px;
@@ -54,25 +54,25 @@
   color: #92400e;
 }
 
-.hide-link44 {
+.staff-hide-link44 {
   color: #2563eb;
   cursor: pointer;
   float: right;
   font-weight: 500;
 }
 
-.form-title44 {
+.staff-form-title44 {
   font-size: 20px;
   font-weight: 600;
   margin: 0 0 20px 0;
   color: #1f2937;
 }
 
-.form-group44 {
+.staff-form-group44 {
   margin-bottom: 20px;
 }
 
-label44 {
+.staff-label44 {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
@@ -80,13 +80,13 @@ label44 {
   font-size: 14px;
 }
 
-.required44::after {
+.staff-required44::after {
   content: '*';
   color: #ef4444;
   margin-left: 4px;
 }
 
-.form-control44 {
+.staff-form-control44 {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #d1d5db;
@@ -95,67 +95,118 @@ label44 {
   box-sizing: border-box;
 }
 
-.form-control44:focus {
+.staff-form-control44:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
-.date-range-container44 {
+/* Employee Search in Apply tab */
+.staff-employee-search-wrapper44 {
+  position: relative;
+}
+
+.staff-employee-search-input44 {
+  padding-right: 40px; /* space for potential clear icon */
+}
+
+.staff-employee-dropdown44 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-top: 4px;
+  max-height: 260px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  z-index: 10;
+}
+
+.staff-employee-option44 {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.staff-employee-option44:hover {
+  background: #f3f4f6;
+}
+
+.staff-employee-name44 {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.staff-employee-id44 {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.staff-no-results44 {
+  padding: 12px;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.staff-date-range-container44 {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
   align-items: flex-start;
 }
 
-.date-group44 {
+.staff-date-group44 {
   flex: 1;
   min-width: 260px;
 }
 
-.date-input-wrapper44 {
+.staff-date-input-wrapper44 {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.date-input44 {
+.staff-date-input44 {
   flex: 1;
 }
 
-.session-select44 {
+.staff-session-select44 {
   width: 140px;
   padding: 10px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
 }
 
-.balance-info44 {
+.staff-balance-info44 {
   margin-top: 28px;
   font-size: 14px;
   color: #4b5563;
   line-height: 1.6;
 }
 
-.balance-info44 strong {
+.staff-balance-info44 strong {
   color: #1f2937;
 }
 
-.contact-textarea44,
-.reason-textarea44 {
+.staff-contact-textarea44,
+.staff-reason-textarea44 {
   resize: vertical;
   min-height: 70px;
 }
 
-.file-upload-wrapper44 {
+.staff-file-upload-wrapper44 {
   margin-top: 6px;
 }
 
-.file-input44 {
+.staff-file-input44 {
   display: none;
 }
 
-.file-upload-label44 {
+.staff-file-upload-label44 {
   display: inline-block;
   padding: 8px 16px;
   background: #f3f4f6;
@@ -166,24 +217,24 @@ label44 {
   transition: all 0.2s;
 }
 
-.file-upload-label44:hover {
+.staff-file-upload-label44:hover {
   background: #e5e7eb;
 }
 
-.file-types-info44 {
+.staff-file-types-info44 {
   margin-left: 16px;
   color: #6b7280;
   font-size: 13px;
 }
 
-.form-actions44 {
+.staff-form-actions44 {
   margin-top: 32px;
   display: flex;
   gap: 12px;
   justify-content: flex-end;
 }
 
-.btn44 {
+.staff-btn44 {
   padding: 10px 24px;
   border-radius: 6px;
   font-size: 15px;
@@ -193,75 +244,84 @@ label44 {
   transition: all 0.2s;
 }
 
-.submit-btn44 {
+.staff-submit-btn44 {
   background: #2563eb;
   color: white;
 }
 
-.submit-btn44:hover {
+.staff-submit-btn44:hover {
   background: #1d4ed8;
 }
 
-.cancel-btn44 {
+.staff-cancel-btn44 {
   background: #f3f4f6;
   color: #374151;
 }
 
-.cancel-btn44:hover {
+.staff-cancel-btn44:hover {
   background: #e5e7eb;
 }
 
-/* ── Pending Tab - Empty State ─────────────────────────────────────────────── */
-.empty-state44 {
+/* ── Pending & History Tabs ────────────────────────────────────────────────── */
+.staff-empty-state44 {
   text-align: center;
   padding: 100px 20px;
   color: #6b7280;
 }
 
-.illustration44 {
+.staff-illustration44 {
   margin-bottom: 24px;
   opacity: 0.8;
 }
 
-.empty-message44 {
+.staff-empty-message44 {
   font-size: 16px;
   margin: 0;
 }
 
-/* ── History Tab ────────────────────────────────────────────────────────────── */
-.history-container44 {
+.staff-history-container44 {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.history-item44 {
+.staff-history-item44 {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 16px 20px;
 }
 
-.history-header44 {
+.staff-history-header44 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
 }
 
-.status44 {
+.staff-status44 {
   padding: 4px 12px;
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
 }
 
-.approved44 {
+.staff-status44.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.staff-status44.approved {
   background: #ecfdf5;
   color: #065f46;
 }
 
-.expand-toggle44 {
+.staff-status44.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.staff-expand-toggle44 {
   background: none;
   border: none;
   font-size: 18px;
@@ -269,16 +329,16 @@ label44 {
   color: #6b7280;
 }
 
-.history-summary44 {
+.staff-history-summary44 {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr;
   gap: 16px;
   margin-bottom: 12px;
   font-size: 14px;
   color: #1f2937;
 }
 
-.history-details44 {
+.staff-history-details44 {
   padding-top: 12px;
   border-top: 1px solid #f3f4f6;
   font-size: 14px;
@@ -286,7 +346,7 @@ label44 {
   line-height: 1.7;
 }
 
-.applied-info44 {
+.staff-applied-info44 {
   margin-top: 12px;
   display: flex;
   justify-content: space-between;
@@ -294,8 +354,27 @@ label44 {
   color: #6b7280;
 }
 
-.view-details44 {
+.staff-view-details44 {
   color: #2563eb;
   cursor: pointer;
   font-weight: 500;
+}
+
+/* Optional: Error/Success messages */
+.error-message {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 8px 0;
+  padding: 8px;
+  background: #fee2e2;
+  border-radius: 6px;
+}
+
+.success-message {
+  color: #15803d;
+  font-size: 14px;
+  margin: 8px 0;
+  padding: 8px;
+  background: #ecfdf5;
+  border-radius: 6px;
 }

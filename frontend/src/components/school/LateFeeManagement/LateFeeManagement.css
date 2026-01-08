@@ -1,0 +1,130 @@
+.lf-container {
+ padding: 100px 20px 40px 280px;
+  background: #f5f7fb;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.lf-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+}
+
+.lf-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lf-sub-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.lf-sub-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.lf-note {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 18px;
+}
+
+.lf-note.success {
+  color: #16a34a;
+  font-weight: 500;
+}
+
+/* FORM */
+.lf-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.lf-form label {
+  font-size: 13px;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.lf-form input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+}
+
+/* BUTTONS */
+.lf-btn-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.lf-btn-wrap button {
+  padding: 10px 22px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.lf-btn-wrap button {
+  background: #3b82f6;
+  box-shadow: 0 10px 20px rgba(59,130,246,0.35);
+}
+
+.lf-btn-wrap .edit {
+  background: #f59e0b;
+}
+
+.lf-btn-wrap .delete {
+  background: #ef4444;
+}
+
+/* INFO */
+.lf-info {
+  background: #f0f7ff;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.lf-info h5 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.lf-info ul {
+  padding-left: 18px;
+  font-size: 13px;
+  color: #374151;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .lf-container {
+    padding: 80px 16px;
+  }
+
+  .lf-form {
+    grid-template-columns: 1fr;
+  }
+}

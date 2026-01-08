@@ -1,0 +1,216 @@
+/* ===============================
+   ROOT VARIABLES (THEME)
+================================ */
+:root {
+  --primary: #2563eb;
+  --primary-light: #eff6ff;
+  --border: #e5e7eb;
+  --text-dark: #111827;
+  --text-muted: #6b7280;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+}
+
+/* ===============================
+   PAGE CONTAINER
+================================ */
+.cfa-container {
+  max-width: 1600px;
+  padding: 90px 32px 40px 280px;
+  background: var(--bg);
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--text-dark);
+}
+
+/* ===============================
+   HEADER CARD
+================================ */
+.cfa-header-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  margin-bottom: 28px;
+}
+
+.back-btn {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #dbeafe;
+  transform: translateY(-1px);
+}
+
+.class-name-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.class-name-row label {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.class-name-row input {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+  font-weight: 600;
+  width: 240px;
+}
+
+/* ===============================
+   TABLE CARD
+================================ */
+.cfa-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* ===============================
+   TABLE HEAD
+================================ */
+.cfa-table thead th {
+  background: var(--primary-light);
+  padding: 16px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #1e3a8a;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.cfa-table thead tr:first-child th {
+  font-size: 15px;
+}
+
+/* ===============================
+   TABLE BODY
+================================ */
+.cfa-table tbody td {
+  padding: 20px 14px;
+  border-bottom: 1px solid #eef2f7;
+  vertical-align: middle;
+  text-align: center;
+  background: #ffffff;
+}
+
+.cfa-table tbody tr:hover {
+  background: #f9fbff;
+}
+
+.cfa-table tbody td:nth-child(2) {
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: left;
+  padding-left: 22px;
+}
+
+/* ===============================
+   INPUT GROUPS
+================================ */
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.input-box small {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.input-box input {
+  width: 120px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.input-box input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* ===============================
+   SAVE BUTTON
+================================ */
+.save-wrap {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.save-wrap button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #ffffff;
+  padding: 16px 42px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.35);
+  transition: 0.25s ease;
+}
+
+.save-wrap button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px rgba(37, 99, 235, 0.45);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .cfa-container {
+    padding: 80px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cfa-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .class-name-row {
+    width: 100%;
+  }
+
+  .class-name-row input {
+    width: 100%;
+  }
+
+  .input-box input {
+    width: 100%;
+  }
+}

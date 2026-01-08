@@ -1,0 +1,147 @@
+.lfm-container {
+  padding: 90px 30px 40px 280px;
+  background: #f5f7fb;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* MAIN CARD */
+.lfm-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+}
+
+.lfm-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* SUB CARD */
+.lfm-sub-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.lfm-sub-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* NOTE */
+.lfm-note {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 18px;
+}
+
+/* FORM */
+.lfm-form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.lfm-form label {
+  font-size: 13px;
+  color: #374151;
+  width: 360px;
+}
+
+.lfm-form input {
+  width: 320px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.lfm-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.lfm-btn-wrap button {
+  background: #3b82f6;
+  color: #ffffff;
+  padding: 10px 26px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 10px 20px rgba(59,130,246,0.35);
+}
+
+.lfm-btn-wrap button:hover {
+  background: #2563eb;
+}
+/* NOTE STATUS */
+.lfm-note.success {
+  color: #16a34a;
+  font-weight: 500;
+}
+
+/* BUTTON GROUP */
+.lfm-btn-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* COMMON BUTTON */
+.lfm-btn-wrap button {
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* PRIMARY */
+.lfm-btn-wrap button {
+  background: #3b82f6;
+  box-shadow: 0 10px 20px rgba(59,130,246,0.35);
+}
+
+/* EDIT */
+.lfm-btn-wrap .edit {
+  background: #f59e0b;
+  box-shadow: 0 10px 20px rgba(245,158,11,0.35);
+}
+
+/* DELETE */
+.lfm-btn-wrap .delete {
+  background: #ef4444;
+  box-shadow: 0 10px 20px rgba(239,68,68,0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .lfm-container {
+    padding: 80px 16px;
+  }
+
+  .lfm-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lfm-form label,
+  .lfm-form input {
+    width: 100%;
+  }
+}

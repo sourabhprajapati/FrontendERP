@@ -10,38 +10,38 @@ import InactiveReport from "./components/school/InactiveReport/InactiveReport";
 import StaffAnniversary from "./components/school/StaffAnniversary/StaffAnniversary";
 import StaffBirthday from "./components/school/StaffBirthday/StaffBirthday";
 import ConcessionsForm from "./components/school/ConcessionsForm/ConcessionsForm";
-import AdmissionEnquiry  from "./components/school/AdmissionEnquiry/AdmissionEnquiry";
-import Staff  from "./components/school/Staff/Staff";
-import ComplaintForm  from "./components/school/ComplaintForm/ComplaintForm";
-import Visitors  from "./components/school/Visitors/Visitors";
-import Enquiry  from "./components/school/Enquiry/Enquiry";
-import StudentAttendance  from "./components/school/StudentAttendance/StudentAttendance";
+import AdmissionEnquiry from "./components/school/AdmissionEnquiry/AdmissionEnquiry";
+import Staff from "./components/school/Staff/Staff";
+import ComplaintForm from "./components/school/ComplaintForm/ComplaintForm";
+import Visitors from "./components/school/Visitors/Visitors";
+import Enquiry from "./components/school/Enquiry/Enquiry";
+import StudentAttendance from "./components/school/StudentAttendance/StudentAttendance";
 // import CollectFees  from "./components/school/CollectFees/CollectFees.jsx";
-import PaymentReceipt  from "./components/school/PaymentReceipt/PaymentReceipt.jsx";
+import PaymentReceipt from "./components/school/PaymentReceipt/PaymentReceipt.jsx";
 // import AddStudent  from "./components/school/AddStudent/AddStudent.jsx";
-import StudentAdmissionForm  from "./components/school/StudentAdmissionForm/StudentAdmissionForm.jsx";
-import ExamSetting  from "./components/school/ExamSetting/ExamSetting";
-import AddSemester  from "./components/school/AddSemester/AddSemester";
-import TeacherTimeTable  from "./components/school/TeacherTimeTable/TeacherTimeTable";
-import ClassTimeTable  from "./components/school/ClassTimeTable/ClassTimeTable";
-import Settings  from "./components/school/Settings/Settings";
-import AdmitCard  from "./components/school/AdmitCard/AdmitCard";
-import StudentDetails  from "./components/school/StudentDetails/StudentDetails";
-import PreviousFeeRecord  from "./components/school/PreviousFeeRecord/PreviousFeeRecord";
-import PreviousAttendanceRecord  from "./components/school/PreviousAttendanceRecord/PreviousAttendanceRecord";
-import StaffCertificate  from "./components/school/StaffCertificate/StaffCertificate";
-import CollectFee  from "./components/school/CollectFee/CollectFee";
-import Cheques  from "./components/school/Cheques/Cheques";
-import StudentCertificate  from "./components/school/StudentCertificate/StudentCertificate";
+import StudentAdmissionForm from "./components/school/StudentAdmissionForm/StudentAdmissionForm.jsx";
+import ExamSetting from "./components/school/ExamSetting/ExamSetting";
+import AddSemester from "./components/school/AddSemester/AddSemester";
+import TeacherTimeTable from "./components/school/TeacherTimeTable/TeacherTimeTable";
+import ClassTimeTable from "./components/school/ClassTimeTable/ClassTimeTable";
+import Settings from "./components/school/Settings/Settings";
+import AdmitCard from "./components/school/AdmitCard/AdmitCard";
+import StudentDetails from "./components/school/StudentDetails/StudentDetails";
+import PreviousFeeRecord from "./components/school/PreviousFeeRecord/PreviousFeeRecord";
+import PreviousAttendanceRecord from "./components/school/PreviousAttendanceRecord/PreviousAttendanceRecord";
+import StaffCertificate from "./components/school/StaffCertificate/StaffCertificate";
+import CollectFee from "./components/school/CollectFee/CollectFee";
+import Cheques from "./components/school/Cheques/Cheques";
+import StudentCertificate from "./components/school/StudentCertificate/StudentCertificate";
 // import StudentAttendance  from "./components/school/StudentAttendance/StudentAttendance";
-import StudentLeave  from "./components/school/StudentLeave/StudentLeave";
-import StaffLogin  from "./components/school/StaffLogin/StaffLogin";
-import StudentLoginCredential  from "./components/school/StudentLoginCredential/StudentLoginCredential";
-import MessageSettings  from "./components/school/MessageSettings/MessageSettings";
-import StudentId  from "./components/school/StudentId/StudentId";
-import PermissionSetting  from "./components/school/PermissionSetting/UserPermission.jsx";
-import AttendanceReport  from "./components/school/AttendanceReport/AttendanceReport";
-import StaffId  from "./components/school/StaffId/StaffId";
+import StudentLeave from "./components/school/StudentLeave/StudentLeave";
+import StaffLogin from "./components/school/StaffLogin/StaffLogin";
+import StudentLoginCredential from "./components/school/StudentLoginCredential/StudentLoginCredential";
+import MessageSettings from "./components/school/MessageSettings/MessageSettings";
+import StudentId from "./components/school/StudentId/StudentId";
+import PermissionSetting from "./components/school/PermissionSetting/UserPermission.jsx";
+import AttendanceReport from "./components/school/AttendanceReport/AttendanceReport";
+import StaffId from "./components/school/StaffId/StaffId";
 // import LoginPage  from "./components/LoginPage/LoginPage.jsx";
 import RegistrationExcelUpload from "./components/school/RegistrationExcelUpload/RegistrationExcelUpload.jsx";
 import AddClass1 from "./components/school/AddClass/AddClass";
@@ -50,37 +50,14 @@ import Subjectmaster from "./components/school/Subjectmaster/Subjectmaster";
 import LeaveApplication from "./components/school/LeaveApplication/LeaveApplication";
 import LeaveBalance from "./components/school/LeaveBalance/LeaveBalance";
 import AttendancePage from "./components/school/AttendancePage/AttendancePage";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import ConcessionManagement from "./components/school/ConcessionManagement/ConcessionManagement";
+import FeesManagement from "./components/school/FeesManagement/FeesManagement";
+import ClassFeeAllocation from "./components/school/ClassFeeAllocation/ClassFeeAllocation";
+import AllocateClassFee from "./components/school/ClassFeeAllocation/AllocateClassFee";
+import StudentFeeAllocation from "./components/school/StudentFeeAllocation/StudentFeeAllocation";
+import LockFeesModification from "./components/school/LockFeesModification/LockFeesModification";
+import LateFeeManagement from "./components/school/LateFeeManagement/LateFeeManagement";
+import CollectFee1 from "./components/school/CollectFee1/CollectFee1";
 
 
 
@@ -114,15 +91,12 @@ import Profile from "./components/Sales/Profile/Profile";
 import Reject from "./components/Sales/Reject/Reject";
 import SalesExecutivePage from "./components/SuperAdmin/SalesExecutivePage/SalesExecutivePage";
 
-
-
-
 import ApplyLeave1 from "./components/Student/ApplyLeave1";
-import Attendance from "./components/Student/Attendance"
-import St_ClassTimeTable from "./components/Student/St_ClassTimeTable"
-import Homework from "./components/Student/Homework"
+import Attendance from "./components/Student/Attendance";
+import St_ClassTimeTable from "./components/Student/St_ClassTimeTable";
+import Homework from "./components/Student/Homework";
 import Dashboard from "./components/Student/Dashboard";
-import FeeDetails from "./components/Student/FeeDetails"
+import FeeDetails from "./components/Student/FeeDetails";
 import StudentDetails1 from "./components/Student/st_StudentDetails";
 import Subjects from "./components/Student/Subjects";
 
@@ -168,81 +142,43 @@ export const routeConfig = {
     { path: "/AdmitCard", component: AdmitCard },
     { path: "/StudentDetails", component: StudentDetails },
     { path: "/PreviousFeeRecord", component: PreviousFeeRecord },
-    { path: "/PreviousAttendanceRecord", component:PreviousAttendanceRecord},
-    { path: "/StaffCertificate", component: StaffCertificate},
-     { path: "/CollectFee", component: CollectFee},
-    { path: "/Cheques", component: Cheques},
-    { path: "/StudentCertificate", component: StudentCertificate},
+    { path: "/PreviousAttendanceRecord", component: PreviousAttendanceRecord },
+    { path: "/StaffCertificate", component: StaffCertificate },
+    { path: "/CollectFee", component: CollectFee },
+    { path: "/Cheques", component: Cheques },
+    { path: "/StudentCertificate", component: StudentCertificate },
     // { path: "/StudentAttendance", component: StudentAttendance},
-    { path: "/StudentLeave", component: StudentLeave},
-    { path: "/StaffLogin", component: StaffLogin},
-    { path: "/StudentLoginCredential", component: StudentLoginCredential},
-    { path: "/MessageSettings", component: MessageSettings},
-    { path: "/StudentId", component: StudentId},
-    { path: "/PermissionSetting", component: PermissionSetting},
-    { path: "/AttendanceReport", component: AttendanceReport},
-    { path: "/StaffId", component: StaffId},
-    { path: "/Studentdetails", component: StudentDetails},
+    { path: "/StudentLeave", component: StudentLeave },
+    { path: "/StaffLogin", component: StaffLogin },
+    { path: "/StudentLoginCredential", component: StudentLoginCredential },
+    { path: "/MessageSettings", component: MessageSettings },
+    { path: "/StudentId", component: StudentId },
+    { path: "/PermissionSetting", component: PermissionSetting },
+    { path: "/AttendanceReport", component: AttendanceReport },
+    { path: "/StaffId", component: StaffId },
+    { path: "/Studentdetails", component: StudentDetails },
     // { path: "/LoginPage", component: LoginPage},
     { path: "/RegistrationExcelUpload", component: RegistrationExcelUpload },
     { path: "/AddClass1", component: AddClass1 },
     { path: "/AddSections", component: AddSections },
     { path: "/Subjectmaster", component: Subjectmaster },
     { path: "/LeaveApplication", component: LeaveApplication },
-     { path: "/LeaveBalance", component: LeaveBalance },
+    { path: "/LeaveBalance", component: LeaveBalance },
 
     { path: "/AttendancePage", component: AttendancePage },
+    { path: "/ConcessionManagement", component: ConcessionManagement },
+    { path: "/FeesManagement", component: FeesManagement },
+    { path: "/ClassFeeAllocation", component: ClassFeeAllocation },
+    {
+      path: "/AllocateClassFee/:className",
+      component: AllocateClassFee,
+    },
+    { path: "/StudentFeeAllocation", component: StudentFeeAllocation },
+    { path: "/LockFeesModification", component: LockFeesModification },
+    { path: "/LateFeeManagement", component: LateFeeManagement },
+    { path: "/CollectFee1", component: CollectFee1 },
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
-
-
-
-
-
-
-
-    
 
   ],
   sale: [
@@ -253,7 +189,7 @@ export const routeConfig = {
     { path: "/Profile", component: Profile },
     { path: "/Reject", component: Reject },
   ],
-   student: [
+  student: [
     { path: "/dashboard", component: Dashboard },
     { path: "/st_studentdetails", component: StudentDetails1 },
     { path: "/st_classtimetable", component: St_ClassTimeTable },
@@ -262,5 +198,5 @@ export const routeConfig = {
     { path: "/attendance", component: Attendance },
     { path: "/leaves", component: ApplyLeave1 },
     { path: "/feedetails", component: FeeDetails },
-  ]
+  ],
 };
