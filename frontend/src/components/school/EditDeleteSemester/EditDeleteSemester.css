@@ -1,0 +1,145 @@
+/* ===== CONTAINER ===== */
+.eds__container {
+  padding: 100px 20px 40px 280px;
+  background: #f4f6fb;
+  min-height: 100vh;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.eds__title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ===== CARD ===== */
+.eds__card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.eds__cardHeader {
+  padding: 14px 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ===== TABLE ===== */
+.eds__tableWrapper {
+  padding: 20px;
+}
+
+.eds__tableTitle {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.eds__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.eds__table thead {
+  background: #f0f9ff;
+}
+
+.eds__table th,
+.eds__table td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+/* ===== BUTTONS ===== */
+.eds__btn {
+  width: 140px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.eds__editBtn {
+  background: #3b82f6;
+}
+
+.eds__editBtn:hover {
+  background: #2563eb;
+}
+
+.eds__deleteBtn {
+  background: #c08484;
+}
+
+.eds__deleteBtn:hover {
+  background: #b45353;
+}
+
+/* ===== MODAL ===== */
+.eds__modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.eds__modal {
+  background: #fff;
+  padding: 25px;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+
+.eds__modal h3 {
+  margin-bottom: 15px;
+}
+
+.eds__modal label {
+  font-size: 13px;
+  margin-top: 10px;
+  display: block;
+}
+
+.eds__modal input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.eds__modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.eds__modalActions button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.save {
+  background: #22c55e;
+  color: #fff;
+}
+
+.delete {
+  background: #ef4444;
+  color: #fff;
+}
+
+.cancel {
+  background: #e5e7eb;
+}

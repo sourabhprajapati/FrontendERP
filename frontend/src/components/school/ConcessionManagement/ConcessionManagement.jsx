@@ -1,56 +1,117 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./ConcessionManagement.css";
+
+/* REQUIRED CONSTANTS */
+const schoolId = "000000000000000000000001";
+const API_BASE = "http://localhost:5000";
 
 const ConcessionManagement = () => {
   const [categoryName, setCategoryName] = useState("");
-  const [categories, setCategories] = useState([
-    "GENERAL",
-    "Staff",
-    "Gardain"
-  ]);
-
+  const [categories, setCategories] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState("");
 
-  // Add
-  const handleAddCategory = () => {
-    if (!categoryName.trim()) return alert("Enter category name");
+  /* ================= FETCH ================= */
+  const fetchCategories = async () => {
+    try {
+      const res = await fetch(
+        `${API_BASE}/api/concession/${schoolId}`
+      );
+      const result = await res.json();
 
-    if (categories.includes(categoryName.trim()))
-      return alert("Category already exists");
-
-    setCategories([...categories, categoryName.trim()]);
-    setCategoryName("");
+      setCategories(result.data || []);
+    } catch (error) {
+      toast.error("Failed to fetch categories");
+    }
   };
 
-  // Delete
-  const handleDelete = (index) => {
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  /* ================= ADD ================= */
+  const handleAddCategory = async () => {
+    if (!categoryName.trim()) {
+      toast.error("Category name is required");
+      return;
+    }
+
+    try {
+      await fetch(`${API_BASE}/api/concession/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          schoolId,
+          categoryName: categoryName.trim(),
+        }),
+      });
+
+      setCategoryName("");
+      toast.success("Category added successfully");
+      fetchCategories();
+    } catch (error) {
+      toast.error("Failed to add category");
+    }
+  };
+
+  /* ================= DELETE ================= */
+  const handleDelete = async (index) => {
     if (!window.confirm("Are you sure you want to delete this category?"))
       return;
 
-    const updated = categories.filter((_, i) => i !== index);
-    setCategories(updated);
+    try {
+      const id = categories[index]._id;
+
+      await fetch(`${API_BASE}/api/concession/delete/${id}`, {
+        method: "DELETE",
+      });
+
+      toast.success("Category deleted successfully");
+      fetchCategories();
+    } catch (error) {
+      toast.error("Failed to delete category");
+    }
   };
 
-  // Edit
+  /* ================= EDIT ================= */
   const handleEdit = (index) => {
     setEditIndex(index);
-    setEditValue(categories[index]);
+    setEditValue(categories[index].categoryName);
   };
 
-  const handleUpdate = () => {
-    if (!editValue.trim()) return alert("Category name required");
+  const handleUpdate = async () => {
+    if (!editValue.trim()) {
+      toast.error("Category name is required");
+      return;
+    }
 
-    const updated = [...categories];
-    updated[editIndex] = editValue.trim();
+    try {
+      const id = categories[editIndex]._id;
 
-    setCategories(updated);
-    setEditIndex(null);
-    setEditValue("");
+      await fetch(`${API_BASE}/api/concession/update/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          categoryName: editValue.trim(),
+        }),
+      });
+
+      setEditIndex(null);
+      setEditValue("");
+      toast.success("Category updated successfully");
+      fetchCategories();
+    } catch (error) {
+      toast.error("Failed to update category");
+    }
   };
 
   return (
     <div className="cm-container">
+      {/* TOAST */}
+      <ToastContainer position="top-right" autoClose={3000} />
+
       <h2 className="cm-title">Concession Management</h2>
 
       {/* Add Section */}
@@ -87,7 +148,7 @@ const ConcessionManagement = () => {
           <div className="cm-table-header">Concession Category Name</div>
 
           {categories.map((item, index) => (
-            <div key={index} className="cm-table-row cm-row-actions">
+            <div key={item._id} className="cm-table-row cm-row-actions">
               {editIndex === index ? (
                 <>
                   <input
@@ -109,7 +170,7 @@ const ConcessionManagement = () => {
                 </>
               ) : (
                 <>
-                  <span>{item}</span>
+                  <span>{item.categoryName}</span>
                   <div className="cm-action-btns">
                     <button
                       className="edit"

@@ -1,8 +1,18 @@
-import { FiBookOpen, FiBell, FiCalendar, FiBarChart2 } from "react-icons/fi";
-import ProductPromotion from "./ProductPromotion";
+import React from "react";
+import {
+  FiBookOpen,
+  FiBell,
+  FiCalendar,
+  FiBarChart2,
+  FiCheckCircle,
+  FiDollarSign,
+  FiClock,
+  FiActivity
+} from "react-icons/fi";
 import "./Dashboard.css";
 
 const Dashboard = () => {
+  // Mock Data - Preserved from original but structured for new UI
   const student = {
     name: "Aman Sharma",
     className: "10",
@@ -10,180 +20,191 @@ const Dashboard = () => {
     rollNumber: "23",
   };
 
-  const homework = [
+  const stats = [
+    {
+      id: 1,
+      title: "Attendance",
+      value: "89%",
+      desc: "142/160 Days Present",
+      icon: <FiCheckCircle />,
+      type: "attendance"
+    },
+    {
+      id: 2,
+      title: "Homework",
+      value: "2",
+      desc: "Pending Assignments",
+      icon: <FiBookOpen />,
+      type: "homework"
+    },
+    {
+      id: 3,
+      title: "Fee Status",
+      value: "Paid",
+      desc: "Next Due: 15 Dec",
+      icon: <FiDollarSign />,
+      type: "fees"
+    },
+    {
+      id: 4,
+      title: "Avg. Grade",
+      value: "A",
+      desc: "Last Assessment: 92%",
+      icon: <FiActivity />,
+      type: "performance"
+    },
+  ];
+
+  const timeTableToday = [
+    { period: "09:00 AM", subject: "Mathematics", teacher: "Mr. R. Gupta", status: "Completed" },
+    { period: "10:00 AM", subject: "English Lit", teacher: "Ms. Sarah J.", status: "Ongoing" },
+    { period: "11:00 AM", subject: "Physics", teacher: "Mr. H. Verma", status: "Upcoming" },
+    { period: "12:00 PM", subject: "Computer Sc.", teacher: "Lab Assistant", status: "Upcoming" },
+  ];
+
+  const homeworkKeywords = [
     { id: 1, title: "Algebra Worksheet", subject: "Maths", dueDate: "21 Nov 2025", status: "Pending" },
     { id: 2, title: "Grammar Exercises", subject: "English", dueDate: "22 Nov 2025", status: "Submitted" },
-    { id: 3, title: "Chemical Reactions Notes", subject: "Science", dueDate: "23 Nov 2025", status: "Pending" },
+    { id: 3, title: "Chemical Reactions", subject: "Science", dueDate: "23 Nov 2025", status: "Pending" },
   ];
 
-  const attendanceSummary = {
-    present: 142,
-    total: 160,
-    percentage: 89,
-  };
-
-  const notifications = [
-    { id: 1, message: "New homework added in Science", time: "2h ago" },
-    { id: 2, message: "Parent-teacher meeting on Friday", time: "5h ago" },
-    { id: 3, message: "Library book due tomorrow", time: "1d ago" },
-  ];
-
-  const events = [
-    { id: 1, title: "Maths Test", date: "21 Nov 2025" },
-    { id: 2, title: "Sports Day", date: "25 Nov 2025" },
+  const notices = [
+    { id: 1, date: "15 Nov", title: "Last Working Day For III Semester", link: "#" },
+    { id: 2, date: "15 Nov", title: "Re-constitution of Innovation Council", link: "#" },
+    { id: 3, date: "05 Nov", title: "Schedule for II Mid-Term Exams", link: "#" },
+    { id: 4, date: "05 Nov", title: "Half Yearly Exam Schedule", link: "#" },
   ];
 
   return (
-    <div className="modern-erp-dashboard">
-      <header className="modernheader">
-        <div className="profile-welcome-container">
-          <img
-            src="/images/profilephoto.jpg"
-            alt="Profile"
-            className="profile-photo"
-          />
-          <div>
-            <small className="modern-welcome">Welcome back,</small>
-            <h1>{student.name}</h1>
-            <span className="modern-subtitle">
-              Class {student.className} • Section {student.section} • Roll {student.rollNumber}
-            </span>
-          </div>
+    <div className="dashboard-container">
+      {/* Header Section */}
+      <header className="dashboard-header">
+        <div className="header-welcome">
+          <h1>Hello, {student.name}! 👋</h1>
+          <p>Class {student.className}-{student.section} • Roll No. {student.rollNumber}</p>
         </div>
-        <aside className="modern-stats">
-          <div className="modern-card attendance">
-            <FiBarChart2 className="modern-icon" />
-            <div className="stats-text">
-              <span>Attendance</span>
-              <h2>{attendanceSummary.percentage}%</h2>
-            </div>
-            <div className="progress-bar" style={{ width: `${attendanceSummary.percentage}%` }} />
+        <div className="header-actions">
+          <div className="date-badge">
+            <FiCalendar />
+            <span>{new Date().toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' })}</span>
           </div>
-          <div className="modern-card homework">
-            <FiBookOpen className="modern-icon" />
-            <div className="stats-text">
-              <span>Pending Homework</span>
-              <h2>{homework.filter(h => h.status === "Pending").length}</h2>
-            </div>
-          </div>
-        </aside>
+          <button className="notification-btn" aria-label="Notifications">
+            <FiBell />
+            <span className="notification-badge"></span>
+          </button>
+        </div>
       </header>
 
-      <main className="modern-main">
-        <section className="glass-card homework-section">
-          <div className="section-header">
-            <FiBookOpen />
-            <h3>Homework</h3>
-            <button className="button">View All</button>
-          </div>
-          <ul className="list-items">
-            {homework.map(hw => (
-              <li key={hw.id} className="list-item">
-                <div>
-                  <p className="item-title">{hw.title}</p>
-                  <p className="item-subtitle">{hw.subject} • Due {hw.dueDate}</p>
-                </div>
-                <span className={`status-badge ${hw.status.toLowerCase()}`}>{hw.status}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="glass-card notifications-section" style={{ gridColumn: "span 2" }}>
-          <div className="section-header">
-            <FiBell />
-            <h3>Notifications</h3>
-          </div>
-          <table className="notification-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Notice</th>
-                <th>Link</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>15-11-2025</td>
-                <td>Notice: Last Working Day For III Semester -reg</td>
-                <td>
-                  <a href="#" className="notif-link" target="_blank" rel="noopener">View/Download</a>
-                </td>
-              </tr>
-              <tr>
-                <td>15-11-2025</td>
-                <td>Office Order – for Re-constitution of Institution’s Innovation Council (IIC) Cell</td>
-                <td>
-                  <a href="#" className="notif-link" target="_blank" rel="noopener">View/Download</a>
-                </td>
-              </tr>
-              <tr>
-                <td>05-11-2025</td>
-                <td>Schedule for II Mid-Term of I Semester of III, V and VII Semester 2025-26</td>
-                <td>
-                  <a href="#" className="notif-link" target="_blank" rel="noopener">View/Download</a>
-                </td>
-              </tr>
-              <tr>
-                <td>05-11-2025</td>
-                <td>Schedule for half Yearly of of VII Semester 2025-26</td>
-                <td>
-                  <a href="#" className="notif-link" target="_blank" rel="noopener">View/Download</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section className="glass-card events-section">
-          <div className="section-header">
-            <FiCalendar />
-            <h3>Event Calendar</h3>
-          </div>
-          <span className="calendar-month">November 2025</span>
-          <ul className="list-items events-list">
-            {events.map(event => (
-              <li key={event.id} className="list-item event">
-                <p className="event-title">{event.title}</p>
-                <small className="event-date">{event.date}</small>
-                <span className="event-dot"></span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <div className="attendance-promotion-wrapper">
-          <section className="glass-card attendance-section">
-            <div className="section-header">
-              <FiBarChart2 />
-              <h3>Attendance Summary</h3>
+      {/* Stats Grid */}
+      <section className="stats-grid">
+        {stats.map((stat) => (
+          <div key={stat.id} className={`stat-card ${stat.type}`}>
+            <div className="stat-icon">{stat.icon}</div>
+            <div className="stat-info">
+              <h3>{stat.value}</h3>
+              <p>{stat.title}</p>
+              <small style={{ opacity: 0.7, fontSize: '0.75rem' }}>{stat.desc}</small>
             </div>
-            <div className="attendance-meter">
-              <svg viewBox="0 0 100 100" className="circle-svg">
-                <circle cx="50" cy="50" r="45" className="bg-circle" />
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  className="progress-circle"
-                  strokeDasharray="282.6"
-                  strokeDashoffset={282.6 - (attendanceSummary.percentage / 100) * 282.6}
-                />
-              </svg>
-              <div className="attendance-text">
-                <strong>{attendanceSummary.percentage}%</strong>
-                <div>
-                  Present days: <span>{attendanceSummary.present}</span>
-                </div>
-                <div>
-                  Total days: <span>{attendanceSummary.total}</span>
-                </div>
-              </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Main Content Area */}
+      <div className="dashboard-main">
+        {/* Left Column */}
+        <div className="left-panel">
+          {/* Timetable Widget */}
+          <div className="dashboard-section" style={{ marginBottom: '2rem' }}>
+            <div className="section-title">
+              <span><FiClock style={{ marginRight: '8px' }} /> Today's Schedule</span>
+              <a href="/St_classtimetable" className="view-all-btn">View Full</a>
             </div>
-          </section>
-          <ProductPromotion />
+            <div className="timetable-list">
+              {timeTableToday.map((slot, index) => (
+                <div key={index} className="timetable-item">
+                  <div className="time-slot">{slot.period}</div>
+                  <div className="subject-info">
+                    <span className="subject-name">{slot.subject}</span>
+                    <span className="teacher-name">{slot.teacher}</span>
+                  </div>
+                  <span className={`class-status-badge ${slot.status === 'Ongoing' ? 'active' : ''}`}>
+                    {slot.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pending Homework */}
+          <div className="dashboard-section">
+            <div className="section-title">
+              <span><FiBookOpen style={{ marginRight: '8px' }} /> Recent Homework</span>
+              <a href="/homework" className="view-all-btn">View All</a>
+            </div>
+            <div className="homework-preview-list">
+              {homeworkKeywords.map((hw) => (
+                <div key={hw.id} className="homework-item">
+                  <div className="hw-icon">
+                    <FiBookOpen />
+                  </div>
+                  <div className="hw-details">
+                    <span className="hw-title">{hw.title}</span>
+                    <span className="hw-sub">{hw.subject} • Due {hw.dueDate}</span>
+                  </div>
+                  <span className={`hw-status ${hw.status.toLowerCase()}`}>
+                    {hw.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
+
+        {/* Right Column */}
+        <div className="right-panel">
+          {/* Performance / Promotion */}
+          <div className="dashboard-section">
+            <div className="section-title">
+              <span><FiBarChart2 style={{ marginRight: '8px' }} /> Performance</span>
+            </div>
+            <div style={{ textAlign: 'center', padding: '1rem 0' }}>
+              <div style={{
+                width: '120px',
+                height: '120px',
+                borderRadius: '50%',
+                border: '8px solid #f0f0f0',
+                borderTop: '8px solid var(--secondary-color)',
+                margin: '0 auto 1rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                color: 'var(--secondary-color)'
+              }}>
+                A Grade
+              </div>
+              <p style={{ color: 'var(--text-muted)' }}>You are doing great! Keep it up.</p>
+            </div>
+          </div>
+
+          {/* Notices */}
+          <div className="dashboard-section">
+            <div className="section-title">
+              <span><FiBell style={{ marginRight: '8px' }} /> Notice Board</span>
+            </div>
+            <ul className="notice-list">
+              {notices.map((notice) => (
+                <li key={notice.id} className="notice-item">
+                  <span className="notice-date">{notice.date}</span>
+                  <span className="notice-text">{notice.title}</span>
+                  <a href={notice.link} className="notice-link">View Details &rarr;</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

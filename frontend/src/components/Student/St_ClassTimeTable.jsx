@@ -18,7 +18,7 @@ export default function StudentClassTimeTable() {
   const fetchTimetable = async () => {
     try {
       const student = {
-        class: "1",
+        class: "3",
         section: "A",
         school: "60d5f3f77a5e4b3e8c8e8b3a",
       };

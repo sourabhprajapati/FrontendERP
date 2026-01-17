@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaPlus,
   FaEdit,
@@ -10,6 +10,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./LateFeeManagement.css";
 
+/* API CONSTANTS */
+const API_BASE = "http://localhost:5000";
+const schoolId = "000000000000000000000001";
+
 const LateFeeManagement = () => {
   const [mode, setMode] = useState("ONETIME"); // ONETIME | PERDAY
   const [amount, setAmount] = useState("");
@@ -17,22 +21,58 @@ const LateFeeManagement = () => {
   const [config, setConfig] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
+  /* ================= FETCH CONFIG ================= */
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/late-fee/${schoolId}`);
+        const result = await res.json();
+
+        if (result.success && result.data) {
+          setMode(result.data.mode);
+          setAmount(result.data.amount);
+          setApplyAfterDate(result.data.applyAfterDate.split("T")[0]);
+          setConfig(result.data);
+        }
+      } catch (err) {
+        toast.error("Failed to load late fee configuration");
+      }
+    };
+
+    fetchConfig();
+  }, []);
+
   /* ================= SAVE / UPDATE ================= */
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!amount || !applyAfterDate) {
       toast.error("Please fill all required fields");
       return;
     }
 
-    setConfig({
-      mode,
-      amount,
-      applyAfterDate,
-      isActive: true,
-    });
+    try {
+      const res = await fetch(`${API_BASE}/api/late-fee/save`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          schoolId,
+          mode,
+          amount,
+          applyAfterDate,
+        }),
+      });
 
-    setIsEditing(false);
-    toast.success("Late fee configuration saved");
+      const result = await res.json();
+
+      if (result.success) {
+        setConfig(result.data);
+        setIsEditing(false);
+        toast.success("Late fee configuration saved");
+      } else {
+        toast.error(result.message || "Failed to save late fee");
+      }
+    } catch (err) {
+      toast.error("Server error while saving late fee");
+    }
   };
 
   /* ================= EDIT ================= */
@@ -42,13 +82,27 @@ const LateFeeManagement = () => {
   };
 
   /* ================= DELETE ================= */
-  const handleDelete = () => {
-    setConfig(null);
-    setAmount("");
-    setApplyAfterDate("");
-    setMode("ONETIME");
-    setIsEditing(false);
-    toast.success("Late fee configuration removed");
+  const handleDelete = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/late-fee/${schoolId}`, {
+        method: "DELETE",
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setConfig(null);
+        setAmount("");
+        setApplyAfterDate("");
+        setMode("ONETIME");
+        setIsEditing(false);
+        toast.success("Late fee configuration removed");
+      } else {
+        toast.error(result.message || "Failed to delete late fee");
+      }
+    } catch (err) {
+      toast.error("Server error while deleting late fee");
+    }
   };
 
   return (
@@ -75,7 +129,8 @@ const LateFeeManagement = () => {
                 : "Per Day Late Fee"}{" "}
               | <strong>Amount :</strong> ₹{config.amount}{" "}
               {config.mode === "PERDAY" && "/ day"} |{" "}
-              <strong>Apply After :</strong> {config.applyAfterDate}
+              <strong>Apply After :</strong>{" "}
+              {config.applyAfterDate.split("T")[0]}
             </p>
           )}
 

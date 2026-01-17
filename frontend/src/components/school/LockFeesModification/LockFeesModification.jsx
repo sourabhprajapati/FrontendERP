@@ -1,24 +1,67 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaLock, FaEdit, FaTrash } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./LockFeesModification.css";
+
+/* API CONSTANTS */
+const API_BASE = "http://localhost:5000";
+const schoolId = "000000000000000000000001";
 
 const LockFeesModification = () => {
   const [lockDate, setLockDate] = useState("");
   const [savedDate, setSavedDate] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
-  /* ================= LOCK ================= */
-  const handleLockFees = () => {
+  /* ================= FETCH ON LOAD ================= */
+  useEffect(() => {
+    const fetchLock = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/lock-fees/${schoolId}`);
+        const result = await res.json();
+
+        if (result.success && result.data) {
+          const date = result.data.lockUptoDate.split("T")[0];
+          setSavedDate(date);
+          setLockDate(date);
+        }
+      } catch (error) {
+        toast.error("Failed to load lock status");
+      }
+    };
+
+    fetchLock();
+  }, []);
+
+  /* ================= LOCK / UPDATE ================= */
+  const handleLockFees = async () => {
     if (!lockDate) {
       toast.error("Please select a date to lock fees modification");
       return;
     }
 
-    setSavedDate(lockDate);
-    setIsEditing(false);
-    toast.success(`Fees modification locked till ${lockDate}`);
+    try {
+      const res = await fetch(`${API_BASE}/api/lock-fees/lock`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          schoolId,
+          lockUptoDate: lockDate,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSavedDate(lockDate);
+        setIsEditing(false);
+        toast.success(`Fees modification locked till ${lockDate}`);
+      } else {
+        toast.error(result.message || "Failed to lock fees");
+      }
+    } catch (error) {
+      toast.error("Server error while locking fees");
+    }
   };
 
   /* ================= EDIT ================= */
@@ -27,12 +70,26 @@ const LockFeesModification = () => {
     toast.info("You can now edit the lock date");
   };
 
-  /* ================= DELETE ================= */
-  const handleDelete = () => {
-    setSavedDate("");
-    setLockDate("");
-    setIsEditing(false);
-    toast.success("Fees modification unlocked successfully");
+  /* ================= DELETE / UNLOCK ================= */
+  const handleDelete = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/lock-fees/${schoolId}`, {
+        method: "DELETE",
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSavedDate("");
+        setLockDate("");
+        setIsEditing(false);
+        toast.success("Fees modification unlocked successfully");
+      } else {
+        toast.error(result.message || "Failed to unlock fees");
+      }
+    } catch (error) {
+      toast.error("Server error while unlocking fees");
+    }
   };
 
   return (
@@ -68,7 +125,7 @@ const LockFeesModification = () => {
             />
           </div>
 
-          {/* ACTION BUTTONS */}
+          {/* ACTION BUTTONS (UNCHANGED) */}
           <div className="lfm-btn-wrap">
             {!savedDate && (
               <button onClick={handleLockFees}>

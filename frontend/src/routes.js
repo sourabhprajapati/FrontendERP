@@ -15,18 +15,18 @@ import Staff from "./components/school/Staff/Staff";
 import ComplaintForm from "./components/school/ComplaintForm/ComplaintForm";
 import Visitors from "./components/school/Visitors/Visitors";
 import Enquiry from "./components/school/Enquiry/Enquiry";
-import StudentAttendance from "./components/school/StudentAttendance/StudentAttendance";
 // import CollectFees  from "./components/school/CollectFees/CollectFees.jsx";
 import PaymentReceipt from "./components/school/PaymentReceipt/PaymentReceipt.jsx";
 // import AddStudent  from "./components/school/AddStudent/AddStudent.jsx";
 import StudentAdmissionForm from "./components/school/StudentAdmissionForm/StudentAdmissionForm.jsx";
-import ExamSetting from "./components/school/ExamSetting/ExamSetting";
-import AddSemester from "./components/school/AddSemester/AddSemester";
+// import ExamSetting from "./components/school/ExamSetting/ExamSetting";
+// import AddSemester from "./components/school/AddSemester/AddSemester";
 import TeacherTimeTable from "./components/school/TeacherTimeTable/TeacherTimeTable";
 import ClassTimeTable from "./components/school/ClassTimeTable/ClassTimeTable";
 import Settings from "./components/school/Settings/Settings";
 import AdmitCard from "./components/school/AdmitCard/AdmitCard";
 import StudentDetails from "./components/school/StudentDetails/StudentDetails";
+import StudentView from "./components/school/StudentView/StudentView";
 import PreviousFeeRecord from "./components/school/PreviousFeeRecord/PreviousFeeRecord";
 import PreviousAttendanceRecord from "./components/school/PreviousAttendanceRecord/PreviousAttendanceRecord";
 import StaffCertificate from "./components/school/StaffCertificate/StaffCertificate";
@@ -40,7 +40,7 @@ import StudentLoginCredential from "./components/school/StudentLoginCredential/S
 import MessageSettings from "./components/school/MessageSettings/MessageSettings";
 import StudentId from "./components/school/StudentId/StudentId";
 import PermissionSetting from "./components/school/PermissionSetting/UserPermission.jsx";
-import AttendanceReport from "./components/school/AttendanceReport/AttendanceReport";
+// import AttendanceReport from "./components/school/AttendanceReport/AttendanceReport";
 import StaffId from "./components/school/StaffId/StaffId";
 // import LoginPage  from "./components/LoginPage/LoginPage.jsx";
 import RegistrationExcelUpload from "./components/school/RegistrationExcelUpload/RegistrationExcelUpload.jsx";
@@ -58,6 +58,20 @@ import StudentFeeAllocation from "./components/school/StudentFeeAllocation/Stude
 import LockFeesModification from "./components/school/LockFeesModification/LockFeesModification";
 import LateFeeManagement from "./components/school/LateFeeManagement/LateFeeManagement";
 import CollectFee1 from "./components/school/CollectFee1/CollectFee1";
+import UPIQRCode from "./components/school/UPIQRCode/UPIQRCode";
+import AddSemester from "./components/school/AddSemester/AddSemester";
+import EditDeleteSemester from "./components/school/EditDeleteSemester/EditDeleteSemester";
+import ExamSetting from "./components/school/ExamSetting/ExamSetting";
+
+
+
+
+import StudentPerformance from "./components/school/StudentPerformance/StudentPerformance";
+import ClassSectionTransfer from "./components/school/ClassSectionTransfer/ClassSectionTransfer";
+import UpdateRollNumber from "./components/school/UpdateRollNumber/UpdateRollNumber";
+import StudentBirthday from "./components/school/StudentBirthday/StudentBirthday";
+import StudentPromotion from "./components/school/StudentPromotion/StudentPromotion";
+import StudentAttendance from "./components/school/StudentAttendance/StudentAttendance";
 
 
 
@@ -129,32 +143,32 @@ export const routeConfig = {
     { path: "/ComplaintForm", component: ComplaintForm },
     { path: "/Visitors", component: Visitors },
     { path: "/Enquiry", component: Enquiry },
-    { path: "/StudentAttendance", component: StudentAttendance },
+   
     // { path: "/CollectFees", component: CollectFees },
     { path: "/PaymentReceipt", component: PaymentReceipt },
     //  { path: "/AddStudent", component: AddStudent },
     { path: "/StudentAdmissionForm", component: StudentAdmissionForm },
-    { path: "/ExamSetting", component: ExamSetting },
-    { path: "/AddSemester", component: AddSemester },
+    // { path: "/ExamSetting", component: ExamSetting },
+    // { path: "/AddSemester", component: AddSemester },
     { path: "/TeacherTimeTable", component: TeacherTimeTable },
     { path: "/ClassTimeTable", component: ClassTimeTable },
     { path: "/Settings", component: Settings },
     { path: "/AdmitCard", component: AdmitCard },
     { path: "/StudentDetails", component: StudentDetails },
+    { path: "/student-view/:id", component: StudentView },
     { path: "/PreviousFeeRecord", component: PreviousFeeRecord },
     { path: "/PreviousAttendanceRecord", component: PreviousAttendanceRecord },
     { path: "/StaffCertificate", component: StaffCertificate },
     { path: "/CollectFee", component: CollectFee },
     { path: "/Cheques", component: Cheques },
     { path: "/StudentCertificate", component: StudentCertificate },
-    // { path: "/StudentAttendance", component: StudentAttendance},
     { path: "/StudentLeave", component: StudentLeave },
     { path: "/StaffLogin", component: StaffLogin },
     { path: "/StudentLoginCredential", component: StudentLoginCredential },
     { path: "/MessageSettings", component: MessageSettings },
     { path: "/StudentId", component: StudentId },
     { path: "/PermissionSetting", component: PermissionSetting },
-    { path: "/AttendanceReport", component: AttendanceReport },
+    // { path: "/AttendanceReport", component: AttendanceReport },
     { path: "/StaffId", component: StaffId },
     { path: "/Studentdetails", component: StudentDetails },
     // { path: "/LoginPage", component: LoginPage},
@@ -177,6 +191,22 @@ export const routeConfig = {
     { path: "/LockFeesModification", component: LockFeesModification },
     { path: "/LateFeeManagement", component: LateFeeManagement },
     { path: "/CollectFee1", component: CollectFee1 },
+    { path: "/UPIQRCode", component: UPIQRCode },
+    { path: "/AddSemester", component: AddSemester },
+    { path: "/EditDeleteSemester", component: EditDeleteSemester },
+    { path: "/ExamSetting", component: ExamSetting },
+
+
+    { path: "/StudentPerformance", component: StudentPerformance },
+    { path: "/ClassSectionTransfer", component: ClassSectionTransfer },
+    { path: "/UpdateRollNumber", component: UpdateRollNumber },
+    { path: "/StudentBirthday", component: StudentBirthday },
+    { path: "/StudentPromotion", component: StudentPromotion },
+    { path: "/StudentAttendance", component: StudentAttendance },
+
+
+
+
 
 
 

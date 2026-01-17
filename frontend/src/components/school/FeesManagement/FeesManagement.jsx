@@ -1,33 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./FeesManagement.css";
+
+/* API CONSTANTS */
+const schoolId = "000000000000000000000001";
+const API_BASE = "http://localhost:5000";
 
 const FeesManagement = () => {
   const [feeName, setFeeName] = useState("");
   const [feeType, setFeeType] = useState("classWise");
   const [paymentType, setPaymentType] = useState("MONTHLY");
-
-  const [feesList, setFeesList] = useState([
-    {
-      id: 1,
-      name: "Admission Fee",
-      paymentType: "YEARLY",
-      month: "April",
-      type: "classWise",
-    },
-    {
-      id: 2,
-      name: "Tuition Fee",
-      paymentType: "MONTHLY",
-      month: "Every",
-      type: "classWise",
-    },
-  ]);
-
+  const [feesList, setFeesList] = useState([]);
   const [editId, setEditId] = useState(null);
 
-  /* ---------- MONTH LOGIC ---------- */
+  /* ---------- MONTH LOGIC (UNCHANGED) ---------- */
   const getFeeMonth = (type) => {
     switch (type) {
       case "MONTHLY":
@@ -43,59 +30,82 @@ const FeesManagement = () => {
     }
   };
 
+  /* ---------- FETCH ---------- */
+  const fetchFees = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/fees/${schoolId}`);
+      const result = await res.json();
+      setFeesList(result.data || []);
+    } catch {
+      toast.error("Failed to load fees");
+    }
+  };
+
+  useEffect(() => {
+    fetchFees();
+  }, []);
+
   /* ---------- ADD ---------- */
-  const handleAddFees = () => {
+  const handleAddFees = async () => {
     if (!feeName.trim()) {
       toast.error("Fees name is required");
       return;
     }
 
-    setFeesList([
-      ...feesList,
-      {
-        id: Date.now(),
-        name: feeName.trim(),
-        paymentType,
-        month: getFeeMonth(paymentType),
-        type: feeType,
-      },
-    ]);
+    try {
+      await fetch(`${API_BASE}/api/fees/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          schoolId,
+          feeName: feeName.trim(),
+          paymentType,
+          month: getFeeMonth(paymentType),
+          feeType,
+        }),
+      });
 
-    toast.success("Fees added successfully");
-    resetForm();
+      toast.success("Fees added successfully");
+      resetForm();
+      fetchFees();
+    } catch {
+      toast.error("Failed to add fees");
+    }
   };
 
   /* ---------- EDIT ---------- */
   const handleEdit = (fee) => {
-    setEditId(fee.id);
-    setFeeName(fee.name);
+    setEditId(fee._id);
+    setFeeName(fee.feeName);
     setPaymentType(fee.paymentType);
-    setFeeType(fee.type);
+    setFeeType(fee.feeType);
   };
 
   /* ---------- UPDATE ---------- */
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     if (!feeName.trim()) {
       toast.error("Fees name is required");
       return;
     }
 
-    setFeesList(
-      feesList.map((fee) =>
-        fee.id === editId
-          ? {
-              ...fee,
-              name: feeName.trim(),
-              paymentType,
-              month: getFeeMonth(paymentType),
-              type: feeType,
-            }
-          : fee
-      )
-    );
+    try {
+      await fetch(`${API_BASE}/api/fees/update/${editId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          feeName: feeName.trim(),
+          paymentType,
+          month: getFeeMonth(paymentType),
+          feeType,
+        }),
+      });
 
-    toast.success("Fees updated successfully");
-    resetForm();
+      toast.success("Fees updated successfully");
+      resetForm();
+      fetchFees();
+    } catch {
+      toast.error("Failed to update fees");
+    }
   };
 
   /* ---------- DELETE ---------- */
@@ -117,12 +127,18 @@ const FeesManagement = () => {
     );
   };
 
-  const confirmDelete = (id) => {
-    setFeesList(feesList.filter((fee) => fee.id !== id));
-    toast.dismiss();
-    toast.success("Fees deleted successfully");
-
-    if (editId === id) resetForm();
+  const confirmDelete = async (id) => {
+    try {
+      await fetch(`${API_BASE}/api/fees/delete/${id}`, {
+        method: "DELETE",
+      });
+      toast.dismiss();
+      toast.success("Fees deleted successfully");
+      fetchFees();
+      if (editId === id) resetForm();
+    } catch {
+      toast.error("Failed to delete fees");
+    }
   };
 
   /* ---------- RESET ---------- */
@@ -133,13 +149,13 @@ const FeesManagement = () => {
     setPaymentType("MONTHLY");
   };
 
+  /* ---------- JSX (UNCHANGED) ---------- */
   return (
     <div className="fees-container">
       <ToastContainer position="top-right" autoClose={3000} />
 
       <h2 className="fees-title">Fees Management</h2>
 
-      {/* ADD / EDIT FORM */}
       <div className="fees-card">
         <div className="fees-card-header">
           {editId ? "Edit Fees" : "Add Fees"}
@@ -213,7 +229,6 @@ const FeesManagement = () => {
         </div>
       </div>
 
-      {/* TABLE */}
       <div className="fees-card">
         <div className="fees-card-header">View / Edit Fees</div>
 
@@ -230,12 +245,12 @@ const FeesManagement = () => {
           </thead>
           <tbody>
             {feesList.map((fee, index) => (
-              <tr key={fee.id}>
+              <tr key={fee._id}>
                 <td>{index + 1}</td>
-                <td>{fee.name}</td>
+                <td>{fee.feeName}</td>
                 <td>{fee.paymentType}</td>
                 <td>{fee.month}</td>
-                <td>{fee.type}</td>
+                <td>{fee.feeType}</td>
                 <td>
                   <button
                     className="edit-btn"
@@ -245,7 +260,7 @@ const FeesManagement = () => {
                   </button>
                   <button
                     className="delete-btn"
-                    onClick={() => handleDelete(fee.id)}
+                    onClick={() => handleDelete(fee._id)}
                   >
                     🗑 Delete
                   </button>

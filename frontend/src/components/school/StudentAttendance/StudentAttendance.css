@@ -15,12 +15,20 @@
 
 /* ====================== MAIN LAYOUT ====================== */
 .sa-root122 {
-  padding: 100px 20px 40px 280px;   /* adjust top/left if your sidebar/header changes */
-  max-width: 1600px;
-  margin: 0 auto;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: #f9fafc;
-  min-height: 100vh;
+   margin-left: 250px;
+  margin-top: 80px;
+  padding: 24px;
+  background: radial-gradient(
+      circle at top left,
+      #eef2ff,
+      transparent 40%
+    ),
+    linear-gradient(180deg, #f4f6fb, #eef2f7);
+  min-height: calc(100vh - 8vh);
+  transition: margin-left 0.3s ease;
+  box-sizing: border-box;
+  width: calc(100% - 250px);
+  max-width: 100%;
 }
 
 /* ====================== CRITERIA BOX ====================== */
@@ -136,9 +144,9 @@
 .result-box122 {
   background: white;
   padding: 24px;
-  border-radius: var(--radius);
-  border: 1px solid #cfe9d8;
-  box-shadow: var(--shadow-sm);
+  border-radius: 4px;
+  border: 2px solid #2c3e50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
 }
 
@@ -193,83 +201,232 @@
 .table-search122 {
   flex: 1;
   min-width: 240px;
-  border: 1.5px solid var(--border);
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.table-search122:focus {
+  outline: none;
+  border-color: #2c3e50;
+  box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.1);
 }
 
 /* ====================== TABLE ====================== */
 .table-wrapper122 {
   overflow-x: auto;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  border: 2px solid #2c3e50;
+  border-radius: 4px;
   margin-top: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .att-table122 {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
   background: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .att-table122 th {
-  background: var(--head-bg);
+  background: #2c3e50;
+  color: white;
   padding: 14px 12px;
   text-align: center;
   font-weight: 700;
-  font-size: 0.9rem;
-  color: #444;
-  border-bottom: 2px solid var(--border);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border: 1px solid #1a252f;
+  border-bottom: 2px solid #1a252f;
   position: sticky;
   top: 0;
   z-index: 10;
+  text-transform: uppercase;
+}
+
+.att-table122 th:first-child {
+  border-left: 1px solid #1a252f;
+}
+
+.att-table122 th:last-child {
+  border-right: 1px solid #1a252f;
+}
+
+.att-table122 td:first-child {
+  border-left: 1px solid #dee2e6;
+}
+
+.att-table122 td:last-child {
+  border-right: 1px solid #dee2e6;
 }
 
 .att-table122 td {
-  background: var(--row-bg);
+  background: white;
   padding: 12px;
   text-align: center;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.2s;
+  border: 1px solid #dee2e6;
+  font-size: 0.9rem;
+  color: #333;
+  vertical-align: middle;
 }
 
-.att-table122 tr:hover td {
-  background: #eef2ff;
+.att-table122 tbody tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.att-table122 tbody tr:last-child {
+  border-bottom: 2px solid #2c3e50;
+}
+
+/* Classic striped rows */
+.att-table122 tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.att-table122 tbody tr:nth-child(even) td {
+  background-color: #f8f9fa;
+}
+
+.att-table122 tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+.att-table122 tbody tr:nth-child(odd) td {
+  background-color: white;
+}
+
+/* Hover effect - subtle */
+.att-table122 tbody tr:hover {
+  background-color: #e9ecef !important;
+}
+
+.att-table122 tbody tr:hover td {
+  background-color: #e9ecef !important;
 }
 
 .name-cell122 {
   font-weight: 600;
-  color: #c41b3d;
+  color: #2c3e50;
   text-align: left !important;
+  padding-left: 16px !important;
 }
 
-/* Radio buttons */
+/* Status-based row colors - subtle */
+.att-table122 tbody tr.att-row-present {
+  background-color: #f0f9f4 !important;
+}
+
+.att-table122 tbody tr.att-row-present td {
+  background-color: #f0f9f4 !important;
+}
+
+.att-table122 tbody tr.att-row-absent {
+  background-color: #fef2f2 !important;
+}
+
+.att-table122 tbody tr.att-row-absent td {
+  background-color: #fef2f2 !important;
+}
+
+.att-table122 tbody tr.att-row-leave {
+  background-color: #fffbeb !important;
+}
+
+.att-table122 tbody tr.att-row-leave td {
+  background-color: #fffbeb !important;
+}
+
+.att-table122 tbody tr.att-row-holiday {
+  background-color: #eff6ff !important;
+}
+
+.att-table122 tbody tr.att-row-holiday td {
+  background-color: #eff6ff !important;
+}
+
+/* Radio buttons - Classic style */
 .radio-cell122 {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
+  padding: 8px !important;
 }
 
 .radio-label122 {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   font-size: 0.9rem;
   cursor: pointer;
-  color: #444;
+  color: #2c3e50;
+  padding: 6px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background: white;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.radio-label122:hover {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
 }
 
 .radio-label122 input[type="radio"] {
-  accent-color: var(--green);
+  accent-color: #2c3e50;
+  cursor: pointer;
+  margin: 0;
 }
 
-/* Note box */
+/* Checked state for radio buttons - Classic style */
+.radio-label122.checked-present {
+  background-color: #10b981 !important;
+  border-color: #10b981 !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.radio-label122.checked-absent {
+  background-color: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.radio-label122.checked-leave {
+  background-color: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Note box - Classic style */
 .note-box122 {
   width: 100%;
-  padding: 8px 10px;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
+  min-width: 150px;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
   font-size: 0.9rem;
+  background: white;
+  color: #333;
+  transition: border-color 0.2s ease;
+}
+
+.note-box122:focus {
+  outline: none;
+  border-color: #2c3e50;
+  box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.1);
+}
+
+.note-box122:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
 }
 
 /* ====================== HOLIDAY POPUP ====================== */
@@ -306,6 +463,22 @@
   margin-top: 12px;
 }
 
+/* ====================== STICKY SAVE BUTTON ====================== */
+.sticky-save-btn122 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 0 6px 20px rgba(0, 69, 133, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 /* ====================== RESPONSIVE ====================== */
 @media (max-width: 992px) {
   .sa-root122 {
@@ -319,4 +492,14 @@
   .criteria-item122 {
     min-width: 100%;
   }
+  .sticky-save-btn122 {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+.sa-title122 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e293b;
 }

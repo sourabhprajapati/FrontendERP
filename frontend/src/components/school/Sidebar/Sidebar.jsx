@@ -92,12 +92,12 @@ const SIDEBAR_ITEMS = [
       { name: "Add Student", icon: ChevronsRight,  path: "/StudentAdmissionForm"},
       { name: "Add Student(Bulk Upload),", icon: ChevronsRight,path: "/RegistrationExcelUpload"},
       { name: "Edit/View Students", icon: ChevronsRight,path: "/StudentDetails" },
-      { name: "Student Performance", icon: ChevronsRight },
-      { name: "Class/Section Transfer", icon: ChevronsRight },
-      { name: "Update roll number", icon: ChevronsRight },
-      { name: "Students Birthday", icon: ChevronsRight },
+      { name: "Student Performance", icon: ChevronsRight,path:"/StudentPerformance" },
+      { name: "Class/Section Transfer", icon: ChevronsRight,path: "/ClassSectionTransfer" },
+      { name: "Update roll number", icon: ChevronsRight,path:"/UpdateRollNumber" },
+      { name: "Students Birthday", icon: ChevronsRight,path: "/StudentBirthday" },
       { name: "Documents", icon: ChevronsRight },
-      { name: "Student promotion", icon: ChevronsRight },
+      { name: "Student promotion", icon: ChevronsRight,path: "/StudentPromotion" },
       { name: "Student ExtraValues", icon: ChevronsRight },
       { name: "Student Attendance", icon: ChevronsRight ,path: "/StudentAttendance"},
     ],
@@ -140,6 +140,7 @@ const SIDEBAR_ITEMS = [
       { name: "Student Fee Allocation", icon: ChevronsRight, path: "/StudentFeeAllocation" },
       { name: "Fee Lock", icon: ChevronsRight,  path: "/LockFeesModification" },
       { name: "Late Fee Management", icon: ChevronsRight,  path: "/LateFeeManagement" },
+      { name: "UPIQRCode", icon: ChevronsRight,  path: "/UPIQRCode" },
 
        { name: "Collect Fee", icon: ChevronsRight,   path: "/CollectFee1" },
 
@@ -165,8 +166,12 @@ const SIDEBAR_ITEMS = [
     name: "Exam Master",
     icon: PiExamFill,
     subItems: [
-      { name: "Semester/Term Master", icon: ChevronsRight, path: "/AddSemester" },
+      // { name: "Semester/Term Master", icon: ChevronsRight, path: "/AddSemester" },
+      
+      { name: "AddSemester", icon: ChevronsRight, path: "/AddSemester" },
+      { name: "Edit/DeleteSemester", icon: ChevronsRight,  path: "/EditDeleteSemester" },
       { name: "Exam Setting", icon: ChevronsRight ,path: "/ExamSetting"},
+
     ],
   },
   { name: "TPG", icon: GrDocumentTest },
