@@ -1,120 +1,178 @@
-/* AllLeaveRequests.css */
+/* ==================================================
+   All Leave Requests – Blue Theme (CSS ONLY)
+   ================================================== */
+
 .leave-req-container {
   margin-left: 250px;
   margin-top: 100px;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 28px;
+  min-height: calc(100vh - 100px);
+  background: linear-gradient(180deg, #f4f8ff, #eaf1ff);
+  border-radius: 16px;
+  font-family: "Inter", system-ui, sans-serif;
 }
 
+/* TITLE */
 .leave-req-title {
-  color: #0057b7;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 15px;
+  color: #0b3c91;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 18px;
 }
 
-/* Search */
+/* SEARCH */
 .leave-req-search {
   width: 100%;
-  padding: 10px;
-  border: 2px solid #0057b7;
-  border-radius: 8px;
-  background: #f0f8ff;
-  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #cfe0ff;
+  background: #ffffff;
+  margin-bottom: 14px;
+  font-size: 14px;
   outline: none;
+  transition: all 0.25s ease;
 }
 
-/* Filters */
+.leave-req-search:focus {
+  border-color: #1e5fd8;
+  box-shadow: 0 0 0 3px rgba(30, 95, 216, 0.2);
+}
+
+/* FILTERS */
 .leave-req-filters {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
 .leave-req-filters select {
   flex: 1;
-  padding: 10px;
-  border: 2px solid #008000;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #cfe0ff;
   background: #ffffff;
-  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
 }
 
-/* Table */
+.leave-req-filters select:focus {
+  border-color: #1e5fd8;
+  box-shadow: 0 0 0 3px rgba(30, 95, 216, 0.2);
+}
+
+/* TABLE */
 .leave-req-table-wrapper {
   width: 100%;
   overflow-x: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 22px 50px rgba(11, 60, 145, 0.15);
 }
 
 .leave-req-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 900px;
 }
 
 .leave-req-table th {
-  background: #0057b7;
-  color: white;
-  padding: 12px;
+  background: linear-gradient(135deg, #1e5fd8, #0b3c91);
+  color: #ffffff;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: left;
 }
 
 .leave-req-table td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
+  padding: 14px;
+  border-bottom: 1px solid #eef2ff;
+  font-size: 14px;
+  color: #1e293b;
 }
 
-/* Status Badges */
+.leave-req-table tr:hover td {
+  background: #f1f6ff;
+}
+
+/* STATUS BADGES */
 .leave-req-status {
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-weight: bold;
-  color: white;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-block;
 }
 
-.leave-req-pending {
-  background: #f4b400;
+.leave-req-status.leave-req-pending {
+  background: #eef4ff;
+  color: #1e5fd8;
 }
 
-.leave-req-approved {
-  background: #008000;
+.leave-req-status.leave-req-approved {
+  background: #ecfdf5;
+  color: #047857;
 }
 
-.leave-req-rejected {
-  background: #d93025;
+.leave-req-status.leave-req-rejected {
+  background: #fee2e2;
+  color: #991b1b;
 }
 
-/* Buttons */
+/* ACTION BUTTONS */
 .leave-req-actions {
   display: flex;
-  gap: 6px;
+  gap: 8px;
 }
 
-.leave-req-approve {
-  background: #008000;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
+.leave-req-approve,
 .leave-req-reject {
-  background: #d93025;
-  color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-/* Empty message */
+/* APPROVE */
+.leave-req-approve {
+  background: linear-gradient(135deg, #1e5fd8, #0b3c91);
+  color: #ffffff;
+}
+
+.leave-req-approve:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(30, 95, 216, 0.45);
+}
+
+/* REJECT */
+.leave-req-reject {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.leave-req-reject:hover {
+  background: #fecaca;
+}
+
+/* EMPTY STATE */
 .leave-req-empty {
   text-align: center;
-  color: #008000;
-  margin-top: 10px;
+  color: #1e5fd8;
+  padding: 20px;
+  font-weight: 600;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .leave-req-container {
+    margin-left: 0;
+    padding: 20px;
+  }
+
   .leave-req-filters {
     flex-direction: column;
   }
@@ -122,16 +180,4 @@
   .leave-req-title {
     font-size: 20px;
   }
-
-  .leave-req-table td,
-  .leave-req-table th {
-    padding: 8px;
-    font-size: 13px;
-  }
 }
-.leave-req-status.leave-req-pending { background: #fef3c7; color: #92400e; }
-.leave-req-status.leave-req-approved { background: #ecfdf5; color: #065f46; }
-.leave-req-status.leave-req-rejected { background: #fee2e2; color: #991b1b; }
-
-.leave-req-approve { background: #10b981; color: white;  }
-.leave-req-reject { background: #ef4444; color: white;  }

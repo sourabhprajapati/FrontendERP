@@ -74,7 +74,9 @@ const SIDEBAR_ITEMS = [
     subItems: [
       { name: "Staff Attendance", icon: ChevronsRight, path: "/AttendancePage" },
       { name: "Add Employee", icon: ChevronsRight , path: "/Staff"},
-      { name: "Edit/View Employee", icon: ChevronsRight , path: "/EditEmployee"},
+      // { name: "Edit/View Employee", icon: ChevronsRight , path: "/EditEmployee"},
+      { name: "Edit/View Employee", icon: ChevronsRight ,path: "/SearchEmployee"},
+
       { name: "Assign ClassTeacher", icon: ChevronsRight,path: "/AssignClassTeacher" },
       { name: "Edit/View ClassTeacher", icon: ChevronsRight,path: "/EditClassTeacher" },
       { name: "Staff Birthday", icon: ChevronsRight,path: "/StaffBirthday" },
@@ -82,7 +84,7 @@ const SIDEBAR_ITEMS = [
       { name: "Apply Leave", icon: ChevronsRight, path: "/LeaveApplication" },
       { name: "Leave Balance", icon: ChevronsRight, path: "/LeaveBalance" },
       { name: "All Leave request", icon: ChevronsRight , path: "/AllLeaveRequests"},
-      { name: "Inactive Report", icon: ChevronsRight,path: "/InactiveReport" },
+      // { name: "Inactive Report", icon: ChevronsRight,path: "/InactiveReport" },
     ],
   },
   {
@@ -96,9 +98,9 @@ const SIDEBAR_ITEMS = [
       { name: "Class/Section Transfer", icon: ChevronsRight,path: "/ClassSectionTransfer" },
       { name: "Update roll number", icon: ChevronsRight,path:"/UpdateRollNumber" },
       { name: "Students Birthday", icon: ChevronsRight,path: "/StudentBirthday" },
-      { name: "Documents", icon: ChevronsRight },
+      // { name: "Documents", icon: ChevronsRight },
       { name: "Student promotion", icon: ChevronsRight,path: "/StudentPromotion" },
-      { name: "Student ExtraValues", icon: ChevronsRight },
+      // { name: "Student ExtraValues", icon: ChevronsRight },
       { name: "Student Attendance", icon: ChevronsRight ,path: "/StudentAttendance"},
     ],
   },

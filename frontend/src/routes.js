@@ -72,6 +72,7 @@ import UpdateRollNumber from "./components/school/UpdateRollNumber/UpdateRollNum
 import StudentBirthday from "./components/school/StudentBirthday/StudentBirthday";
 import StudentPromotion from "./components/school/StudentPromotion/StudentPromotion";
 import StudentAttendance from "./components/school/StudentAttendance/StudentAttendance";
+import SearchEmployee from "./components/school/SearchEmployee/SearchEmployee";
 
 
 
@@ -203,6 +204,8 @@ export const routeConfig = {
     { path: "/StudentBirthday", component: StudentBirthday },
     { path: "/StudentPromotion", component: StudentPromotion },
     { path: "/StudentAttendance", component: StudentAttendance },
+    { path: "/SearchEmployee", component: SearchEmployee },
+
 
 
 

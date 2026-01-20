@@ -1,124 +1,173 @@
+/* =====================================
+   Edit Class Teacher – Blue Theme
+   ===================================== */
 
 .ect-container {
-     margin-left: 250px;
-  margin-top: 100px;
-  padding: 20px;
-  background: white;
+  margin-left: 250px;
+  margin-top: 90px;
+  padding: 32px;
+  min-height: calc(100vh - 90px);
+  background: linear-gradient(180deg, #f4f8ff, #e9f1ff);
+  font-family: "Inter", system-ui, sans-serif;
 }
 
+/* PAGE TITLE */
 .ect-title {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  color: #0b5394; /* blue */
-  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b3c91;
+  margin-bottom: 24px;
 }
 
+/* TABLE CARD */
 .ect-table-wrapper {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(11, 60, 145, 0.15);
   overflow-x: auto;
 }
 
+/* TABLE */
 .ect-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  border: 1px solid #ddd;
 }
 
 .ect-table th {
-  background: #0b5394;
-  color: white;
-  padding: 10px;
+  background: linear-gradient(135deg, #0b3c91, #1e5fd8);
+  color: #ffffff;
+  padding: 14px;
+  font-weight: 600;
   text-align: left;
+  font-size: 14px;
 }
 
 .ect-table td {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
+  padding: 14px;
+  border-bottom: 1px solid #edf2ff;
+  color: #1e293b;
+  font-size: 14px;
 }
 
+.ect-table tr:hover td {
+  background: #f1f6ff;
+}
+
+/* EDIT BUTTON */
 .ect-edit-btn {
-  background: #3c78d8;
+  background: #1e5fd8;
+  color: #ffffff;
   border: none;
-  padding: 6px 12px;
-  color: white;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 999px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease;
 }
 
 .ect-edit-btn:hover {
-  background: #0b5394;
+  background: #0b3c91;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(30, 95, 216, 0.4);
 }
 
-/* Edit Card */
+/* EDIT CARD */
 .ect-edit-card {
-  background: #eef7f1;
-  padding: 20px;
-  border-radius: 8px;
-  margin-top: 25px;
-  border-left: 5px solid #3aaa35; /* green */
+  margin-top: 28px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 22px 50px rgba(11, 60, 145, 0.18);
+  border-left: 6px solid #1e5fd8;
 }
 
+/* EDIT CARD TITLE */
 .ect-edit-card h3 {
-  margin-bottom: 15px;
-  color: #3aaa35;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b3c91;
+  margin-bottom: 16px;
 }
 
+/* LABELS */
 .ect-edit-card label {
-  font-weight: bold;
   display: block;
-  margin-top: 10px;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
 }
 
-.ect-edit-card input,
+/* SELECT INPUTS */
 .ect-edit-card select {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #aaa;
-  border-radius: 5px;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border-radius: 12px;
+  border: 1px solid #cfe0ff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
 }
 
-/* Buttons */
+.ect-edit-card select:focus {
+  border-color: #1e5fd8;
+  box-shadow: 0 0 0 3px rgba(30, 95, 216, 0.2);
+}
+
+/* BUTTON ROW */
 .ect-btn-row {
-  margin-top: 15px;
+  margin-top: 22px;
   display: flex;
-  gap: 10px;
+  gap: 14px;
 }
 
+/* SAVE BUTTON */
 .ect-save-btn {
-  background: #3aaa35;
-  color: white;
-  padding: 10px 14px;
-  border-radius: 5px;
+  flex: 1;
+  background: linear-gradient(135deg, #1e5fd8, #0b3c91);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 14px;
   border: none;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .ect-save-btn:hover {
-  background: #2d8628;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(30, 95, 216, 0.45);
 }
 
+/* CANCEL BUTTON */
 .ect-cancel-btn {
-  background: #3c78d8;
-  color: white;
-  padding: 10px 14px;
-  border-radius: 5px;
+  flex: 1;
+  background: #e6efff;
+  color: #0b3c91;
+  padding: 12px;
+  border-radius: 14px;
   border: none;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .ect-cancel-btn:hover {
-  background: #0b5394;
+  background: #d6e5ff;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .ect-btn-row {
-    flex-direction: column;
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .ect-container {
+    margin-left: 0;
+    margin-top: 70px;
   }
 
-  .ect-edit-card {
-    padding: 15px;
+  .ect-btn-row {
+    flex-direction: column;
   }
 }

@@ -1,129 +1,247 @@
-/* AssignClassTeacher.css */
+/* ===============================
+   Assign Class Teacher – Blue Theme
+   =============================== */
 
-.assign-ct-wrapper {
+.assign-ui-wrapper {
   margin-left: 250px;
-  margin-top: 100px;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  margin-top: 90px;
+  padding: 32px;
+  min-height: calc(100vh - 90px);
+  background: linear-gradient(180deg, #f4f8ff, #eaf2ff);
+  font-family: "Inter", system-ui, sans-serif;
 }
 
-.assign-ct-title {
-  color: #0057b7;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 15px;
+/* HEADER */
+.assign-ui-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b3c91;
+}
+
+.assign-ui-header p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #4b6cb7;
+}
+
+/* LAYOUT */
+.assign-ui-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 30px;
+}
+
+/* PANELS */
+.assign-ui-panel {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 20px 45px rgba(11, 60, 145, 0.12);
+}
+
+.assign-ui-panel.soft {
+  background: #f8fbff;
 }
 
 /* SEARCH */
-.assign-ct-search {
+.assign-ui-search {
   width: 100%;
-  padding: 10px;
-  border: 2px solid #0057b7;
-  border-radius: 8px;
-  background: #f0f8ff;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #cfe0ff;
+  font-size: 15px;
   outline: none;
+  transition: all 0.25s ease;
+}
+
+.assign-ui-search:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
 /* TEACHER LIST */
-.assign-ct-teacher-list {
-  margin-top: 15px;
+.assign-ui-teacher-list {
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+  max-height: 420px;
+  overflow-y: auto;
 }
 
-.assign-ct-teacher-card {
-  padding: 12px;
-  background: #ffffff;
-  border-left: 6px solid #008000;
-  border-radius: 10px;
+/* TEACHER CARD */
+.assign-ui-teacher {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 16px;
   cursor: pointer;
-  box-shadow: 0px 0px 6px rgba(0,0,0,0.15);
-  font-size: 16px;
+  background: #f5f9ff;
+  transition: all 0.3s ease;
 }
 
-.assign-ct-teacher-card.active {
-  background: #e6f4ff;
-  border-left-color: #0057b7;
+.assign-ui-teacher:hover {
+  background: #e6f0ff;
+  transform: translateY(-1px);
 }
 
-/* CLASS SELECT */
-.assign-ct-class-select {
-  margin-top: 15px;
-  padding: 10px;
+.assign-ui-teacher.selected {
+  background: linear-gradient(135deg, #dbeafe, #eff6ff);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* AVATAR */
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* TEACHER TEXT */
+.assign-ui-teacher .name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0b3c91;
+}
+
+.assign-ui-teacher .role {
+  font-size: 13px;
+  color: #4b6cb7;
+}
+
+/* RIGHT PANEL */
+.assign-ui-panel h3,
+.assign-ui-panel h4 {
+  color: #0b3c91;
+  font-weight: 600;
+}
+
+/* SELECTED TEACHER */
+.assign-ui-selected {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #eef5ff;
+  font-size: 14px;
+  color: #1e40af;
+}
+
+/* SELECT */
+.assign-ui-select {
   width: 100%;
-  border-radius: 8px;
-  border: 2px solid #008000;
-  background: #ffffff;
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #cfe0ff;
+  font-size: 15px;
   outline: none;
 }
 
-/* ASSIGN BUTTON */
-.assign-ct-btn-assign {
-  margin-top: 15px;
+.assign-ui-select:focus {
+  border-color: #2563eb;
+}
+
+/* BUTTON */
+.assign-ui-button {
   width: 100%;
-  padding: 12px;
-  background: #0057b7;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  margin-top: 18px;
+  padding: 15px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  color: #ffffff;
   font-size: 16px;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.assign-ct-btn-assign:hover {
-  background: #003f82;
+.assign-ui-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
 }
 
-/* ASSIGNED LIST */
-.assign-ct-assigned-heading {
-  margin-top: 25px;
-  font-size: 18px;
-  color: #0057b7;
-  font-weight: bold;
+.assign-ui-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-.assign-ct-assigned-list {
-  margin-top: 12px;
+/* DIVIDER */
+.assign-ui-divider {
+  margin: 26px 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #93c5fd, transparent);
+}
+
+/* ASSIGNED TAGS */
+.assign-ui-tags {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.assign-ct-assigned-card {
-  padding: 12px;
-  background: white;
-  border-left: 6px solid #0057b7;
+.assign-ui-tag {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #e6f0ff;
+  font-size: 13px;
+  color: #1e40af;
+  display: flex;
+  gap: 8px;
+}
+
+/* EMPTY */
+.empty {
+  font-size: 14px;
+  color: #6b8dd6;
+}
+
+/* SCROLLBAR */
+.assign-ui-teacher-list::-webkit-scrollbar {
+  width: 6px;
+}
+.assign-ui-teacher-list::-webkit-scrollbar-thumb {
+  background: #93c5fd;
   border-radius: 10px;
-  box-shadow: 0px 0px 6px rgba(0,0,0,0.15);
-}
-
-.assign-ct-green {
-  color: #008000 !important;
-}
-
-.assign-ct-blue {
-  color: #0057b7 !important;
-}
-
-.assign-ct-empty {
-  margin-top: 10px;
-  color: #008000;
-  text-align: center;
 }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
-  .assign-ct-teacher-card {
-    font-size: 14px;
+@media (max-width: 900px) {
+  .assign-ui-wrapper {
+    margin-left: 0;
+    margin-top: 70px;
   }
 
-  .assign-ct-btn-assign {
-    font-size: 14px;
+  .assign-ui-layout {
+    grid-template-columns: 1fr;
   }
+}
+/* DELETE BUTTON */
+.assign-ui-tag {
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .assign-ct-assigned-card {
-    font-size: 14px;
-  }
+.assign-ui-delete {
+  background: transparent;
+  border: none;
+  color: #0a2540;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+.assign-ui-delete:hover {
+  background: #0a2540;
+  color: #ffffff;
 }

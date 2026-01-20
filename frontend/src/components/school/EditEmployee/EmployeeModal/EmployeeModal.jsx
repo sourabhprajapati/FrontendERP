@@ -1,437 +1,154 @@
-// src/components/School/EmployeeModal.jsx
+// src/components/School/EmployeeModal/EmployeeModal.jsx
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; 
-const API_BASE_URL = "http://localhost:5000"; // Change to your production URL
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { X, Edit3 } from "lucide-react";
+import "./EmployeModal.css"; // New modern modal styles
+
+const API_BASE_URL = "http://localhost:5000";
 
 function EmployeeModal({ employee, onClose, onSaveSuccess }) {
   const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     employeeName: employee?.employeeName || "",
     employeeUserName: employee?.employeeUserName || "",
+    fatherName: employee?.fatherName || "",
     dob: employee?.dob || "",
-    userType: employee?.userType || "Teacher",
+    userType: employee?.userType || "",
     designation: employee?.designation || "",
-    natureOfAppointment: employee?.natureOfAppointment || "",
-    joiningDate: employee?.joiningDate || "",
     department: employee?.department || "",
+    kindOfTeacher: employee?.kindOfTeacher || "",
+    natureOfAppointment: employee?.natureOfAppointment || "",
+    teachingClass: employee?.teachingClass || [],
     qualification: employee?.qualification || "",
-    experienceYears: employee?.experienceYears || "",
-    bloodGroup: employee?.bloodGroup || "",
-    gender: employee?.gender || "",
-    maritalStatus: employee?.maritalStatus || "",
+    joiningDate: employee?.joiningDate || "",
+    leavingDate: employee?.leavingDate || "",
     mobile: employee?.mobile || "",
+    mobile2: employee?.mobile2 || "",
     email: employee?.email || "",
-    emergencyContact: employee?.emergencyContact || "",
     address: employee?.address || "",
-    city: employee?.city || "",
-    state: employee?.state || "",
-    pincode: employee?.pincode || "",
-    bankName: employee?.bankName || "",
-    accountNumber: employee?.accountNumber || "",
-    ifscCode: employee?.ifscCode || "",
-    panNumber: employee?.panNumber || "",
-    aadharNumber: employee?.aadharNumber || "",
+    otherComments: employee?.otherComments || "",
+    // Add more fields as needed...
   });
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
 
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setError(null);
   };
 
-  const validateForm = () => {
-    if (!formData.employeeName.trim()) return "Employee Name is required";
-    if (!formData.mobile.trim()) return "Mobile Number is required";
-    if (!formData.email.trim()) return "Email is required";
-    if (!formData.designation.trim()) return "Designation is required";
-    return null;
-  };
+ const handleSave = async () => {
+  setLoading(true);
+  try {
+    const schoolId = localStorage.getItem("schoolId") || "000000000000000000000001";
 
-  const handleSave = async () => {
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
+    const response = await fetch(`${API_BASE_URL}/api/staff/update/${employee._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...formData,
+        schoolId // ← ADD THIS LINE
+      }),
+    });
 
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
+    const result = await response.json();
 
-    try {
-      const schoolId =
-        localStorage.getItem("schoolId") || "000000000000000000000001";
-      if (!schoolId)
-        throw new Error("School ID not found. Please login again.");
-
-      const response = await fetch(
-        `${API_BASE_URL}/api/staff/update/${employee._id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            // Add Authorization header if you use JWT
-            // 'Authorization': `Bearer ${localStorage.getItem('token')}`
-          },
-          body: JSON.stringify({
-            ...formData,
-            schoolId,
-            // Convert dates to ISO if backend expects Date objects
-            dob: formData.dob
-              ? new Date(formData.dob).toISOString()
-              : undefined,
-            joiningDate: formData.joiningDate
-              ? new Date(formData.joiningDate).toISOString()
-              : undefined,
-          }),
-        }
-      );
-
-      const result = await response.json();
-
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || "Failed to update employee");
-      }
-
+    if (result.success) {
       toast.success("Employee updated successfully!");
-      setTimeout(() => {
-        setIsEditing(false);
-        if (onSaveSuccess) onSaveSuccess();
-        onClose();
-      }, 1500);
-    } catch (err) {
-      setError(err.message || "Something went wrong");
-      console.error("Update error:", err);
-    } finally {
-      setLoading(false);
+      onSaveSuccess?.();
+    } else {
+      toast.error(result.message || "Update failed");
     }
-  };
-
+  } catch (err) {
+    console.error(err);
+    toast.error("Network error. Please try again.");
+  } finally {
+    setLoading(false);
+    setIsEditing(false);
+  }
+};
   return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "rgba(0,0,0,0.7)",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        zIndex: 9999,
-        overflowY: "auto",
-        padding: "20px 0",
-      }}
-      onClick={onClose}
-    >
-      <div
-        className="stf-form-container13"
-        style={{
-          maxWidth: "1100px",
-          width: "95%",
-          margin: "20px auto",
-          maxHeight: "90vh",
-          overflowY: "auto",
-          borderRadius: "16px",
-          background: "white",
-          boxShadow: "0 10px 40px rgba(0,0,0,0.25)",
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
-       <ToastContainer
-               position="top-right"
-               autoClose={4000}
-               hideProgressBar={false}
-               newestOnTop={false}
-               closeOnClick
-               rtl={false}
-               pauseOnFocusLoss
-               draggable
-               pauseOnHover
-               theme="light" // or "dark" / "colored"
-             />
-        <div
-          className="stf-form-header13 centered13"
-          style={{
-            position: "sticky",
-            top: 0,
-            zIndex: 10,
-            background: "#1e40af",
-            color: "white",
-            padding: "20px 40px",
-          }}
-        >
-          <h1>{isEditing ? "Edit Employee Details" : "Employee Profile"}</h1>
-          <button
-            onClick={onClose}
-            style={{
-              position: "absolute",
-              right: "30px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "none",
-              border: "none",
-              fontSize: "36px",
-              color: "white",
-              cursor: "pointer",
-              fontWeight: "300",
-            }}
-          >
-            ×
+    <div className="emp-modal-overlay-2026" onClick={onClose}>
+      <div className="emp-modal-wrapper-2026" onClick={(e) => e.stopPropagation()}>
+        {/* Header */}
+        <div className="emp-modal-header-2026">
+          <button onClick={onClose} className="emp-modal-close-btn-2026">
+            <X size={28} />
           </button>
+          <h2>Employee Details</h2>
+          {!isEditing && (
+            <button onClick={() => setIsEditing(true)} className="emp-modal-edit-btn-2026">
+              <Edit3 size={20} />
+              Edit
+            </button>
+          )}
         </div>
 
-        {/* Messages */}
-        {error && (
-          <div
-            style={{
-              color: "#dc2626",
-              padding: "12px 40px",
-              background: "#fee2e2",
-            }}
-          >
-            {error}
-          </div>
-        )}
-        {success && (
-          <div
-            style={{
-              color: "#16a34a",
-              padding: "12px 40px",
-              background: "#ecfdf5",
-            }}
-          >
-            {success}
-          </div>
-        )}
-
-        {/* Edit Toggle */}
-        <div style={{ padding: "20px 40px", textAlign: "right" }}>
-          <button
-            onClick={() => {
-              setIsEditing(!isEditing);
-              setError(null);
-              setSuccess(null);
-            }}
-            style={{
-              padding: "10px 24px",
-              background: isEditing ? "#dc2626" : "#3b82f6",
-              color: "white",
-              border: "none",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontWeight: "600",
-            }}
-            disabled={loading}
-          >
-            {isEditing ? "Cancel Edit" : "Edit Profile"}
-          </button>
-        </div>
-
-        {/* Form */}
-        <div style={{ padding: "0 40px 60px" }}>
-          <div
-            className="stf-form-grid13"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "24px",
-            }}
-          >
-            {/* Column 1 */}
-            <div>
+        {/* Body - Using your main form grid */}
+        <div className="emp-modal-body-2026">
+          <div className="stf-form-grid13">
+            <div className="stf-form-column13">
               <div className="stf-form-group13">
-                <label>Employee Name *</label>
-                <input
-                  type="text"
-                  name="employeeName"
-                  value={formData.employeeName}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                  required
-                />
+                <label>Employee Name</label>
+                <input type="text" name="employeeName" value={formData.employeeName} onChange={handleInput} readOnly={!isEditing} />
               </div>
-
               <div className="stf-form-group13">
-                <label>Username *</label>
-                <input
-                  type="text"
-                  name="employeeUserName"
-                  value={formData.employeeUserName}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                  required
-                />
+                <label>Father's Name</label>
+                <input type="text" name="fatherName" value={formData.fatherName} onChange={handleInput} readOnly={!isEditing} />
               </div>
-
               <div className="stf-form-group13">
-                <label>Date of Birth</label>
-                <input
-                  type="date"
-                  name="dob"
-                  value={formData.dob ? formData.dob.split("T")[0] : ""}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                />
+                <label>Designation</label>
+                <input type="text" name="designation" value={formData.designation} onChange={handleInput} readOnly={!isEditing} />
               </div>
-
-              <div className="stf-form-group13">
-                <label>User Type</label>
-                <select
-                  name="userType"
-                  value={formData.userType}
-                  disabled={!isEditing}
-                  onChange={handleInput}
-                  style={{ background: "#eff6ff", fontWeight: "600" }}
-                >
-                  <option value="Admin">Admin</option>
-                  <option value="Teacher">Teacher</option>
-                  <option value="Staff">Staff</option>
-                </select>
-              </div>
-
-              <div className="stf-form-group13">
-                <label>Designation *</label>
-                <input
-                  type="text"
-                  name="designation"
-                  value={formData.designation}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                  required
-                />
-              </div>
-
               <div className="stf-form-group13">
                 <label>Department</label>
-                <input
-                  type="text"
-                  name="department"
-                  value={formData.department}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                />
+                <input type="text" name="department" value={formData.department} onChange={handleInput} readOnly={!isEditing} />
               </div>
-
               <div className="stf-form-group13">
-                <label>Blood Group</label>
-                <input
-                  type="text"
-                  name="bloodGroup"
-                  value={formData.bloodGroup}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                />
+                <label>Contact No.</label>
+                <input type="text" name="mobile" value={formData.mobile} onChange={handleInput} readOnly={!isEditing} />
+              </div>
+              <div className="stf-form-group13">
+                <label>Email</label>
+                <input type="email" name="email" value={formData.email} onChange={handleInput} readOnly={!isEditing} />
               </div>
             </div>
 
-            {/* Column 2 */}
-            <div>
+            <div className="stf-form-column13">
               <div className="stf-form-group13">
-                <label>Mobile Number *</label>
-                <input
-                  type="tel"
-                  name="mobile"
-                  value={formData.mobile}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                  required
-                />
+                <label>User Type (Category)</label>
+                <input type="text" value={formData.userType} readOnly />
               </div>
-
               <div className="stf-form-group13">
-                <label>Email *</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                  required
-                />
+                <label>Kind of Teacher</label>
+                <input type="text" name="kindOfTeacher" value={formData.kindOfTeacher} onChange={handleInput} readOnly={!isEditing} />
               </div>
-
+              <div className="stf-form-group13">
+                <label>Nature of Appointment</label>
+                <input type="text" name="natureOfAppointment" value={formData.natureOfAppointment} onChange={handleInput} readOnly={!isEditing} />
+              </div>
+              <div className="stf-form-group13">
+                <label>Teaching Class</label>
+                <input type="text" value={formData.teachingClass?.join(", ") || "-"} readOnly />
+              </div>
+              <div className="stf-form-group13">
+                <label>Joining Date</label>
+                <input type="text" name="joiningDate" value={formData.joiningDate} onChange={handleInput} readOnly={!isEditing} />
+              </div>
               <div className="stf-form-group13">
                 <label>Address</label>
-                <textarea
-                  name="address"
-                  rows="3"
-                  value={formData.address}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                />
+                <textarea name="address" rows="3" value={formData.address} onChange={handleInput} readOnly={!isEditing} />
               </div>
-
-              <div className="stf-form-group13">
-                <label>PAN Number</label>
-                <input
-                  type="text"
-                  name="panNumber"
-                  value={formData.panNumber}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                />
-              </div>
-
-              <div className="stf-form-group13">
-                <label>Aadhaar Number</label>
-                <input
-                  type="text"
-                  name="aadharNumber"
-                  value={formData.aadharNumber}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                />
-              </div>
-
-              <div className="stf-form-group13">
-                <label>Bank Name</label>
-                <input
-                  type="text"
-                  name="bankName"
-                  value={formData.bankName}
-                  readOnly={!isEditing}
-                  onChange={handleInput}
-                />
-              </div>
-
-              {/* Add more fields as needed */}
             </div>
           </div>
         </div>
 
-        {/* Save Button */}
+        {/* Save Button (only in edit mode) */}
         {isEditing && (
-          <div
-            style={{
-              position: "sticky",
-              bottom: 0,
-              background: "white",
-              padding: "20px 40px",
-              borderTop: "1px solid #e2e8f0",
-              display: "flex",
-              justifyContent: "flex-end",
-              zIndex: 5,
-            }}
-          >
-            <button
-              onClick={handleSave}
-              disabled={loading}
-              style={{
-                padding: "12px 32px",
-                background: loading ? "#9ca3af" : "#3b82f6",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                fontSize: "16px",
-                fontWeight: "600",
-                cursor: loading ? "not-allowed" : "pointer",
-              }}
-            >
-              {loading ? "Updating..." : "Save Changes"}
+          <div className="emp-modal-footer-2026">
+            <button onClick={handleSave} disabled={loading} className="emp-modal-save-btn-2026">
+              {loading ? "Saving..." : "Save Changes"}
             </button>
           </div>
         )}

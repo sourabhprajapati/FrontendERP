@@ -1,89 +1,118 @@
-/* StaffBirthday.css */
+/* =====================================
+   Staff Birthday – Beautiful Blue Theme
+   ===================================== */
 
 .bday-wrapper {
   margin-left: 250px;
-  margin-top: 100px;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  margin-top: 90px;
+  padding: 32px;
+  min-height: calc(100vh - 90px);
+  background: linear-gradient(180deg, #f4f8ff, #eaf1ff);
+  font-family: "Inter", system-ui, sans-serif;
+  border-radius: 0;
 }
 
+/* TITLE */
 .bday-title {
-  color: #0057b7;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 15px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b3c91;
+  margin-bottom: 20px;
 }
 
-/* Search */
+/* SEARCH */
 .bday-search {
   width: 100%;
-  padding: 10px;
-  border: 2px solid #0057b7;
-  border-radius: 8px;
-  background: #f0f8ff;
-  outline: none;
-  margin-bottom: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #cfe0ff;
   font-size: 15px;
+  outline: none;
+  background: #ffffff;
+  margin-bottom: 14px;
+  transition: all 0.25s ease;
 }
 
-/* Month filter */
+.bday-search:focus {
+  border-color: #1e5fd8;
+  box-shadow: 0 0 0 3px rgba(30, 95, 216, 0.2);
+}
+
+/* MONTH FILTER */
 .bday-month-select {
   width: 100%;
-  padding: 10px;
-  border: 2px solid #008000;
-  border-radius: 8px;
-  background: white;
-  outline: none;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #cfe0ff;
+  background: #ffffff;
   font-size: 15px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+  outline: none;
 }
 
+/* LIST */
 .bday-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
+/* CARD */
 .bday-card {
-  background: white;
-  padding: 15px;
-  border-left: 6px solid #008000;
-  border-radius: 10px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  padding: 18px 22px;
+  border-radius: 18px;
+  box-shadow: 0 16px 35px rgba(11, 60, 145, 0.12);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.2s ease;
+  border-left: 6px solid #1e5fd8;
+  transition: all 0.25s ease;
 }
 
+.bday-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 45px rgba(11, 60, 145, 0.2);
+}
+
+/* NAME */
 .bday-card h3 {
   margin: 0;
-  color: #0057b7;
   font-size: 18px;
+  color: #0b3c91;
+  font-weight: 600;
+}
+
+/* DOB */
+.bday-card p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #475569;
 }
 
 .bday-card span {
-  color: #008000;
-  font-weight: bold;
+  color: #1e5fd8;
+  font-weight: 600;
 }
 
-/* Highlight for today's birthday */
+/* TODAY HIGHLIGHT */
 .bday-card.bday-highlight {
-  border-left-color: #0057b7 !important;
-  background: #e8f3ff;
-  transform: scale(1.02);
+  background: linear-gradient(135deg, #eef4ff, #ffffff);
+  border-left-color: #0b3c91;
 }
 
+/* TODAY BADGE */
 .bday-today-badge {
-  background: #008000;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: bold;
-  animation: pulse 2s infinite;
+  background: linear-gradient(135deg, #1e5fd8, #0b3c91);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  animation: pulse 1.8s infinite;
 }
+
+/* ACTIONS */
 .bday-card-actions {
   display: flex;
   align-items: center;
@@ -91,62 +120,69 @@
   flex-wrap: wrap;
 }
 
-.bday-message-btn {
-  background: #0057b7;
-  color: white;
+/* BUTTONS */
+.bday-sms-btn,
+.bday-email-btn {
   border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 10px 16px;
+  border-radius: 999px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
-.bday-message-btn:hover {
-  background: #004494;
+/* SMS BUTTON */
+.bday-sms-btn {
+  background: linear-gradient(135deg, #1e5fd8, #0b3c91);
+  color: #ffffff;
+}
+
+.bday-sms-btn:hover {
   transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(30, 95, 216, 0.45);
 }
 
-.bday-message-btn:active {
-  transform: translateY(0);
+/* EMAIL BUTTON */
+.bday-email-btn {
+  background: #e6efff;
+  color: #0b3c91;
 }
 
-/* Optional: smaller button on mobile */
-@media (max-width: 600px) {
-  .bday-card-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .bday-message-btn {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-}
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+.bday-email-btn:hover {
+  background: #d6e5ff;
 }
 
-/* Empty state */
+/* EMPTY */
 .bday-empty {
   text-align: center;
-  color: #008000;
-  margin-top: 20px;
+  color: #1e5fd8;
+  margin-top: 30px;
   font-size: 16px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* ANIMATION */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .bday-wrapper {
+    margin-left: 0;
+    margin-top: 70px;
+  }
+
   .bday-card {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 14px;
   }
 
-  .bday-today-badge {
-    align-self: flex-end;
+  .bday-card-actions {
+    width: 100%;
+    justify-content: space-between;
   }
 }

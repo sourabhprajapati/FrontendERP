@@ -2,45 +2,58 @@
 import React, { useState } from "react";
 import "./Staff.css";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // required css
+import "react-toastify/dist/ReactToastify.css";
 const API_BASE = "http://localhost:5000/api";
 
 function Staff() {
   const [formData, setFormData] = useState({
     employeeName: "",
     employeeUserName: "",
+    password: "",
+    fatherName: "",
     dob: "",
+    gender: "Male",
+    maritalStatus: "Unmarried",
+
     userType: "",
-    designation: "",
-    natureOfAppointment: "",
-    joiningDate: "",
     department: "",
+    designation: "",
+    kindOfTeacher: "",
+    natureOfAppointment: "",
+    teachingClass: [], // array for checkboxes
+
+    dlNumber: "",
     qualification: "",
-    experienceYears: "",
-    bloodGroup: "",
-    gender: "",
-    maritalStatus: "",
-    mobile: "",
+    joiningDate: "",
+    leavingDate: "",
+
+    mobile1: "",
+    mobile2: "",
     email: "",
-    emergencyContact: "",
     address: "",
-    city: "",
-    state: "",
-    pincode: "",
-    bankName: "",
-    accountNumber: "",
-    ifscCode: "",
-    panNumber: "",
-    aadharNumber: "",
+    otherComments: "",
   });
 
   const [files, setFiles] = useState({});
   const [saving, setSaving] = useState(false);
-  const [message, setMessage] = useState("");
 
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckbox = (e) => {
+    const { value, checked } = e.target;
+    setFormData((prev) => {
+      if (checked) {
+        return { ...prev, teachingClass: [...prev.teachingClass, value] };
+      } else {
+        return {
+          ...prev,
+          teachingClass: prev.teachingClass.filter((item) => item !== value),
+        };
+      }
+    });
   };
 
   const handleFile = (e, fieldName) => {
@@ -57,11 +70,14 @@ function Staff() {
     if (saving) return;
 
     setSaving(true);
-    setMessage("");
 
     const data = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
-      data.append(key, value);
+      if (key === "teachingClass") {
+        value.forEach((item) => data.append("teachingClass", item));
+      } else {
+        data.append(key, value);
+      }
     });
     Object.entries(files).forEach(([key, file]) => {
       if (file) data.append(key, file);
@@ -69,6 +85,10 @@ function Staff() {
 
     const SCHOOL_ID = "000000000000000000000001";
     data.append("schoolId", SCHOOL_ID);
+
+    // Map frontend names to backend (if needed)
+    data.append("mobile", formData.mobile1);
+    data.append("dl", formData.dlNumber);
 
     try {
       const res = await fetch(`${API_BASE}/staff/create`, {
@@ -82,34 +102,31 @@ function Staff() {
         toast.success("Staff registered successfully!", {
           position: "top-right",
           autoClose: 4000,
-          hideProgressBar: false,
         });
+        // Reset form
         setFormData({
           employeeName: "",
           employeeUserName: "",
+          password: "",
+          fatherName: "",
           dob: "",
+          gender: "Male",
+          maritalStatus: "Unmarried",
           userType: "",
-          designation: "",
-          natureOfAppointment: "",
-          joiningDate: "",
           department: "",
+          designation: "",
+          kindOfTeacher: "",
+          natureOfAppointment: "",
+          teachingClass: [],
+          dlNumber: "",
           qualification: "",
-          experienceYears: "",
-          bloodGroup: "",
-          gender: "",
-          maritalStatus: "",
-          mobile: "",
+          joiningDate: "",
+          leavingDate: "",
+          mobile1: "",
+          mobile2: "",
           email: "",
-          emergencyContact: "",
           address: "",
-          city: "",
-          state: "",
-          pincode: "",
-          bankName: "",
-          accountNumber: "",
-          ifscCode: "",
-          panNumber: "",
-          aadharNumber: "",
+          otherComments: "",
         });
         setFiles({});
         document
@@ -122,13 +139,12 @@ function Staff() {
         });
       }
     } catch (err) {
-     toast.error("Network error. Please try again.", {
+      toast.error("Network error. Please try again.", {
         position: "top-right",
         autoClose: 5000,
       });
     } finally {
       setSaving(false);
-      setTimeout(() => setMessage(""), 8000);
     }
   };
 
@@ -144,30 +160,13 @@ function Staff() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light" // or "dark" / "colored"
+        theme="light"
       />
       <main className="stf-main-content13">
         <div className="stf-form-container13">
           <div className="stf-form-header13 centered13">
             <h1>Staff Registration Form</h1>
           </div>
-
-          {message && (
-            <div
-              className="stf-message13"
-              style={{
-                backgroundColor: message.includes("success")
-                  ? "#d4edda"
-                  : "#f8d7da",
-                color: message.includes("success") ? "#155724" : "#721c24",
-                border: `1px solid ${
-                  message.includes("success") ? "#c3e6cb" : "#f5c6cb"
-                }`,
-              }}
-            >
-              {message}
-            </div>
-          )}
 
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             {/* ========== PERSONAL INFORMATION ========== */}
@@ -187,6 +186,16 @@ function Staff() {
                 </div>
 
                 <div className="stf-form-group13">
+                  <label>Father's Name</label>
+                  <input
+                    type="text"
+                    name="fatherName"
+                    value={formData.fatherName}
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div className="stf-form-group13">
                   <label>
                     Employee Username <span className="stf-required13">*</span>
                   </label>
@@ -194,6 +203,19 @@ function Staff() {
                     type="text"
                     name="employeeUserName"
                     value={formData.employeeUserName}
+                    onChange={handleInput}
+                    required
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>
+                    Password <span className="stf-required13">*</span>
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={formData.password}
                     onChange={handleInput}
                     required
                   />
@@ -212,108 +234,6 @@ function Staff() {
                   />
                 </div>
 
-                <div className="stf-form-group13">
-                  <label>
-                    User Type <span className="stf-required13">*</span>
-                  </label>
-                  <select
-                    name="userType"
-                    value={formData.userType}
-                    onChange={handleInput}
-                    required
-                  >
-                    <option value="">Select Type</option>
-                    <option>Admin</option>
-                    <option>Teacher</option>
-                    <option>Staff</option>
-                  </select>
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>
-                    Designation <span className="stf-required13">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="designation"
-                    value={formData.designation}
-                    onChange={handleInput}
-                    required
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Nature of Appointment</label>
-                  <input
-                    type="text"
-                    name="natureOfAppointment"
-                    value={formData.natureOfAppointment}
-                    onChange={handleInput}
-                    placeholder="e.g., Permanent, Contract, Temporary"
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Joining Date</label>
-                  <input
-                    type="date"
-                    name="joiningDate"
-                    value={formData.joiningDate}
-                    onChange={handleInput}
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Department</label>
-                  <input
-                    type="text"
-                    name="department"
-                    value={formData.department}
-                    onChange={handleInput}
-                    placeholder="e.g., Science, Admin, Accounts"
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Qualification</label>
-                  <input
-                    type="text"
-                    name="qualification"
-                    value={formData.qualification}
-                    onChange={handleInput}
-                    placeholder="e.g., M.Sc, B.Ed"
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Experience (Years)</label>
-                  <input
-                    type="number"
-                    name="experienceYears"
-                    value={formData.experienceYears}
-                    onChange={handleInput}
-                    min="0"
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Blood Group</label>
-                  <select
-                    name="bloodGroup"
-                    value={formData.bloodGroup}
-                    onChange={handleInput}
-                  >
-                    <option value="">Select</option>
-                    <option>A+</option>
-                    <option>A-</option>
-                    <option>B+</option>
-                    <option>B-</option>
-                    <option>AB+</option>
-                    <option>AB-</option>
-                    <option>O+</option>
-                    <option>O-</option>
-                  </select>
-                </div>
                 <div className="stf-form-group13">
                   <label>
                     Gender <span className="stf-required13">*</span>
@@ -340,31 +260,245 @@ function Staff() {
                       />{" "}
                       Female
                     </label>
-                    <label>
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="Other"
-                        checked={formData.gender === "Other"}
-                        onChange={handleInput}
-                      />{" "}
-                      Other
-                    </label>
                   </div>
                 </div>
+
                 <div className="stf-form-group13">
-                  <label>Marital Status</label>
-                  <div className="stf-radio-options13">
-                    <label>
+                  <label>
+                    User Type <span className="stf-required13">*</span>
+                  </label>
+                  <select
+                    name="userType"
+                    value={formData.userType}
+                    onChange={handleInput}
+                    required
+                  >
+                    <option value="">Select Here</option>
+                    <option>Admin</option>
+                    <option>Authority</option>
+                    <option>Principal</option>
+                    <option>Vice Principal</option>
+                    <option>Administrative Officer</option>
+                    <option>Accounts</option>
+                    <option>Teacher</option> {/* As per your screenshot */}
+                    <option>Librarian</option>
+                    <option>Front Office</option>
+                    <option>Office Staff</option>
+                    <option>Transport Manager</option>
+                    <option>Driver</option>
+                    <option>Conductor</option>
+                    <option>Attendant</option>
+                    <option>Security</option>
+                    <option>Others</option>
+                    <option>Book Scanner</option>
+                    <option>Warden</option>
+                  </select>
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>
+                    Designation <span className="stf-required13">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="designation"
+                    value={formData.designation}
+                    onChange={handleInput}
+                    required
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Nature of Appointment</label>
+                  <select
+                    name="natureOfAppointment"
+                    value={formData.natureOfAppointment}
+                    onChange={handleInput}
+                  >
+                    <option value="">Select Here</option>
+                    <option>Permanent</option>
+                    <option>Contract</option>
+                    <option>Temporary</option>
+                    <option>Probation</option>
+                  </select>
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>D/L No. (for driver)</label>
+                  <input
+                    type="text"
+                    name="dlNumber"
+                    value={formData.dlNumber}
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>
+                    Joining Date <span className="stf-required13">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    name="joiningDate"
+                    value={formData.joiningDate}
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>
+                    Mobile Number 1 <span className="stf-required13">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="mobile1"
+                    value={formData.mobile1}
+                    onChange={handleInput}
+                    required
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Email ID</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Other Comments</label>
+                  <textarea
+                    name="otherComments"
+                    value={formData.otherComments}
+                    onChange={handleInput}
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+
+              {/* Right Column */}
+              <div className="stf-form-column13">
+                <div className="stf-form-group13">
+                  <label>Department</label>
+                  <select
+                    name="department"
+                    value={formData.department}
+                    onChange={handleInput}
+                  >
+                    <option value="">Select Department</option>
+                    <option>Administration</option>
+                    <option>Teaching</option>
+                    <option>Accounts</option>
+                    <option>Transport</option>
+                    <option>Library</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Kind of Teacher</label>
+                  <select
+                    name="kindOfTeacher"
+                    value={formData.kindOfTeacher}
+                    onChange={handleInput}
+                  >
+                    <option value="">Select Here</option>
+                    <option>PRT</option>
+                    <option>TGT</option>
+                    <option>PGT</option>
+                    <option>Non-Teaching</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Teaching Class</label>
+                  <div className="stf-teaching-class-group13">
+                    <div className="stf-teaching-class-option13">
                       <input
-                        type="radio"
-                        name="maritalStatus"
-                        value="Single"
-                        checked={formData.maritalStatus === "Single"}
-                        onChange={handleInput}
-                      />{" "}
-                      Single
-                    </label>
+                        type="checkbox"
+                        value="PRT"
+                        checked={formData.teachingClass.includes("PRT")}
+                        onChange={handleCheckbox}
+                        id="teaching-prt"
+                      />
+                      <label htmlFor="teaching-prt">PRT</label>
+                    </div>
+
+                    <div className="stf-teaching-class-option13">
+                      <input
+                        type="checkbox"
+                        value="Secondary"
+                        checked={formData.teachingClass.includes("Secondary")}
+                        onChange={handleCheckbox}
+                        id="teaching-secondary"
+                      />
+                      <label htmlFor="teaching-secondary">Secondary</label>
+                    </div>
+
+                    <div className="stf-teaching-class-option13">
+                      <input
+                        type="checkbox"
+                        value="Sr. Secondary"
+                        checked={formData.teachingClass.includes(
+                          "Sr. Secondary",
+                        )}
+                        onChange={handleCheckbox}
+                        id="teaching-srsecondary"
+                      />
+                      <label htmlFor="teaching-srsecondary">
+                        Sr. Secondary
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Qualification</label>
+                  <input
+                    type="text"
+                    name="qualification"
+                    value={formData.qualification}
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Leaving Date</label>
+                  <input
+                    type="date"
+                    name="leavingDate"
+                    value={formData.leavingDate}
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Mobile Number 2</label>
+                  <input
+                    type="tel"
+                    name="mobile2"
+                    value={formData.mobile2}
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Address</label>
+                  <textarea
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInput}
+                    rows="3"
+                  ></textarea>
+                </div>
+
+                <div className="stf-form-group13">
+                  <label>Marital State</label>
+                  <div className="stf-radio-options13">
                     <label>
                       <input
                         type="radio"
@@ -372,155 +506,50 @@ function Staff() {
                         value="Married"
                         checked={formData.maritalStatus === "Married"}
                         onChange={handleInput}
-                      />
+                      />{" "}
                       Married
                     </label>
                     <label>
                       <input
                         type="radio"
                         name="maritalStatus"
-                        value="Prefer not to say"
-                        checked={formData.maritalStatus === "Prefer not to say"}
+                        value="Unmarried"
+                        checked={formData.maritalStatus === "Unmarried"}
                         onChange={handleInput}
-                      />
-                      Prefer not to say
+                      />{" "}
+                      Unmarried
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="maritalStatus"
+                        value="Widowed"
+                        checked={formData.maritalStatus === "Widowed"}
+                        onChange={handleInput}
+                      />{" "}
+                      Widowed
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="maritalStatus"
+                        value="Divorced"
+                        checked={formData.maritalStatus === "Divorced"}
+                        onChange={handleInput}
+                      />{" "}
+                      Divorced
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="maritalStatus"
+                        value="Separated"
+                        checked={formData.maritalStatus === "Separated"}
+                        onChange={handleInput}
+                      />{" "}
+                      Separated
                     </label>
                   </div>
-                </div>
-              </div>
-
-              <div className="stf-form-column13">
-                <div className="stf-form-group13">
-                  <label>
-                    Mobile Number <span className="stf-required13">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    name="mobile"
-                    value={formData.mobile}
-                    onChange={handleInput}
-                    required
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>
-                    Email Address <span className="stf-required13">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInput}
-                    required
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Emergency Contact</label>
-                  <input
-                    type="tel"
-                    name="emergencyContact"
-                    value={formData.emergencyContact}
-                    onChange={handleInput}
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>
-                    Address <span className="stf-required13">*</span>
-                  </label>
-                  <textarea
-                    name="address"
-                    value={formData.address}
-                    onChange={handleInput}
-                    rows="3"
-                    required
-                  ></textarea>
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>City</label>
-                  <input
-                    type="text"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleInput}
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>State</label>
-                  <input
-                    type="text"
-                    name="state"
-                    value={formData.state}
-                    onChange={handleInput}
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Pincode</label>
-                  <input
-                    type="text"
-                    name="pincode"
-                    value={formData.pincode}
-                    onChange={handleInput}
-                  />
-                </div>
-
-                {/* Bank Details */}
-                <div className="stf-form-group13">
-                  <label>Bank Name</label>
-                  <input
-                    type="text"
-                    name="bankName"
-                    value={formData.bankName}
-                    onChange={handleInput}
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Account Number</label>
-                  <input
-                    type="text"
-                    name="accountNumber"
-                    value={formData.accountNumber}
-                    onChange={handleInput}
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>IFSC Code</label>
-                  <input
-                    type="text"
-                    name="ifscCode"
-                    value={formData.ifscCode}
-                    onChange={handleInput}
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>PAN Number</label>
-                  <input
-                    type="text"
-                    name="panNumber"
-                    value={formData.panNumber}
-                    onChange={handleInput}
-                    placeholder="ABCDE1234F"
-                  />
-                </div>
-
-                <div className="stf-form-group13">
-                  <label>Aadhaar Number</label>
-                  <input
-                    type="text"
-                    name="aadharNumber"
-                    value={formData.aadharNumber}
-                    onChange={handleInput}
-                    maxLength="12"
-                    placeholder="XXXX XXXX XXXX"
-                  />
                 </div>
               </div>
             </div>

@@ -236,12 +236,12 @@ ${name}
                   {isSending ? "Sending..." : "Send SMS"}
                 </button>
 
-                <button
+                {/* <button
                   className="bday-email-btn"
                   onClick={() => handleSendEmail(s)}
                 >
                   Send Email
-                </button>
+                </button> */}
               </div>
             </div>
           );

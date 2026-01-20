@@ -346,3 +346,87 @@
         padding: 18px;
     }
 }
+/* ========== TEACHING CLASS CHECKBOXES - MODERN PILL STYLE ========== */
+.stf-teaching-class-group13 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.stf-teaching-class-option13 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px 20px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-height: 56px;
+}
+
+.stf-teaching-class-option13:hover {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+}
+
+.stf-teaching-class-option13 input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #94a3b8;
+  border-radius: 6px;
+  margin-right: 16px;
+  display: grid;
+  place-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.stf-teaching-class-option13 input[type="checkbox"]::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  transform: scale(0);
+  transition: 0.15s ease;
+  background-color: #3b82f6;
+  box-shadow: inset 12px 12px #3b82f6;
+}
+
+.stf-teaching-class-option13 input[type="checkbox"]:checked {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.stf-teaching-class-option13 input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.stf-teaching-class-option13 input[type="checkbox"]:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.stf-teaching-class-option13 label {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  width: 100%;
+}
+
+/* Active/Checked State Enhancement */
+.stf-teaching-class-option13:has(input[type="checkbox"]:checked) {
+  background: #dbeafe;
+  border-color: #3b82f6;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.18);
+}
